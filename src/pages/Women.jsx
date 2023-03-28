@@ -12,6 +12,7 @@ import 'swiper/css/scrollbar';
 export const Women = () =>{
 // const [show,setShow] = useState(true);
 // var value = 0;
+// kk
 
 // window.addEventListener('scroll',function(){
 // if(window.scrollY > 200){
