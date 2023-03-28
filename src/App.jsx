@@ -1,7 +1,8 @@
-import AllRoutes from './AllRoutes/AllRoutes';
+// import AllRoutes from './AllRoutes/AllRoutes';
 import './App.css';
-import { Navbar } from './pages/Navbar';
-import { Women } from './pages/Women';
+import { Login } from './pages/Login';
+// import { Navbar } from './pages/Navbar';
+// import { Women } from './pages/Women';
 
 
 function App() {
@@ -9,7 +10,9 @@ function App() {
     <div className='App'>
       {/* <AllRoutes/> */}
       {/* <Navbar/> */}
-      <Women/>
+      {/* <Women /> */}
+
+      <Login />
     </div>
   )
 }
