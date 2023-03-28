@@ -1,0 +1,89 @@
+@media screen and (min-width:0px) and (max-width:1000px){
+
+.nav_top_1{
+    width: 20%;
+    /* background-color: blue; */
+}
+.nav_top_1 > div{
+    padding: 17px 10px
+}
+.nav_top_1 > div:nth-child(1){
+    font-size: 25px;
+    padding: 9px;
+    display: block;
+}
+.nav_top_1 > div{
+    display: none;
+    width: auto;
+}
+.nav_top_1 > div:nth-child(2){
+    display: block;
+}
+.nav_top_2{
+    width: 50%;
+    /* background-color: red; */
+}
+.nav_top_3{
+    float: right;
+    width: 20%;
+    /* border: 1px solid red; */
+}
+.nav_part_2 {
+    display: none;
+}
+
+
+}
+
+@media screen and (min-width:0px) and (max-width:750px){
+
+.nav_top_1{
+    width: 30%;
+    /* background-color: blue; */
+}
+.nav_top_2{
+    width: 30%;
+    float: right;
+    /* background-color: red; */
+    display: block;
+    padding: 15px;
+}
+.nav_top_2 > input{
+    display: none;
+}
+.nav_top_2 > svg{
+    float: right;
+}
+.nav_top_3{
+    width: 35%;
+    /* border: 1px solid blue; */
+}
+.nav_top_3 > div > svg{
+    width: 30px;
+}
+
+}
+
+@media screen and (min-width:0px) and (max-width:450px){
+.nav_top_1{
+    width: 38%;
+    /* background-color: blue; */
+}
+.nav_top_2{
+    width: 12%;
+    padding: 16px 0px;
+    /* background-color: red; */
+}
+.nav_top_3{
+    width: 40%;
+    /* background-color: rgba(0, 0, 255, 0.326); */
+}
+.nav_top_2 > svg{
+    width: 17px;
+    border: 0;
+}
+.nav_top_3 > div > svg{
+    width: 20px;
+}
+
+}

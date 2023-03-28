@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+.nav_part_1{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    background-color: #2D2D2D;
+    color: whitesmoke;
+    /* background-color: #FF385C; */
+    /* background-image: linear-gradient(180deg, #FF385C 0%, #F799BA 100%) */
+}
+.nav_top_1{
+    /* border: 1px solid blue; */
+    display: flex;
+    width: 25%;
+}
+.nav_top_1 > div{
+    text-align: center;
+    width: 100px;
+    font-weight: bold;
+    padding: 16px 10px; 
+    /* border: 1px solid green; */
+}
+.nav_top_1 > div:nth-child(3){
+    background-color: #525050;
+}
+.nav_top_1 > div:nth-child(2){
+    width: 120px;
+}
+.nav_top_1 > div:nth-child(1){
+    display: none;
+}
+.nav_top_1 > div > img{
+    display: block;
+    margin: auto;
+}
+/* nav2 */
+
+.nav_top_2{
+    width: 50%;
+    display: flex;
+    /* border: 1px solid blueviolet; */
+    justify-content: space-around;
+    align-items: center;
+}
+.nav_top_2 > input{
+    border: 1px solid #333;
+    width: 90%;
+    height: 40px;
+    padding: 15px;
+    border-radius: 25px;
+}
+.nav_top_2 > svg{
+    width: 30px;
+}
+/* nav3 */
+
+.nav_top_3{
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid blueviolet; */
+    width: 15%;
+}
+.nav_top_3 > div{
+    /* border: 1px solid green; */
+    padding: 14px;
+    width: 100%;
+}
+.nav_top_3 > div > svg{
+    width: 25px;
+}
+
+/* nav_part_2 */
+.nav_part_2{
+    background-color: #525050;
+    color: whitesmoke;
+}
+.nav_part_2 > div{
+    /* border: 1px solid red; */
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+.nav_part_2 > div > div{
+    font-size: 14px;
+    letter-spacing: .5px;
+    line-height: 50px;
+    border: none;
+    padding: 0 5px;
+    margin: 0;
+    outline: none;
+    border-radius: 0;
+}
+.nav_part_2 > div > div:nth-last-child(1){
+    background-color: #30cbff;
+    color: #2D2D2D;
+    padding: 3px 13px;
+}
