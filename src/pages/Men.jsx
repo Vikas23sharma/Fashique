@@ -1,43 +1,22 @@
 import { Navbar } from "./Navbar"
-import '../Style/womenStyle.css'
-// import { useState } from "react"
+import '../Style/menStyle.css'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Link } from "react-router-dom";
 
-
-export const Women = () =>{
-// const [show,setShow] = useState(true);
-// var value = 0;
-
-// window.addEventListener('scroll',function(){
-// if(window.scrollY > 200){
-//     setShow(false)
-// }
-// if(value > window.scrollY){
-//     setShow(true)
-// }
-// console.log(window.scrollY,'-',value)
-// console.log(show)
-//  console.log(Math.floor(window.scrollY),'-',value)
-// value = window.scrollY;
-// })
-
+export const Men = () =>{
 
 return (
     <div>
-    {/* {show?<Navbar/>:null} */}
     <Navbar/>
-    {/* background-image: linear-gradient(180deg, #1efca3 0%, #c2edff 100%); */}
-    <div className="content_1">
+    <div className="content_1" style={{backgroundImage:'linear-gradient(180deg, #1efca3 0%, #c2edff 100%)'}}>
     <div className="content_1_01">
-        <div><Link to="/men">MEN</Link></div>
+        <div>MOMEN</div>
         <div>UP TO 70% OFF THE SALE! <br />It's a treat-yo'self day</div>
-        <div><Link to="/">WOMEN</Link></div>
+        <div>MEN</div>
     </div>
     <div className="content_1_02">
     <button>SALE</button>
@@ -71,38 +50,38 @@ return (
     >
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/ei8th-hour-satin-draped-spilt-side-midi-dress-in-green/203338784-1-midgreen?$n_640w$&wid=513&fit=constrain" alt="1" />
-        <p>GLAM GRESS</p>
+        <img src="https://images.asos-media.com/products/asos-design-classic-rigid-denim-short-in-washed-black/201662312-1-washedblack?$n_640w$&wid=513&fit=constrain" alt="1" />
+        <p>SHORTS</p>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/mango-ribbed-asymmetric-top-with-side-button-detail-in-bright-yellow/202744155-1-yellow?$n_640w$&wid=513&fit=constrain" alt="2" />
-        <p>JERSEY TOPS</p>
+        <img src="https://images.asos-media.com/products/ben-sherman-slim-suit-jacket-in-lilac/202488042-4?$n_640w$&wid=513&fit=constrain" alt="2" />
+        <p>TAILORING</p>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/topshop-kort-split-hem-co-ord-jeans-in-turquoise/201848051-1-turquoise?$n_640w$&wid=513&fit=constrain" alt="3" />
-        <p>JEANS</p>
+        <img src="https://images.asos-media.com/products/obey-receptor-jacquard-knitted-t-shirt-in-multi/202323999-1-multi?$n_640w$&wid=513&fit=constrain" alt="3" />
+        <p>TEES</p>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/nike-blazer-low-platform-trainers-in-lemon-drop-yellow/202287768-1-yellow?$n_640w$&wid=513&fit=constrain" alt="4" />
+        <img src="https://images.asos-media.com/products/nike-dunk-high-retro-se-sneakers-in-white/203509671-2?$n_480w$&wid=476&fit=constrain" alt="4" />
         <p>SNEAKERS</p>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/puma-train-black-print-crop-top-in-black/200884093-3?$n_640w$&wid=513&fit=constrain" alt="5" />
+        <img src="https://images.asos-media.com/products/puma-x-market-relaxed-logo-t-shirt-in-off-white-multi/203301736-4?$n_640w$&wid=513&fit=constrain" alt="5" />
         <p>SALE UNDER 20$</p>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/asos-design-knitted-midi-dress-with-ruched-waist-in-orange/200870287-1-orange?$n_640w$&wid=513&fit=constrain" alt="6" />
-        <p>DAY DRESSES</p>
+        <img src="https://images.asos-media.com/products/topman-viscose-revere-shirt-in-multi-colour-bandana-print/202537544-1-multicolour?$n_640w$&wid=513&fit=constrain" alt="6" />
+        <p>SHIRTS</p>
     </div>
     </SwiperSlide>
     </Swiper>
@@ -117,38 +96,31 @@ return (
 
     <div className="content_2">
     <div className="content_2_1">
-    <picture>
-        <source media="(max-width: 750px)" srcset="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/hero/ww_global_asos_design_moonwalker_apphero_870x1110.jpg"/>
-        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/hero/moonwalker-desktop-standing-3no_logo.jpg" alt=""/>
-      </picture>
-    </div>
-    <div className="content_2_2">
-        <div>Day-to-night neutrals</div>
-        <button>SHOP ASOS DESIGN</button>
+    <img src="https://content.asos-media.com/-/media/hubs/topshop-topman/tstm-march-april-2023/prime-heros/tm/uk-us-row/tm_hero_hp.jpg" alt=""/>
     </div>
     </div>
     {/* content_3 */}
 
     <div className="content_3">
     <div>
-        <img src="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/ww_global_cool_casual_2_moment_870x1110.jpg" alt="1" />
-        <h3>THE UTILITY EDIT</h3>
-        <p>Denim, dresses & more</p>
+        <img src="https://content.asos-media.com/-/media/homepages/mw/2023/march/27-prime/bau-prime/mw_global_columbia_moment_870x1110.jpg" alt="1" />
+        <h3>COLUMBIA</h3>
+        <p>Logo Love</p>
     </div>
     <div>
-        <img src="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/ww_global_formal_focus_clean_drape_2_moment_870x1110.jpg" alt="2" />
-        <h3>FORMAL 'FITS</h3>
-        <p>Fancy that</p>
+        <img src="https://content.asos-media.com/-/media/homepages/mw/2023/march/27-prime/bau-prime/mw_global_shorts_from_20_moment_870x1110.jpg" alt="2" />
+        <h3>SHORTS FROM 35$</h3>
+        <p>You Knee'd these</p>
     </div>
     <div>
-        <img src="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/ww_global_modest_maxis_2_moment_870x1110.jpg" alt="3" />
-        <h3>THE MODEST EDIT</h3>
-        <p>Hem-maculate</p>
+        <img src="https://content.asos-media.com/-/media/homepages/mw/2023/march/27-prime/bau-prime/mw_global_casual_summer_shirts_gbl_moment_870x1110.jpg" alt="3" />
+        <h3>CASUAL SHIRTS</h3>
+        <p>Prints came to play</p>
     </div>
     <div>
-        <img src="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/ww_global_new_season_footwear_moment_870x1110.jpg" alt="4" />
+        <img src="https://content.asos-media.com/-/media/homepages/mw/2023/march/27-prime/bau-prime/mw_global_summer_footwear_moment_870x1110.jpg" alt="4" />
         <h3>SPRING SHOES</h3>
-        <p>The new-new</p>
+        <p>Slide into the szn</p>
     </div>
     </div>
     {/* ---- */}
@@ -180,7 +152,7 @@ return (
     >
       <SwiperSlide>
         <div className="content_4_1">
-        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/women/2023/03/26-sun/hello-natalie---thumb.jpg?h=300&w=300&hash=2E86284CD14CFFF73E4323D847A071D7" alt="4" />
+        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/men/2023/03/18-sat/us-sneakers/thumbmw.jpg?h=300&w=300&hash=767F7127D197CD1A1D7A3518B37B8737" alt="4" />
         <div>
         <h3>3 TOP TIPS FOR FINDING <br /> AUTHENTIC VINTAGE</h3>
         <p>W/ ASOS Marketplace pro Caoimhe!</p>
@@ -190,7 +162,7 @@ return (
       </SwiperSlide>
       <SwiperSlide>
         <div className="content_4_1">
-        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/women/2023/03/18-sat/us-sneakers/sneakerthumb.jpg?h=300&w=300&hash=4AC5FBBF432A23C580C973D3DA4160A7" alt="4" />
+        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/men/2023/03/17-fri/st-paddy--thumb.jpg?h=300&w=300&hash=A1877253DBF348ED4569D5D5870E12D6" alt="4" />
         <div>
         <h3>3 TOP TIPS FOR FINDING <br /> AUTHENTIC VINTAGE</h3>
         <p>W/ ASOS Marketplace pro Caoimhe!</p>
@@ -200,7 +172,7 @@ return (
       </SwiperSlide>
       <SwiperSlide>
         <div className="content_4_1">
-        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/women/2023/03/17-fri/paddy-pics---thumb.jpg?h=300&w=300&hash=EEB367B2CFF99D5C0463D682A255F795" alt="4" />
+        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/men/2023/03/10-fri/mw-oscars/paulthumb.jpg?h=300&w=300&hash=547704672FF5639339A1F7F610BB6AAF" alt="4" />
         <div>
         <h3>3 TOP TIPS FOR FINDING <br /> AUTHENTIC VINTAGE</h3>
         <p>W/ ASOS Marketplace pro Caoimhe!</p>
@@ -210,7 +182,7 @@ return (
       </SwiperSlide>
       <SwiperSlide>
         <div className="content_4_1">
-        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/women/2023/03/14-tues/thumb.jpg?h=300&w=300&hash=A71FB9F83A49287EF59739114F4C9F54" alt="4" />
+        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/men/2023/03/03-fri/thmb2.jpg?h=300&w=300&hash=67D600A04831E0AC95D317A1F7BC7703" alt="4" />
         <div>
         <h3>3 TOP TIPS FOR FINDING <br /> AUTHENTIC VINTAGE</h3>
         <p>W/ ASOS Marketplace pro Caoimhe!</p>
@@ -220,7 +192,7 @@ return (
       </SwiperSlide>
       <SwiperSlide>
         <div className="content_4_1">
-        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/women/2023/03/11-sat/oscars/flothumb.jpg?h=300&w=300&hash=77EF36CBD2716042F2497F70932A4BCD" alt="4" />
+        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/men/2023/02/28-mon/us-top-10/thumbmw.jpg?h=300&w=300&hash=68885D746E886BE0274CDB92146432C9" alt="4" />
         <div>
         <h3>3 TOP TIPS FOR FINDING <br /> AUTHENTIC VINTAGE</h3>
         <p>W/ ASOS Marketplace pro Caoimhe!</p>
@@ -230,7 +202,7 @@ return (
       </SwiperSlide>
       <SwiperSlide>
         <div className="content_4_1">
-        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/women/2023/03/03-fri/spring---thumb.jpg?h=300&w=300&hash=768A539C331C3CCD1DD66FB682AB282C" alt="4" />
+        <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/images/articles/men/2023/02/20-mon/gettyimages-1247315886.jpeg?h=300&w=300&hash=83A1472DB201A29BB22F871547735CEE" alt="4" />
         <div>
         <h3>3 TOP TIPS FOR FINDING <br /> AUTHENTIC VINTAGE</h3>
         <p>W/ ASOS Marketplace pro Caoimhe!</p>
@@ -246,18 +218,18 @@ return (
     {/* constent_5 */}
     <div className="content_5">
       <div>
-      <img src="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/ww_global_reclaimed_vintage_miss_selfridge_moment_870x1110-v2.jpg" alt="1" />
+      <img src="https://content.asos-media.com/-/media/homepages/mw/2023/march/27-prime/bau-prime/mwglobalweddingsmarttailoringmoment870x1110.jpg" alt="1" />
       <div>
-        <h1>FEELIN' CRAFTY</h1>
-        <p>Ft, Reclaimed Vintage & Miss Selfridge</p>
+        <h1>BEST-DRESSED GUEST</h1>
+        <p>Not upstaging, but nearly</p>
         <button>SHOP NOW</button>
       </div>
       </div>
       <div>
-      <img src="https://content.asos-media.com/-/media/homepages/ww/2023/march/27-prime/ww_global_selling_fast_moment_870x1110-v2.jpg" alt="2" />
+      <img src="https://content.asos-media.com/-/media/homepages/mw/2023/march/27-prime/bau-prime/mw_global_reclaimed_vintage_moment_870x1110.jpg" alt="2" />
       <div>
-        <h1>SELLING FAST</h1>
-        <p>Going, going, GO...</p>
+        <h1>RECLAIMED VINTAGE</h1>
+        <p>Old skl meets new</p>
         <button>SHOP NOW</button>
       </div>
       </div>
