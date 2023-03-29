@@ -1,0 +1,44 @@
+/* h5{
+  text-align: center;
+} */
+.sidebar {
+    position: fixed;
+    /* top: 0;
+    left: 0; */
+    width: 17%;
+    height: 100vh; /* 100% of viewport height */
+    background-color: #333; 
+     color:#fff;
+    padding-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap:2%;
+    padding-left:2%
+   
+  }
+
+  /* .sidebar Link svg {
+    margin-right: 10px;
+  } */
+
+  .sen{
+    display: flex;
+     /* border:1px solid red;  */
+    color:#fff;
+    text-decoration: none;
+    width:70%;
+    gap: 15%;
+    /* justify-content:space-between ; */
+    
+  }
+  .decoration{
+    text-decoration:none;
+    
+   
+  }
+  #line-color{
+      color: #fff;
+  }
+  h1{
+    color: black;
+  }
