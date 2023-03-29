@@ -1,0 +1,46 @@
+.sidebar_1{
+    justify-content: space-around;
+}
+.sidebar_1 > div{
+    /* border: 1px solid blue; */
+    margin: 10px;
+}
+.sidebar_1 > div > a > img{
+    /* border: 1px solid red; */
+    width: 100%;
+}
+.sidebar_1 > div > a > p{
+    position: relative;
+    z-index: 10;
+    font-size: 18px;
+    color: rgb(48, 48, 48);
+    left: 15px;
+    top: 35px;
+    height: 0;
+}
+.sidebar_1 > div:nth-child(1) > a > p{
+    left: 15px;
+    top: 15px;
+}
+.side_info > div{
+    margin: 13px 0;
+    /* border: 1px solid red; */
+}
+
+@media screen and (min-width:0px) and (max-width:750px){
+.sidebar_1 > div > a > p{
+    font-size: 15px;
+}
+}
+
+@media screen and (min-width:0px) and (max-width:500px){
+.sidebar_1 > div > a > p{
+    font-size: 14px;
+}
+}
+
+@media screen and (min-width:0px) and (max-width:350px){
+.sidebar_1 > div > a > p{
+    font-size: 12px;
+}
+}

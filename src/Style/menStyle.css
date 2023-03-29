@@ -10,8 +10,8 @@ body::-webkit-scrollbar{
     width: 100%;
     /* background-color: #ff385C; */
     /* background-image: linear-gradient(180deg, #ff3257 0%, #ffb6cf 100%); */
-    background-image: linear-gradient(180deg, #22c8ff 0%, #c2edff 100%);
-    margin-top: 3.2cm;
+    /* background-image: linear-gradient(180deg, #22c8ff 0%, #c2edff 100%); */
+    margin-top: 2.9cm;
 }
 .content_1_01{
     /* border: 1px solid red; */
@@ -25,25 +25,16 @@ body::-webkit-scrollbar{
     font-weight: bold;
 }
 .content_1_01 > div:nth-child(1){
-    border: 2px solid rgb(3, 32, 66);
+    border: 2px solid rgb(91, 4, 4);
     width: 120px;
     padding: 5px;
-    transition: 0.5s ease;
 }
 .content_1_01 > div:nth-child(3){
-    border: 2px solid rgb(3, 32, 66);
+    border: 2px solid rgb(91, 4, 4);
     width: 120px;
     padding: 5px;
-    transition: 0.5s ease;
 }
-.content_1_01 > div:nth-child(1):hover{
-    border: 2px solid whitesmoke;
-    color: whitesmoke;
-}
-.content_1_01 > div:nth-child(3):hover{
-    border: 2px solid whitesmoke;
-    color: whitesmoke;
-}
+
 .content_1_02{
     width: 100%;
     text-align: center;
@@ -121,11 +112,6 @@ body::-webkit-scrollbar{
     font-weight: bold;
     line-height: 22px;
     max-height: 44px;
-    transition: 0.5s ease;
-}
-.content_1_04 > div:hover{
-    background-color: #272727;
-    color: whitesmoke;
 }
 /* content_2 */
 
@@ -137,9 +123,8 @@ body::-webkit-scrollbar{
 .content_2_2{
     height: 0px;
     position: relative;
-    top: -5.5cm;
+    top: -1.5cm;
     z-index: 15;
-    margin: auto;
 }
 .content_2_2 > div{
     font-size: 45px;
@@ -266,9 +251,6 @@ body::-webkit-scrollbar{
     margin: 10px;
     /* border: 1px solid blue; */
     text-align: center;
-}
-.content_5 > div > img{
-    width: 100%;
 }
 .content_5 > div > div > h1{
     font-size: 35px;
@@ -403,7 +385,7 @@ footer{
 @media screen and (min-width:0px) and (max-width:1000px){
 
 .content_1{
-    margin-top: 2.1cm;
+    margin-top: 1.5cm;
 }
 .content_1_02 > h1{
     font-size: 35px;
@@ -513,10 +495,6 @@ footer{
 }
 
 @media screen and (min-width:0px) and (max-width:620px){
-
-.content_1{
-    margin-top: 2cm;
-}
 .content_7 > div{
     width: 95%;
     grid-template-columns: repeat(2,1fr);
@@ -529,20 +507,15 @@ footer{
 }
 
 @media screen and (min-width:0px) and (max-width:500px){
-    .content_1{
-        margin-top: 1.8cm;
-    }
+
     .content_1_01{
         display: none;
     }
     .content_1_02 > h1{
-        font-size: 26px;
-    }
-    .content_1_02 > h3{
-        font-size: 22px;
+        font-size: 32px;
     }
     .content_2_2{
-        top: -5cm;
+        top: -7cm;
     }
     .content_2_2 > div{
         font-size: 22px;
@@ -607,7 +580,7 @@ footer{
         font-size: 32px;
     }
     .content_2_2{
-        top: -4.5cm;
+        top: -7cm;
     }
     .content_2_2 > div{
         font-size: 17px;
