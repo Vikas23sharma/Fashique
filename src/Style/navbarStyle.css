@@ -28,11 +28,22 @@ nav{
     text-align: center;
     width: 100px;
     font-weight: bold;
-    padding: 16px 10px; 
+    padding: 10px;
+    align-items: center;
+    display: flex;
     /* border: 1px solid green; */
 }
-.nav_top_1 > div:nth-child(3){
-    background-color: #525050;
+.nav_top_1 > div > p{
+    font-size: 20px;
+    /* font-weight: bold; */
+    display: flex;
+    /* font-family: papyrus; */
+    font-family: Gabriola;
+    align-items: center;
+}
+.nav_top_1 > div > p > h1{
+    font-size: 30px;
+    font-family: MS PGothic;
 }
 .nav_top_1 > div:nth-child(2){
     width: 120px;
@@ -70,20 +81,23 @@ nav{
     justify-content: space-evenly;
     /* border: 1px solid blueviolet; */
     width: 15%;
+    align-items: center;
 }
 .nav_top_3 > div{
     /* border: 1px solid green; */
-    padding: 14px;
     width: 100%;
+    align-items: center;
 }
 .nav_top_3 > div > svg{
     width: 25px;
+    margin: auto;
 }
 
 /* nav_part_2 */
 .nav_part_2{
-    background-color: #525050;
-    color: whitesmoke;
+    /* background-color: #525050; */
+    background-color: whitesmoke;
+    color: rgb(30, 30, 30);
 }
 .nav_part_2 > div{
     /* border: 1px solid red; */
@@ -101,9 +115,43 @@ nav{
     margin: 0;
     outline: none;
     border-radius: 0;
+    transition: 0.5s ease;
 }
-.nav_part_2 > div > div:nth-last-child(1){
-    background-color: #30cbff;
-    color: #2D2D2D;
+.nav_part_2 > div > div:hover{
+    color: rgb(0, 130, 130);
+}
+.nav_part_2 > div > div:nth-child(1){
+    color: rgba(0, 161, 156, 0.934);
+    font-weight: bolder;
     padding: 3px 13px;
+}
+.nav_part_2 > div > div:nth-child(1):hover{
+    color: #333;
+}
+/* slide */
+
+.slide{
+    width: 37%;
+    height: 100vh;
+    overflow: scroll;
+    background-color: whitesmoke;
+    padding: 0 0 2.5cm 0;
+    /* border: 1px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.301) 500px 0px 20px 500px;
+}
+.slide::-webkit-scrollbar{
+    display: none;
+}
+/* side_info */
+.side_info > div{
+    /* border: 1px solid red; */
+    border-bottom: 1.3px solid #b7b7b7;
+    display: flex;
+    margin: 10px 0;
+    padding: 0 5px 0 1px;
+    align-items: center;
+}
+.side_info > div > p{
+    margin-left: 13px;
+    color: rgb(75, 74, 74);
 }

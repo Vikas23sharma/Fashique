@@ -1,15 +1,13 @@
 import AllRoutes from './AllRoutes/AllRoutes';
 import './App.css';
-import { Navbar } from './pages/Navbar';
-import { Women } from './pages/Women';
+import { Sidebar } from './pages/Sidebar';
 
 
 function App() {
   return (
     <div className='App'>
-      {/* <AllRoutes/> */}
-      {/* <Navbar/> */}
-      <Women/>
+      <AllRoutes/>
+      {/* <Sidebar/> */}
     </div>
   )
 }
