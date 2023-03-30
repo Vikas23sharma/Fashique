@@ -30,9 +30,7 @@ export const Women = () =>{
 
 return (
     <div>
-    {/* {show?<Navbar/>:null} */}
     <Navbar/>
-    {/* background-image: linear-gradient(180deg, #1efca3 0%, #c2edff 100%); */}
     <div className="content_1">
     <div className="content_1_01">
         <div><Link to="/men">MEN</Link></div>

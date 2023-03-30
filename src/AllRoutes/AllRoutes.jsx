@@ -11,6 +11,8 @@ import Adminproductsmen from "../pages/Adminproductsmen";
 import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
+import Admin from "../pages/Admin";
+
 export default function AllRoutes() {
     return (
         <Routes>
