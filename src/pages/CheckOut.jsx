@@ -4,7 +4,9 @@ import {
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import CheckoutProductsCard from './CheckoutProductsCard';
 import LoadingWithLetter from './LoadingWithLetter';
+import "../Style/checkout.css"
 
 const CheckOut = () => {
     const [textChange, setTextChange] = useState("Change")
@@ -44,7 +46,73 @@ const CheckOut = () => {
         }
     ];
 
-
+    const checkoutProducts = [
+        {
+            "id": 101,
+            "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
+            "title": " Topman crochet shirt in green and ecru",
+            "brand": "Topman",
+            "discount": 20,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "S",
+            "price": 65,
+            "category": "T-shirt"
+        },
+        {
+            "id": 102,
+            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
+            "title": "Topman classic t-shirt in black",
+            "brand": "Topman",
+            "discount": 30,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "M",
+            "price": 13,
+            "category": "T-shirt"
+        },
+        {
+            "id": 103,
+            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
+            "title": "Topman classic t-shirt in white",
+            "brand": "Topman",
+            "discount": 45,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "L",
+            "price": 13,
+            "category": "T-shirt"
+        },
+        {
+            "id": 104,
+            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
+            "title": "Topman classic t-shirt in black",
+            "brand": "Topman",
+            "discount": 60,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "XL",
+            "price": 15,
+            "category": "T-shirt"
+        },
+        {
+            "id": 105,
+            "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
+            "title": "New Look crew neck t-shirt in blue",
+            "brand": "New Look",
+            "discount": 20,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "S",
+            "price": 17,
+            "category": "T-shirt"
+        }
+    ]
+    var totalPrice = 0
+    checkoutProducts.forEach((items) => {
+        totalPrice += items.price
+    })
+    console.log(totalPrice)
     // useEffect(() => {
     //     setTimeout(() => {
     //         setIsLoading(!isLoading)
@@ -62,6 +130,8 @@ const CheckOut = () => {
 
     //     <LoadingWithLetter />
     // </div>) : 
+
+    console.log(checkoutProducts, "line129")
     return (
         <Container minW={"100%"}>
             <Center>
@@ -79,7 +149,7 @@ const CheckOut = () => {
                 <Box width={["700px", "100%", "80%", "60%"]} p="5">
                     <Stack direction={["column", "column", "column", "row"]}>
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}
-                            w={["100%", "100%", "100%", "800px"]} minH={["10vh", "10vh", "10vh", "10vh"]} mt="0"
+                            w={["100%", "100%", "100%", "800px"]} maxH={["17vh", "17vh", "17vh", "17vh"]} mt="0"
                         >
                             <Box pl={["5", "10"]} pt="5" pb={"10"}>
                                 <Text fontSize={["md", "xl"]} fontWeight="520">DELIVERY COUNTRY :</Text>
@@ -107,7 +177,7 @@ const CheckOut = () => {
                                         </HStack>
                                     </Box>
                                     <Spacer />
-                                    <Box pr={["3","10","10","10"]} pt="5"> <Button onClick={handleButtonClick}>{textChange}</Button>
+                                    <Box pr={["3", "10", "10", "10"]} pt="5"> <Button onClick={handleButtonClick}>{textChange}</Button>
                                     </Box>
                                 </HStack>
                             </Box>
@@ -120,19 +190,43 @@ const CheckOut = () => {
                             <HStack>
                                 <Box p="5">
                                     <Text letterSpacing={2} fontWeight="600">
-                                        {isMobileView ? <Text fontSize="md">MY BAG</Text> : `${2} ITEMS`}
+                                        {isMobileView ? <Text fontSize={["md", "xl", "xl", "xl"]}>MY BAG</Text> : `${2} ITEMS`}
                                     </Text>
                                 </Box>
                                 <Spacer />
-                                <Box  pr={["8","5","5","5"]}>
+                                <Box pr={["8", "5", "5", "5"]}>
                                     <Link to="/cart">
                                         <Text>
-                                            {isMobileView ? <Link to="/cart">  <Text fontSize="md">VIEW</Text></Link> : <Link to="/cart">"EDIT"</Link>}
+                                            {isMobileView ? <Link to="/cart">  <Text fontSize={["md", "xl", "xl", "xl"]}>VIEW</Text></Link> : <Link to="/cart">EDIT</Link>}
                                         </Text>
                                     </Link>
                                 </Box>
                             </HStack>
                             <Divider width={"90%"} margin="auto" />
+                            <Box  >
+                                <Box h="40vh"
+                                    overflowY="scroll"
+                                    className='hide-scrollbar' mt="5"
+                                    css={{ scrollBehavior: 'smooth' }}
+                                >
+                                    {
+                                        checkoutProducts.map((items) => (
+                                            <CheckoutProductsCard key={items.id} {...items} />
+                                        ))
+                                    }
+                                </Box>
+                                {
+                                    isMobileView ? <Box p="5">
+                                        <Divider p="2" />
+                                        <HStack>
+                                            <Box>  <Text pt="5" pl="10" fontSize={["md", "xl", "xl", "xl"]}>  {checkoutProducts.length} Items</Text></Box>
+                                            <Spacer />
+                                            <Box><Text pr={"10"} pt="5" fontSize={["md", "xl", "xl", "xl"]}>&#36;{totalPrice}.00</Text></Box>
+                                        </HStack>
+                                    </Box> : null
+                                }
+                            </Box>
+
                         </Box>
                     </Stack>
                 </Box>

@@ -5,10 +5,6 @@ import SignIn from "../pages/SignIn";
 import MenCloths from "../pages/MenCloths";
 import { Women } from "../pages/Women";
 import { Men } from "../pages/Men";
-
-
-
-
 import Admins from "../pages/Admins";
 import Adminorders from "../pages/Adminorders";
 import Admincustomers from "../pages/Admincustomers";
@@ -16,6 +12,7 @@ import Adminproductsmen from "../pages/Adminproductsmen";
 import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
+
 
 
 
@@ -34,8 +31,9 @@ export default function AllRoutes() {
             <Route path="/adminorders" element={<Adminorders />}></Route>
             <Route path="/admincustomers" element={<Admincustomers />}></Route>
             <Route path="/adminproductmen" element={<Adminproductsmen />}></Route>
-                <Route path="/mencloth" element={<MenCloths/>} />
+            <Route path="/mencloth" element={<MenCloths />} />
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
+
         </Routes>
     )
 }
