@@ -21,20 +21,14 @@ const CheckOut = () => {
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}
                             w={["100%", "100%", "100%", "800px"]} minH={["10vh", "10vh", "10vh", "10vh"]} mt="0"
                         >
-
                         </Box>
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}
                             w={["100%", "100%", "100%", "400px"]} minH={["10vh", "10vh", "10vh", "10vh"]}
                         >
-
-
                         </Box>
                     </Stack>
-
                 </Box>
             </Center>
-
-
         </Container>
     )
 }
