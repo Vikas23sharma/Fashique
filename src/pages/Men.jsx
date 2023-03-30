@@ -1,7 +1,8 @@
 import { Navbar } from "./Navbar"
-import '../Style/menStyle.css'
+import '../Style/womenStyle.css'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from "react-router-dom";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -14,9 +15,9 @@ return (
     <Navbar/>
     <div className="content_1" style={{backgroundImage:'linear-gradient(180deg, #1efca3 0%, #c2edff 100%)'}}>
     <div className="content_1_01">
-        <div>MOMEN</div>
-        <div>UP TO 70% OFF THE SALE! <br />It's a treat-yo'self day</div>
-        <div>MEN</div>
+      <div><Link to="/">WOMEN</Link></div>
+      <div>UP TO 70% OFF THE SALE! <br />It's a treat-yo'self day</div>
+      <div><Link to="/men">MEN</Link></div>
     </div>
     <div className="content_1_02">
     <button>SALE</button>
@@ -96,7 +97,7 @@ return (
 
     <div className="content_2">
     <div className="content_2_1">
-    <img src="https://content.asos-media.com/-/media/hubs/topshop-topman/tstm-march-april-2023/prime-heros/tm/uk-us-row/tm_hero_hp.jpg" alt=""/>
+    <img style={{width:'100%'}} src="https://content.asos-media.com/-/media/hubs/topshop-topman/tstm-march-april-2023/prime-heros/tm/uk-us-row/tm_hero_hp.jpg" alt=""/>
     </div>
     </div>
     {/* content_3 */}

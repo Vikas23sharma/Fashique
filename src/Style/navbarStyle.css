@@ -87,6 +87,7 @@ nav{
     /* border: 1px solid green; */
     width: 100%;
     align-items: center;
+    cursor: pointer;
 }
 .nav_top_3 > div > svg{
     width: 25px;
@@ -154,4 +155,46 @@ nav{
 .side_info > div > p{
     margin-left: 13px;
     color: rgb(75, 74, 74);
+}
+/* signIn_1 */
+
+.signIn_1{
+    /* border: 1px solid red; */
+    display: none;
+    width: 300px;
+    height: 0px;
+    float: right;
+    margin: 0 30px;
+    background-color: whitesmoke;
+}
+.signIn_1 > div{
+    /* border: 1px solid rgb(59, 59, 59); */
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin: 15px auto;
+}
+.signIn_1 > div:nth-child(1){
+    padding: 0;
+    width: 100%;
+}
+.signIn_1 > div > h6{
+    width: 50%;
+    border: 1px solid grey;
+    padding: 5px;
+    text-align: center;
+    margin: 7px;
+}
+.signIn_1 > div > p{
+    margin: 5px 0 5px 25px;
+    font-size: 15px;
+    transition: 0.4s ease;
+}
+.signIn_1 > div > p:hover{
+    color: rgb(0, 136, 189);
+    font-weight: bold;
+}
+.signIn_1 > div > h6:hover{
+    color: rgb(0, 136, 189);
+    border: 1.2px solid rgb(6, 182, 252);
 }
