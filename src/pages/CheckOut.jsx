@@ -1,6 +1,6 @@
 import {
     Box, Center, Container, HStack, Spacer, Stack, Text, Image, useMediaQuery,
-    Button, FormControl, FormLabel, MenuItem, Select, Divider
+    Button, FormControl, FormLabel, MenuItem, Select, Divider, VStack, Flex
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -12,6 +12,9 @@ const CheckOut = () => {
     const [textChange, setTextChange] = useState("Change")
     const [isSelectActive, setIsSelectActive] = useState(false);
     // const [isLoading, setIsLoading] = useState(true)
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [deliveryPrice, setDeliveryPrice] = useState(11.05);
+    const [totalToPay, setTotalToPay] = useState(0)
     const [isMobileView] = useMediaQuery("(max-width: 930px)")
     const [country, setCountry] = useState({
         image: "https://cdn4.iconfinder.com/data/icons/flat-circle-flag/182/circle_flag_india-1024.png",
@@ -106,13 +109,92 @@ const CheckOut = () => {
             "size": "S",
             "price": 17,
             "category": "T-shirt"
+        },
+        {
+            "id": 101,
+            "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
+            "title": " Topman crochet shirt in green and ecru",
+            "brand": "Topman",
+            "discount": 20,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "S",
+            "price": 65,
+            "category": "T-shirt"
+        },
+        {
+            "id": 102,
+            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
+            "title": "Topman classic t-shirt in black",
+            "brand": "Topman",
+            "discount": 30,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "M",
+            "price": 13,
+            "category": "T-shirt"
+        },
+        {
+            "id": 103,
+            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
+            "title": "Topman classic t-shirt in white",
+            "brand": "Topman",
+            "discount": 45,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "L",
+            "price": 13,
+            "category": "T-shirt"
+        },
+        {
+            "id": 104,
+            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
+            "title": "Topman classic t-shirt in black",
+            "brand": "Topman",
+            "discount": 60,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "XL",
+            "price": 15,
+            "category": "T-shirt"
+        },
+        {
+            "id": 105,
+            "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
+            "title": "New Look crew neck t-shirt in blue",
+            "brand": "New Look",
+            "discount": 20,
+            "gender": "men",
+            "style": "half sleeve",
+            "size": "S",
+            "price": 17,
+            "category": "T-shirt"
         }
     ]
-    var totalPrice = 0
-    checkoutProducts.forEach((items) => {
-        totalPrice += items.price
-    })
-    console.log(totalPrice)
+
+
+
+    useEffect(() => {
+        let price = 0;
+        checkoutProducts.forEach((product) => {
+            price += product.price;
+        });
+        setTotalPrice(price);
+    }, [checkoutProducts]);
+
+    useEffect(() => {
+        if (totalPrice >= 100) {
+            const additionalDeliveryPrice = Math.floor((totalPrice - 100) / 25) * 5;
+            setDeliveryPrice(11.05 + additionalDeliveryPrice);
+        }
+    }, [totalPrice]);
+    useEffect(() => {
+        let totalpay = totalPrice + deliveryPrice
+        setTotalToPay(totalpay)
+    }, [totalPrice, deliveryPrice])
+
+
+
     // useEffect(() => {
     //     setTimeout(() => {
     //         setIsLoading(!isLoading)
@@ -133,9 +215,9 @@ const CheckOut = () => {
 
     console.log(checkoutProducts, "line129")
     return (
-        <Container minW={"100%"}>
+        <Container maxW={"100%"}>
             <Center>
-                <Box width={["100%", "80%", "80%", "60%"]} p="5">
+                <Box width={["100%", "80%", "80%", "60%",]} p="5">
                     <HStack>
                         <Box><Text fontSize={["md", "3xl"]} fontWeight="bolder">FASHIQUE</Text></Box>
                         <Spacer />
@@ -190,7 +272,7 @@ const CheckOut = () => {
                             <HStack>
                                 <Box p="5">
                                     <Text letterSpacing={2} fontWeight="600">
-                                        {isMobileView ? <Text fontSize={["md", "xl", "xl", "xl"]}>MY BAG</Text> : `${2} ITEMS`}
+                                        {isMobileView ? <Text fontSize={["md", "xl", "xl", "xl"]}>MY BAG</Text> : `${checkoutProducts.length} ITEMS`}
                                     </Text>
                                 </Box>
                                 <Spacer />
@@ -223,7 +305,27 @@ const CheckOut = () => {
                                             <Spacer />
                                             <Box><Text pr={"10"} pt="5" fontSize={["md", "xl", "xl", "xl"]}>&#36;{totalPrice}.00</Text></Box>
                                         </HStack>
-                                    </Box> : null
+                                    </Box> : <Box p="2" h="20vh">
+                                        <Divider orientation="horizontal" height="2px" bg="gray.200" my={4} width={"90%"} margin="auto" />
+                                        <VStack pl={5} pr={5} pt="5">
+                                            <Flex justifyContent="space-between" width="100%">
+                                                <Text>SubTotal</Text>
+                                                <Text>&#36;{totalPrice}.00</Text>
+                                            </Flex>
+                                            <Flex justifyContent="space-between" width="100%">
+                                                <Text>Delivery</Text>
+                                                <Text>&#36;{deliveryPrice}.00</Text>
+                                            </Flex>
+                                            <Flex justifyContent="space-between" width="100%">
+                                                <Text fontWeight={"bolder"}>TOTAL TO PAY</Text>
+                                                <Text fontWeight={"bolder"}>&#36;{totalToPay}.00</Text>
+                                            </Flex>
+                                        </VStack>
+
+
+
+
+                                    </Box>
                                 }
                             </Box>
 
