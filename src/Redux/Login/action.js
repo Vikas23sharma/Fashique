@@ -6,7 +6,7 @@ import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_TOKEN } from "./acti
 export const getUserDetails = (token) => (dispatch) => {
     dispatch({ type: LOGIN_REQUEST })
     axios
-        .get(`https://fashique-api.onrender.com/user-detail`)
+        .get(`https://exuberant-pink-jewelry.cyclic.app/users`)
         .then((res) => {
             // console.log(res.data, "Inside the login")
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })
@@ -19,7 +19,7 @@ export const getUserDetails = (token) => (dispatch) => {
 
 }
 export const login_in = (token) => (dispatch) => {
-    console.log(token,"isdjfjsdf")
+    // console.log(token,"isdjfjsdf")
     if (token !== "" || token === undefined || token === null) {
         dispatch({ type: LOGIN_TOKEN, payload: token })
     }else{
