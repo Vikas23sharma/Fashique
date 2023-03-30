@@ -1,26 +1,37 @@
-import React, { useState,useEffect } from 'react'
-import { Container, Center, Box, Heading, VStack, HStack, Text, Spacer, Divider, Button } from "@chakra-ui/react"
+import React, { useState, useEffect } from 'react'
+import { Container, Center, Box, Heading, VStack, HStack, Text, Spacer,Spinner , Divider, Button } from "@chakra-ui/react"
 import { Link } from 'react-router-dom'
 import "../Style/loginStyles.css"
 import SignIn from './SignIn'
 import Join from './Join'
+import LoadingWithLetter from './LoadingWithLetter'
 
 export const Login = () => {
     const [currentForm, setCurrentForm] = useState("signin")
+    const [isLoading, setIsLoading] = useState(true)
+   
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(!isLoading)
+        }, 1000)
+    }, [])
     const handlePage = (val) => {
         setCurrentForm(val)
     }
 
-    return (
+    return isLoading === true ? (<div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center" }}> 
+    
+  <LoadingWithLetter/>
+  </div>) : (
 
-        <Container maxW="100%" minH="100vh" bgColor="#eeeeee">
+        <Container minW="100%" minH="100vh" bgColor="#eeeeee">
             <Center>
-                <VStack w={["100%", "60%", "70%", "40%"]} mt="10" mb="10" >
+                <VStack w={["110%", "60%", "70%", "40%"]} mt="10" mb="10" >
                     <Box pb="10"><Link to="/"> <Heading as="h1" fontSize="5xl">FASHIQUE</Heading></Link></Box>
                     <Box className="box" bgColor="#ffffff">
                         <Center display="flex" justifyContent="space-around" paddingY="5%" border="0px solid black" textAlign="center">
                             <Box pl="14%" >
-                                <Button variant="ghost" onClick={() => handlePage("join")} _hover={{ bg: "none" }}>  <Text  color={currentForm !== "signin" ? "black" : "grey"}>JOIN</Text></Button>
+                                <Button variant="ghost" onClick={() => handlePage("join")} _hover={{ bg: "none" }}>  <Text color={currentForm !== "signin" ? "black" : "grey"}>JOIN</Text></Button>
                                 <Divider orientation='vertical' height="50%" color="black" />
                             </Box>
                             <Divider orientation='vertical' borderColor="grey" height='50px' />
@@ -32,7 +43,7 @@ export const Login = () => {
 
                         <Divider orientation='horizontal' style={{ width: "80%", margin: "auto", borderWidth: ".1em" }} />
                         {
-                            currentForm === "signin" ? <SignIn /> : <Join />
+                            currentForm === "signin" ? <SignIn /> : <Join setCurrentForm={setCurrentForm}/>
                         }
                     </Box>
 

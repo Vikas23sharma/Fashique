@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     FormControl, Center, Text, HStack, VStack, Spacer, Stack, SimpleGrid,
     FormLabel, Radio, RadioGroup, Checkbox, CheckboxGroup,
@@ -7,15 +7,19 @@ import {
     Input,
     Box,
     Button,
-    Container
+    Container,
+    useToast
 } from '@chakra-ui/react'
 import { FcGoogle } from "react-icons/fc"
 import { TiVendorApple } from 'react-icons/ti'
 import { MdOutlineFacebook } from 'react-icons/md';
-import { useFormik } from 'formik';
+import { replace, useFormik } from 'formik';
 import JoinForm from "../schemas/JoinForm"
 import { createAccount } from '../Redux/Join/action';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Loading from './Loading';
+import LoadingWithLetter from './LoadingWithLetter';
+import { Navigate } from 'react-router-dom';
 
 const initialValues = {
     email: "",
@@ -32,15 +36,15 @@ function generateToken() {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
     for (let i = 0; i < 50; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length)+Math.floor(Math.random());
+        const randomIndex = Math.floor(Math.random() * characters.length) + Math.floor(Math.random());
         token += characters.charAt(randomIndex);
     }
     return token;
 }
 
-const Join = () => {
+const Join = ({ setCurrentForm }) => {
     const dispatch = useDispatch()
-
+    const toast = useToast()
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: initialValues,
         validationSchema: JoinForm,
@@ -49,36 +53,82 @@ const Join = () => {
             values["token"] = generateToken()
 
             dispatch(createAccount(values))
-            action.resetForm()
+            toast({
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: "top"
+            })
+            action.resetForm();
+            // <Navigate to="/signin" replace="true"/>
+            setTimeout(() => {
+                setIsLoading(!isLoading)
+                setCurrentForm("signin")
+                setIsLoading(!isLoading)
+            }, 2000);
         }
+
     })
+    // const { isLoading } = useSelector(state => {
+    //     return {
+    //         isLoading: state.JoinReducer.isLoading
+    //     }
+    // })
+    const [isLoading, setIsLoading] = useState(true)
 
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(!isLoading)
+        }, 1000)
+    }, [])
 
-
-
-
-    return (
-        <Container style={{ width: "90%", margin: "auto" }} maxW="100%">
-            <Box p="10%" >
+    return isLoading === true ? (<div style={{ display: "flex", height: "50vh", justifyContent: "center", alignItems: "center" }}>  <Loading /></div>) : (
+        <Container w={["110%", "98%", "95%", "90%"]} margin={["auto", "auto"]} maxW="100%">
+            <Box pt="10%" pb="10%" pl={"2"} pr={"2"} >
 
                 <Box >
-                    <Center pb="10">
+                    <Center pb="10" >
                         <VStack >
                             <Box pb="5">
                                 <Text fontWeight="bolder" fontSize={["sm", "2xl"]}>OR SIGN IN WITH...</Text>
                             </Box>
 
-                            <Center>  <SimpleGrid columns={[3, 3, 3, 3]} gap={[2, 3, 3, 3]} pb={[5, 10, 10, 10]} w={["100%", "100%", "100%", "100%"]}
-                                margin={["auto", "auto", "auto", "auto"]} justifyContent={["center", "center", "center", "center"]}
-                                marginLeft={["auto", "auto", "auto", "auto"]}
-                                marginRight={["auto", "auto", "auto", "auto"]}
-                            >
-                                <Box><Button><FcGoogle />&nbsp;&nbsp;<Text fontSize={[8, 8, 10, 15]}  display={["none","block"]}>GOOGLE</Text></Button></Box>
+                            <Center>
+                                <SimpleGrid
+                                    columns={[3, 3, 3, 3]}
+                                    gap={[5, 5, 5, 5]}
+                                    pb={[5, 10, 10, 10]}
+                                    w={["100%", "100%", "100%", "100%"]}
+                                    margin={["auto", "auto", "auto", "auto"]}
+                                    justifyContent={["center", "center", "center", "center"]}
+                                    marginLeft={["auto", "auto", "auto", "auto"]}
+                                    marginRight={["auto", "auto", "auto", "auto"]}
+                                >
+                                    <Box>
+                                        <Button>
+                                            <FcGoogle fontSize="20px" />&nbsp;&nbsp;
+                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>GOOGLE</Text>
+                                        </Button>
+                                    </Box>
 
-                                <Box><Button ><TiVendorApple />&nbsp;&nbsp;<Text fontSize={[8, 8, 10, 15]}  display={["none","block"]}>APPLE</Text></Button></Box>
+                                    <Box>
+                                        <Button>
+                                            <TiVendorApple fontSize="20px" />&nbsp;&nbsp;
+                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>APPLE</Text>
+                                        </Button>
+                                    </Box>
 
-                                <Box><Button> <MdOutlineFacebook />&nbsp;&nbsp;<Text fontSize={[8, 8, 10, 15]}  display={["none","block"]}>FACEBOOK</Text></Button></Box>
-                            </SimpleGrid></Center>
+                                    <Box>
+                                        <Button>
+                                            <MdOutlineFacebook fontSize="20px" />&nbsp;&nbsp;
+                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>FACEBOOK</Text>
+                                        </Button>
+                                    </Box>
+                                </SimpleGrid>
+                            </Center>
+
                             <Text fontSize="11" textAlign="justify">Signing up with social is super quick. No extra passwords to remember - no brain fail. Don't worry, we'd never share any of your data or post anything on your behalf #notevil</Text>
                         </VStack>
                     </Center>
