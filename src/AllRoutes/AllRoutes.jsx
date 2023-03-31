@@ -5,17 +5,14 @@ import SignIn from "../pages/SignIn";
 import MenCloths from "../pages/MenCloths";
 import { Women } from "../pages/Women";
 import { Men } from "../pages/Men";
-
-
-
-
-
+import Admins from "../pages/Admins";
 import Adminorders from "../pages/Adminorders";
 import Admincustomers from "../pages/Admincustomers";
 import Adminproductsmen from "../pages/Adminproductsmen";
 import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
+
 import Admin from "../pages/Admins";
 import { SingleProductPage } from "../pages/SingleProductPage";
 import { MenTshirt } from "../pages/MenTshirt";
@@ -31,9 +28,21 @@ import { WomenJacket } from "../pages/WomenJacket";
 import { MenTee } from "../pages/MenTee";
 import { MenSuit } from "../pages/MenSuit";
 
+import { Search } from "../pages/Search";
+
+import { Account } from "../pages/Account";
+
+import { AdminEditProduct } from "../pages/AdminEditProduct";
+import { AdminProductsJackets } from "../pages/AdminProductsJackets";
+import { AdminProductWomen } from "../pages/AdminProductWomen";
+import { AdminProductShoe } from "../pages/AdminProductShoe";
+
+
+
 
 export default function AllRoutes() {
     return (
+
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
@@ -59,12 +68,21 @@ export default function AllRoutes() {
         <Route path="/womenjacket" element={<WomenJacket />} />
         <Route path="/mentee" element={<MenTee />} />
         <Route path="/mensuit" element={<MenSuit />} />
-
-        <Route
-          path="adminaddproductmen"
-          element={<AdminAddProductMen />}
-        ></Route>
         <Route path="/:product_id" element={<SingleProductPage />}></Route>
+         <Route path="/search" element={<Search/>}></Route>
+            <Route path="/admin-product-jacket" element={<AdminProductsJackets/>}></Route>
+            <Route path="/admin-product-women"  element={<AdminProductWomen/>}></Route>
+            <Route path="/admin-product-shoes" element={<AdminProductShoe/>}></Route>
+            <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
+            <Route path="/account" element={<Account></Account>}></Route>
+             <Route path="/admin-edit/:id" element={<AdminEditProduct/>}></Route>
       </Routes>
     );
+
+       
+           
+            
+           
+
+
 }

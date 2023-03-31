@@ -31,6 +31,7 @@ nav{
     padding: 10px;
     align-items: center;
     display: flex;
+    cursor: pointer;
     /* border: 1px solid green; */
 }
 .nav_top_1 > div > p{
@@ -66,6 +67,7 @@ nav{
 }
 .nav_top_2 > input{
     border: 1px solid #333;
+    color: #333;
     width: 90%;
     height: 40px;
     padding: 15px;
