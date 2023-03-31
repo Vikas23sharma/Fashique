@@ -228,6 +228,19 @@ const CheckOut = () => {
     //         setIsLoading(!isLoading)
     //     }, 1000)
     // }, [])
+    var screen = ""
+    // useEffect(() => {
+    //     if (window.screen.width <= 360) {
+    //         screen = "140vh"
+    //     } 
+    //     else if (window.screen.width <= 412) {
+    //         screen = "140vh"
+    //     } 
+    //     else {
+    //         screen = "108vh"
+    //     }
+    // }, [screen, window.screen.width])
+
 
     const handleCountryChange = (e) => {
         const selectedCountryIndex = e.target.value;
@@ -420,8 +433,10 @@ const CheckOut = () => {
                 </Box>
 
             </Center >
-            <Box h="8vh" mt={["108vh", "125vh", "110vh", "75vh", "75vh", "75vh"]} style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",}}   >
-                <Center> <Text p="5">FASHIQUE Help</Text> </Center>
+            <Box h="8vh" mt={["140vh","121vh", "115vh", "78vh", "75vh", "75vh", "75vh"]} style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}   >
+                <Center>
+                    { }
+                    <Text p="5" >FASHIQUE Help</Text> </Center>
             </Box>
 
         </Container >
