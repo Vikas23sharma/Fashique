@@ -13,6 +13,7 @@ import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
 import { Search } from "../pages/Search";
+import { Account } from "../pages/Account";
 
 
 export default function AllRoutes() {
@@ -33,6 +34,7 @@ export default function AllRoutes() {
             <Route path="/mencloth" element={<MenCloths/>} />
             <Route path="/search" element={<Search/>}></Route>
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
+            <Route path="/account" element={<Account></Account>}></Route>
         </Routes>
     )
 }

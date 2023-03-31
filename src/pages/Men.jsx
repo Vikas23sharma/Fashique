@@ -52,38 +52,50 @@ export const Men = () => {
           >
             <SwiperSlide>
               <div className="content_1_031">
+              <Link to={'/mencloth'}>
                 <img src="https://images.asos-media.com/products/asos-design-classic-rigid-denim-short-in-washed-black/201662312-1-washedblack?$n_640w$&wid=513&fit=constrain" alt="1" />
                 <p>SHORTS</p>
+              </Link>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
+              <Link to={'/mensuit'}>
                 <img src="https://images.asos-media.com/products/ben-sherman-slim-suit-jacket-in-lilac/202488042-4?$n_640w$&wid=513&fit=constrain" alt="2" />
                 <p>TAILORING</p>
+              </Link>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
+            <Link to={'/mentee'}>
                 <img src="https://images.asos-media.com/products/obey-receptor-jacquard-knitted-t-shirt-in-multi/202323999-1-multi?$n_640w$&wid=513&fit=constrain" alt="3" />
                 <p>TEES</p>
+              </Link>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
+              <Link to={'/menshoes'}>
                 <img src="https://images.asos-media.com/products/nike-dunk-high-retro-se-sneakers-in-white/203509671-2?$n_480w$&wid=476&fit=constrain" alt="4" />
                 <p>SNEAKERS</p>
+              </Link>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-                <img src="https://images.asos-media.com/products/puma-x-market-relaxed-logo-t-shirt-in-off-white-multi/203301736-4?$n_640w$&wid=513&fit=constrain" alt="5" />
-                <p>SALE UNDER 20$</p>
+              <Link to={'/menjacket'}>
+                <img src="https://images.asos-media.com/products/adpt-oversized-felted-overshirt-in-beige/203834673-1-crockery?$n_320w$&wid=317&fit=constrain" alt="5" />
+                <p>JACKETS</p>
+              </Link>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
+              <Link to={'mentshirt'}>
                 <img src="https://images.asos-media.com/products/topman-viscose-revere-shirt-in-multi-colour-bandana-print/202537544-1-multicolour?$n_640w$&wid=513&fit=constrain" alt="6" />
                 <p>SHIRTS</p>
+              </Link>
               </div>
             </SwiperSlide>
           </Swiper>

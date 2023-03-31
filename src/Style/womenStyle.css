@@ -95,11 +95,11 @@ body::-webkit-scrollbar{
     justify-content: space-evenly;
     display: flex;
 }
-.content_1_031 > img{
+.content_1_031 img{
     width: 100%;
     height: 80%;
 }
-.content_1_031 > p{
+.content_1_031 p{
     text-align: center;
     background-color: white;
     padding: 7px;

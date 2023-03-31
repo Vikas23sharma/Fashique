@@ -10,7 +10,7 @@ import { getSearchBtn } from '../Redux/search/action'
 
 export const Navbar = () =>{
 const dispatch = useDispatch()
-let match = window.matchMedia("(max-width:800px)").matches;
+let match = window.matchMedia("(max-width:770px)").matches;
 const navigate = useNavigate()
 const [on,isOn] = useState(false)
 const [sign,isSign] = useState(false)
@@ -61,7 +61,7 @@ return (
             {on?'X':'|||'}
         </div>
         <div>
-        <p><h1>ASU\</h1></p>
+        <p><h1><Link to={'/'}>FSUQ</Link></h1></p>
         </div>
         <div>
         <Link to={'/'}><p style={{color:'white'}}>WOMEN</p></Link>
@@ -96,16 +96,28 @@ return (
     </div>
     <div className='nav_part_2'>
     <div>
-        <div>New in</div>
-        <div>Sale</div>
-        <div>Clothing</div>
-        <div>Dresses</div>
-        <div>Shoes</div>
+        <div>
+        <Link to={'/womenshorts'}>New in</Link>
+        </div>
+        <div>
+        <Link to={'/womenjacket'}>Sale</Link>
+        </div>
+        <div>
+        <Link to={'/womentop'}>Clothing</Link>
+        </div>
+        <div>
+        <Link to={'/womendress'}>Dresses</Link>
+        </div>
+        <div>
+        <Link to={'/womenshoes'}>Shoes</Link>
+        </div>
         <div>Summer</div>
         <div>Activewere</div>
         <div>Brands</div>
         <div>Accessories</div>
-        <div>Jeans</div>
+        <div>
+        <Link to={'/womenpants'}>Jeans</Link>
+        </div>
         <div>Face</div>
         <div>Topshop</div>
         <div>Marketplace</div>
@@ -117,8 +129,8 @@ return (
     {/* contact */}
     <div className='signIn_1' style={{height:sign&&!match?'auto':'0px',display:sign&&!match?'block':'none'}}>
     <div>
-    <h6>SIGN IN</h6>
-    <h6>JOIN </h6>
+    <h6><Link to={'/signin'}>SIGN IN</Link></h6>
+    <h6><Link to={'/join'}>JOIN</Link></h6>
     </div>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
