@@ -12,6 +12,7 @@ import DeliveryAddressForm from './DeliveryAddressForm';
 import DeliveryAddressCard from './DeliveryAddressCard';
 import { BsCreditCardFill } from 'react-icons/bs';
 import { FaCcPaypal } from 'react-icons/fa';
+import PaymentCard from './PaymentCard';
 
 const CheckOut = () => {
     const initalPresent = JSON.parse(localStorage.getItem('addresspresent'));
@@ -19,11 +20,13 @@ const CheckOut = () => {
     const [isSelectActive, setIsSelectActive] = useState(false || initalPresent);
     // const [index, setIndex] = useState(0)
     // const [isLoading, setIsLoading] = useState(true)
+    const [showPaymentCard, setShowPaymentCard] = useState(false)
     const [totalPrice, setTotalPrice] = useState(0);
     const [deliveryPrice, setDeliveryPrice] = useState(11.05);
     const [totalToPay, setTotalToPay] = useState(0)
     const [addressPresent, setAddressPresent] = useState(false)
     const [isMobileView] = useMediaQuery("(max-width: 930px)")
+    const [isMobileView2] = useMediaQuery("(max-width: 360px)")
     const [country, setCountry] = useState({
         image: "https://cdn4.iconfinder.com/data/icons/flat-circle-flag/182/circle_flag_india-1024.png",
         name: "India"
@@ -257,7 +260,7 @@ const CheckOut = () => {
 
                     <Stack direction={["column", "column", "column", "row"]}>
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }}
-                            w={["100%", "100%", "100%", "1600px", "700px"]} maxH={["10vh", "10vh", "12vh", "11vh", "12vh","17vh" ]} mt="0"
+                            w={["330px", "100%", "100%", "1600px", "700px"]} maxH={["17vh", "15vh", "15vh", "15vh", "15vh", "17vh"]} mt="0"
                         >
                             <Box pl={["5", "10"]} pt="5" pb={"10"}>
                                 <Text fontSize={["md", "xl"]} fontWeight="550">DELIVERY COUNTRY :</Text>
@@ -291,7 +294,7 @@ const CheckOut = () => {
                             </Box>
                             {/* main */}
                             <Box pb="10">
-                                <Box h={["100vh", "100vh", "50vh", "50vh", "10vh"]} mt={["43vh", "43vh", "45vh", "1vh", "1vh","0vh"]}>
+                                <Box h={["100vh", "100vh", "50vh", "50vh", "10vh"]} mt={["55vh", "55vh", "45vh", "1vh", "1vh", "0vh"]}>
                                     <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={5}>
                                         <Text fontSize={["md", "xl"]} fontWeight="550">Email Address:</Text>
                                         <Text pl="5" pt="2">{userDetails[index - 1].email}</Text>
@@ -315,9 +318,25 @@ const CheckOut = () => {
                                         <Divider orientation='horizontal' borderColor="black" pt={"5"} width={"100%"} margin={"auto"} />
 
                                         <Text fontSize={["md", "xl"]} fontWeight="550" pt={5} pb="5" >PAYMENT TYPE</Text>
-                                        <Box p="10"><Button leftIcon={<BsCreditCardFill />} > <Text letterSpacing={"2px"}> ADD CREDIT/DEBIT CARD</Text></Button></Box>
-                                        <Box pl="10"> <Button leftIcon={<FaCcPaypal />}> <Center><Text letterSpacing={"2px"}>PAYPAL</Text></Center></Button> </Box>
+                                        <Box p={["1", "10"]} pr={["10", "5"]}><Button leftIcon={<BsCreditCardFill />}
+                                            width={["300px", "100%", "80%", "100%", "60%"]}
+                                            onClick={() => setShowPaymentCard(!showPaymentCard)}> <Text letterSpacing={"2px"} fontSize={["sm", "md"]}> ADD CREDIT/DEBIT CARD</Text></Button>
+                                            {showPaymentCard ? <PaymentCard setShowPaymentCard={setShowPaymentCard} showPaymentCard={showPaymentCard} /> : null}
+
+                                        </Box>
+                                        <Box pl={["1", "10"]} mt={["2"]}> <Button width={["100%", "58%"]} leftIcon={<FaCcPaypal />}> <Center><Text letterSpacing={["2px", "2px"]}>PAYPAL</Text></Center></Button> </Box>
+                                        <Box pt="5">
+                                            <Flex><Box><Text fontWeight={"bold"} fontSize={["sm", "md"]} color={"grey"}>WE ACCEPT</Text></Box>
+
+                                                <Box width={["60%", "48%"]} alignItems={"center"} justifyContent={"center"} pl="5">
+                                                    <Image src="https://assets.asosservices.com/asos-finance/images/marketing/single.png" alt="" width={"100%"} h="3vh" /></Box>
+
+                                            </Flex></Box>
+
                                     </Box>
+                                    <Box pt="3"><Button bg={"#05CC6F"} color={"white"} width={"100%"} > BUY NOW</Button></Box>
+                                    <Box p="5" pb="10"><Text fontSize={["10", "sm"]} textAlign={["justify", "left"]}>BUY NOW
+                                        By placing your order you agree to our Terms & Conditions, privacy and returns policies . You also consent to some of your data being stored by FASHIQUE, which may be used to make future shopping experiences better for you.</Text></Box>
                                 </Box>
                             </Box>
                             {/* main */}
@@ -327,6 +346,7 @@ const CheckOut = () => {
                             w={["100%", "100%", "100%", "100%", "400px"]}
                             minH={["10vh", "10vh", "10vh", "10vh"]}
                             margin={["auto", "auto", "auto", "auto"]}
+
 
                         >
                             <HStack>
@@ -396,11 +416,14 @@ const CheckOut = () => {
                         </Box>
 
                     </Stack>
-                    {/* <Box border={"1px solid black"} h="10">
 
-                    </Box> */}
                 </Box>
+
             </Center >
+            <Box h="8vh" mt={["108vh", "125vh", "110vh", "75vh", "75vh", "75vh"]} style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",}}   >
+                <Center> <Text p="5">FASHIQUE Help</Text> </Center>
+            </Box>
+
         </Container >
     )
 }
