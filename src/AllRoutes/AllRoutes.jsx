@@ -13,7 +13,15 @@ import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
 import { Search } from "../pages/Search";
+<<<<<<< HEAD
 import { Account } from "../pages/Account";
+=======
+import { AdminEditProduct } from "../pages/AdminEditProduct";
+import { AdminProductsJackets } from "../pages/AdminProductsJackets";
+import { AdminProductWomen } from "../pages/AdminProductWomen";
+import { AdminProductShoe } from "../pages/AdminProductShoe";
+
+>>>>>>> 0351cc1b39a8ee96733b5f05994017b4a439b83c
 
 
 export default function AllRoutes() {
@@ -33,8 +41,16 @@ export default function AllRoutes() {
             <Route path="/adminproductmen" element={<Adminproductsmen />}></Route>
             <Route path="/mencloth" element={<MenCloths/>} />
             <Route path="/search" element={<Search/>}></Route>
+            <Route path="/admin-product-jacket" element={<AdminProductsJackets/>}></Route>
+            <Route path="/admin-product-women"  element={<AdminProductWomen/>}></Route>
+            <Route path="/admin-product-shoes" element={<AdminProductShoe/>}></Route>
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
+<<<<<<< HEAD
             <Route path="/account" element={<Account></Account>}></Route>
+=======
+            <Route path="/admin-edit/:id" element={<AdminEditProduct/>}></Route>
+
+>>>>>>> 0351cc1b39a8ee96733b5f05994017b4a439b83c
         </Routes>
     )
 }
