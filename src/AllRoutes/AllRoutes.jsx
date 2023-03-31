@@ -16,7 +16,8 @@ import Adminproductsmen from "../pages/Adminproductsmen";
 import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
-import Admin from "../pages/Admin";
+import AdminEditProduct from "../pages/AdminEditProduct";
+// import Admins from "../pages/Admins";
 
 
 export default function AllRoutes() {
@@ -36,6 +37,7 @@ export default function AllRoutes() {
             <Route path="/adminproductmen" element={<Adminproductsmen />}></Route>
                 <Route path="/mencloth" element={<MenCloths/>} />
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
+            <Route path="/admineditproduct/:id" element={<AdminEditProduct/>}></Route>
         </Routes>
     )
 }
