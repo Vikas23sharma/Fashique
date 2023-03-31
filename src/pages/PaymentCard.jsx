@@ -1,4 +1,8 @@
-import { Box, Button, Flex, FormControl, FormLabel, Input, InputGroup, InputLeftElement, InputRightElement, Spacer, Text } from '@chakra-ui/react'
+import {
+    Box, Button, Flex, FormControl, FormLabel, Input, InputGroup, InputLeftElement,
+    Alert, AlertDescription, AlertIcon, AlertTitle,
+    InputRightElement, Spacer, Text
+} from '@chakra-ui/react'
 import React from 'react'
 import { BsCreditCard } from "react-icons/bs";
 import { BiCreditCardAlt } from "react-icons/bi";
@@ -6,7 +10,9 @@ import { BiCreditCardAlt } from "react-icons/bi";
 
 
 
+
 const PaymentCard = ({ setShowPaymentCard, showPaymentCard }) => {
+   
     return (
         <Box pt="5">
             <Flex>  <Text fontSize={["13", "15"]}>ADD CREDIT/DEBIT CARD</Text><Spacer />
@@ -46,7 +52,8 @@ const PaymentCard = ({ setShowPaymentCard, showPaymentCard }) => {
                 </InputGroup>
             </FormControl>
             <Box pt="5">
-                <Button bg={"#2d2d2d"} _hover={{ bg: "black" }} color={"white"}> <Text fontSize={["13", "15"]} letterSpacing={"2px"}>USE THIS CARD</Text></Button>
+                <Button bg={"#2d2d2d"} _hover={{ bg: "black" }} color={"white"} >
+                    <Text fontSize={["13", "15"]} letterSpacing={"2px"}>USE THIS CARD</Text></Button>
             </Box>
         </Box>
     )

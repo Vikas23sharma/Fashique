@@ -1,6 +1,6 @@
 import {
     Box, Center, Container, HStack, Spacer, Stack, Text, Image, useMediaQuery,
-    Button, FormControl, FormLabel, MenuItem, Select, Divider, VStack, Flex
+    Button, FormControl, FormLabel, MenuItem, Select, Divider, VStack, Flex, Alert, AlertIcon, AlertTitle, AlertDescription, Slide,
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -20,13 +20,14 @@ const CheckOut = () => {
     const [isSelectActive, setIsSelectActive] = useState(false || initalPresent);
     // const [index, setIndex] = useState(0)
     // const [isLoading, setIsLoading] = useState(true)
+    const [showAlert, setShowAlert] = useState(false);
     const [showPaymentCard, setShowPaymentCard] = useState(false)
     const [totalPrice, setTotalPrice] = useState(0);
     const [deliveryPrice, setDeliveryPrice] = useState(11.05);
     const [totalToPay, setTotalToPay] = useState(0)
     const [addressPresent, setAddressPresent] = useState(false)
     const [isMobileView] = useMediaQuery("(max-width: 930px)")
-    const [isMobileView2] = useMediaQuery("(max-width: 360px)")
+    // const [isMobileView2] = useMediaQuery("(max-width: 360px)")
     const [country, setCountry] = useState({
         image: "https://cdn4.iconfinder.com/data/icons/flat-circle-flag/182/circle_flag_india-1024.png",
         name: "India"
@@ -228,20 +229,12 @@ const CheckOut = () => {
     //         setIsLoading(!isLoading)
     //     }, 1000)
     // }, [])
-    var screen = ""
-    // useEffect(() => {
-    //     if (window.screen.width <= 360) {
-    //         screen = "140vh"
-    //     } 
-    //     else if (window.screen.width <= 412) {
-    //         screen = "140vh"
-    //     } 
-    //     else {
-    //         screen = "108vh"
-    //     }
-    // }, [screen, window.screen.width])
-
-
+    const handleBuy = () => {
+        setShowAlert(true)
+        setTimeout(() => {
+            setShowAlert(false);
+        }, 3000);
+    }
     const handleCountryChange = (e) => {
         const selectedCountryIndex = e.target.value;
         const selectedCountry = countries[selectedCountryIndex];
@@ -258,6 +251,28 @@ const CheckOut = () => {
     return (
         <Container maxW={"100%"}>
             <Center>
+
+                {showAlert && (
+                    <Slide direction="down" in={showAlert} out={showAlert} style={{ zIndex: 100, transition: 'ease-in 0.5s' }} timeout={{ enter: 500, exit: 300 }}>
+                        <Alert
+                            status="success"
+                            variant="subtle"
+                            flexDirection="column"
+                            alignItems="center"
+                            justifyContent="center"
+                            textAlign="center"
+                            height="200px"
+                        >
+                            <AlertIcon boxSize="30px" mr={0} />
+                            <AlertTitle mt={4} mb={1} fontSize="lg">
+                                Thank you for your purchase!
+                            </AlertTitle>
+                            <AlertDescription maxWidth="md" textAlign={"center"} >
+                                Thank you for your purchase of fashion items! Your support helps us continue to provide trendy and high-quality products. We hope to see you again soon!
+                            </AlertDescription>
+                        </Alert>
+                    </Slide>
+                )}
                 <Box width={["100%", "80%", "80%", "90%", "60%",]} p="5">
                     <HStack>
                         <Box><Text fontSize={["md", "3xl"]} fontWeight="bolder">FASHIQUE</Text></Box>
@@ -334,7 +349,11 @@ const CheckOut = () => {
                                         <Box p={["1", "10"]} pr={["10", "5"]}><Button leftIcon={<BsCreditCardFill />}
                                             width={["300px", "100%", "80%", "100%", "60%"]}
                                             onClick={() => setShowPaymentCard(!showPaymentCard)}> <Text letterSpacing={"2px"} fontSize={["sm", "md"]}> ADD CREDIT/DEBIT CARD</Text></Button>
-                                            {showPaymentCard ? <PaymentCard setShowPaymentCard={setShowPaymentCard} showPaymentCard={showPaymentCard} /> : null}
+                                            {showPaymentCard ? <PaymentCard
+                                                setShowPaymentCard={setShowPaymentCard}
+                                                showPaymentCard={showPaymentCard}
+
+                                            /> : null}
 
                                         </Box>
                                         <Box pl={["1", "10"]} mt={["2"]}> <Button width={["100%", "58%"]} leftIcon={<FaCcPaypal />}> <Center><Text letterSpacing={["2px", "2px"]}>PAYPAL</Text></Center></Button> </Box>
@@ -342,12 +361,12 @@ const CheckOut = () => {
                                             <Flex><Box><Text fontWeight={"bold"} fontSize={["sm", "md"]} color={"grey"}>WE ACCEPT</Text></Box>
 
                                                 <Box width={["60%", "48%"]} alignItems={"center"} justifyContent={"center"} pl="5">
-                                                    <Image src="https://assets.asosservices.com/asos-finance/images/marketing/single.png" alt="" width={"100%"} h="3vh" /></Box>
+                                                    <Image src="https://assets.asosservices.com/asos-finance/images/marketing/single.png" alt="cards" width={"100%"} h="3vh" /></Box>
 
                                             </Flex></Box>
 
                                     </Box>
-                                    <Box pt="3"><Button bg={"#05CC6F"} color={"white"} width={"100%"} > BUY NOW</Button></Box>
+                                    <Box pt="3"><Button bg={"#05CC6F"} color={"white"} width={"100%"} onClick={handleBuy}> BUY NOW</Button></Box>
                                     <Box p="5" pb="10"><Text fontSize={["10", "sm"]} textAlign={["justify", "left"]}>BUY NOW
                                         By placing your order you agree to our Terms & Conditions, privacy and returns policies . You also consent to some of your data being stored by FASHIQUE, which may be used to make future shopping experiences better for you.</Text></Box>
                                 </Box>
@@ -433,11 +452,11 @@ const CheckOut = () => {
                 </Box>
 
             </Center >
-            <Box h="8vh" mt={["140vh","121vh", "115vh", "78vh", "75vh", "75vh", "75vh"]} style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}   >
+            {/* <Box h="8vh" mt={["140vh","121vh", "115vh", "78vh", "75vh", "75vh", "75vh"]} style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}   >
                 <Center>
                     { }
                     <Text p="5" >FASHIQUE Help</Text> </Center>
-            </Box>
+            </Box> */}
 
         </Container >
     )
