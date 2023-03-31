@@ -1,23 +1,31 @@
 import React from 'react'
-import { Box,Flex} from '@chakra-ui/react'
+
+import { Box,Flex,Button} from '@chakra-ui/react'
 import Adminsidebar from '../components/Adminsidebar'
 import { Navbar } from './Navbar'
 
-const AdminEditProduct = () => {
+export const AdminEditProduct = () => {
   return (
     <Box>
-    <Navbar/>
+     
+
+  <Navbar/>
     <Flex justifyContent={"space-evenly"} marginTop={"8%"}>
     <Box  w={"18%"}>
     <Adminsidebar/>
     </Box>
-    <Box  w={"82%"}>
+
+
+    <Box  w={"82%"} display={"grid"} gridTemplateColumns={"repeat(4,1fr)"} gap={"10px"}>
       {/* write code here */}
-      Products will be edited to the men's category from here
+      {/* <h1>sen</h1>
+      Products of Men Category will be displayed here with edit and delete button */}
+      
+    
     </Box>
   </Flex>
   </Box>
+  
   )
 }
 
-export default AdminEditProduct
