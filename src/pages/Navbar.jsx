@@ -29,6 +29,7 @@ value = 'men'
 }
 else if(e == 'Women'|| e == 'women' || e == 'WOMEN' || e == 'Womens' || e == 'womens'){
 value = 'womens'
+
 }
 else if(e == 'shoe' || e == 'SHOE' ||  e == 'SHOES' || e == 'Shoes' || e == 'Shoe'){
 value = 'shoes'
