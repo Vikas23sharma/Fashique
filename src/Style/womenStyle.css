@@ -263,6 +263,7 @@ body::-webkit-scrollbar{
     display: flex;
 }
 .content_5 > div{
+    width: 100%;
     margin: 10px;
     /* border: 1px solid blue; */
     text-align: center;

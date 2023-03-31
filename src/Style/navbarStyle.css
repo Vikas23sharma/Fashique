@@ -66,6 +66,7 @@ nav{
 }
 .nav_top_2 > input{
     border: 1px solid #333;
+    color: #333;
     width: 90%;
     height: 40px;
     padding: 15px;
