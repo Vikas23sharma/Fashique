@@ -8,14 +8,21 @@ import CheckoutProductsCard from './CheckoutProductsCard';
 import LoadingWithLetter from './LoadingWithLetter';
 import "../Style/checkout.css"
 import { AiOutlineInfoCircle } from 'react-icons/ai';
+import DeliveryAddressForm from './DeliveryAddressForm';
+import DeliveryAddressCard from './DeliveryAddressCard';
+import { BsCreditCardFill } from 'react-icons/bs';
+import { FaCcPaypal } from 'react-icons/fa';
 
 const CheckOut = () => {
+    const initalPresent = JSON.parse(localStorage.getItem('addresspresent'));
     const [textChange, setTextChange] = useState("Change")
-    const [isSelectActive, setIsSelectActive] = useState(false);
+    const [isSelectActive, setIsSelectActive] = useState(false || initalPresent);
+    // const [index, setIndex] = useState(0)
     // const [isLoading, setIsLoading] = useState(true)
     const [totalPrice, setTotalPrice] = useState(0);
     const [deliveryPrice, setDeliveryPrice] = useState(11.05);
     const [totalToPay, setTotalToPay] = useState(0)
+    const [addressPresent, setAddressPresent] = useState(false)
     const [isMobileView] = useMediaQuery("(max-width: 930px)")
     const [country, setCountry] = useState({
         image: "https://cdn4.iconfinder.com/data/icons/flat-circle-flag/182/circle_flag_india-1024.png",
@@ -112,7 +119,7 @@ const CheckOut = () => {
             "category": "T-shirt"
         },
         {
-            "id": 101,
+            "id": 10,
             "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
             "title": " Topman crochet shirt in green and ecru",
             "brand": "Topman",
@@ -124,7 +131,7 @@ const CheckOut = () => {
             "category": "T-shirt"
         },
         {
-            "id": 102,
+            "id": 12,
             "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
             "title": "Topman classic t-shirt in black",
             "brand": "Topman",
@@ -136,7 +143,7 @@ const CheckOut = () => {
             "category": "T-shirt"
         },
         {
-            "id": 103,
+            "id": 13,
             "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
             "title": "Topman classic t-shirt in white",
             "brand": "Topman",
@@ -148,7 +155,7 @@ const CheckOut = () => {
             "category": "T-shirt"
         },
         {
-            "id": 104,
+            "id": 14,
             "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
             "title": "Topman classic t-shirt in black",
             "brand": "Topman",
@@ -160,7 +167,7 @@ const CheckOut = () => {
             "category": "T-shirt"
         },
         {
-            "id": 105,
+            "id": 15,
             "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
             "title": "New Look crew neck t-shirt in blue",
             "brand": "New Look",
@@ -173,8 +180,25 @@ const CheckOut = () => {
         }
     ]
 
+    var userDetails = JSON.parse(localStorage.getItem("UserDetails") || [])
+    var index = JSON.parse(localStorage.getItem("userId") || 0)
+    var token = JSON.parse(localStorage.getItem("token") || null)
 
 
+    useEffect(() => {
+        const localUserDetails = JSON.parse(localStorage.getItem("UserDetails") || [])
+        const localToken = JSON.parse(localStorage.getItem("token") || null)
+
+        const user = localUserDetails.find((item) => item.token === localToken)
+        if (user && Object.keys(user.useraddress).length !== 0) {
+            setAddressPresent(true)
+        }
+    }, [token])
+
+    // Now you can use the `addressPresent` state variable to conditionally render your components
+
+
+    console.log(userDetails, "line179")
     useEffect(() => {
         let price = 0;
         checkoutProducts.forEach((product) => {
@@ -214,7 +238,7 @@ const CheckOut = () => {
     //     <LoadingWithLetter />
     // </div>) : 
 
-    console.log(checkoutProducts, "line129")
+    // console.log(checkoutProducts, "line129")
     return (
         <Container maxW={"100%"}>
             <Center>
@@ -232,8 +256,8 @@ const CheckOut = () => {
                 <Box width={["700px", "100%", "80%", "100%", "60%"]} p="5">
 
                     <Stack direction={["column", "column", "column", "row"]}>
-                        <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}
-                            w={["100%", "100%", "100%", "1600px", "800px"]} maxH={["17vh", "17vh", "25vh", "20vh", "17vh"]} mt="0"
+                        <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }}
+                            w={["100%", "100%", "100%", "1600px", "700px"]} maxH={["10vh", "10vh", "12vh", "11vh", "12vh","17vh" ]} mt="0"
                         >
                             <Box pl={["5", "10"]} pt="5" pb={"10"}>
                                 <Text fontSize={["md", "xl"]} fontWeight="550">DELIVERY COUNTRY :</Text>
@@ -265,25 +289,45 @@ const CheckOut = () => {
                                     </Box>
                                 </HStack>
                             </Box>
-                            <Box border={"1px solid black"} h={["100vh", "100vh", "50vh", "50vh", "10vh"]} mt={["55vh", "58vh", "65vh", "5vh", "0vh"]}>
-                                <Box>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, laudantium molestias ab quasi consequuntur eum illo facilis eos voluptatum quae corporis veritatis. Nostrum commodi facilis fugiat repellendus esse recusandae expedita?
-                                    Assumenda temporibus sed similique inventore. Accusamus voluptatem provident officia exercitationem nemo, ut et at magnam, reprehenderit possimus tempora necessitatibus fugiat! Perspiciatis reprehenderit in, quam at eum facere nulla laboriosam veritatis.
-                                    Eum laborum eaque, necessitatibus dolorum illo assumenda, minus nesciunt doloremque consequatur ipsa, neque doloribus veniam praesentium impedit reiciendis maiores voluptatum? Libero, quisquam iure! Recusandae modi magnam voluptatum excepturi temporibus animi.
-                                    Ad, error consequatur culpa minus fuga odio quod veniam vero voluptates fugit unde architecto corporis laborum, quam doloremque, harum voluptatibus aliquid. Dolor accusamus quos vero aut maiores illum non cumque.
-                                    Animi quisquam dicta quaerat ad labore harum, sequi nemo, reprehenderit amet corrupti incidunt quasi debitis. Earum recusandae tenetur error est, ipsum facilis deserunt, dignissimos blanditiis, obcaecati nostrum eos vero iste?
-                                    Necessitatibus, quidem quas unde facere nostrum ab rerum deleniti at magni, amet distinctio impedit quisquam fugiat numquam aperiam hic placeat consequatur sit provident harum. Officia eaque voluptatem doloribus! Quia, consequatur.
-                                    Labore iure qui ratione dolore commodi eligendi at quae illum ut dolorum non odio vitae eaque quibusdam, corporis accusamus laborum architecto sapiente atque distinctio doloremque voluptatibus saepe voluptatum? Veniam, atque.
-                                    Architecto possimus nam sapiente libero, voluptas amet sint officia ipsa et cum alias quisquam animi! Alias, ducimus nemo magni vero voluptatum nam iste deleniti et quo quae asperiores maiores aspernatur.
-                                    Magni soluta enim minus iusto quis aliquam eos officia numquam quidem, ex voluptatum repellat eligendi cumque, repudiandae aspernatur accusantium corrupti consequuntur eius blanditiis. Fugit dolorem rem asperiores vitae quasi nesciunt!
-                                    Dicta temporibus adipisci repellat velit maxime ad commodi sunt praesentium, architecto sed debitis eligendi quibusdam ipsam itaque id accusantium modi reprehenderit eum, autem magni odio eos nobis esse facilis? Natus.</Box>
+                            {/* main */}
+                            <Box pb="10">
+                                <Box h={["100vh", "100vh", "50vh", "50vh", "10vh"]} mt={["43vh", "43vh", "45vh", "1vh", "1vh","0vh"]}>
+                                    <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={5}>
+                                        <Text fontSize={["md", "xl"]} fontWeight="550">Email Address:</Text>
+                                        <Text pl="5" pt="2">{userDetails[index - 1].email}</Text>
+                                    </Box>
+                                    <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={5}>
+                                        <Box><Text fontSize={["md", "xl"]} fontWeight="550">Delivery Address:</Text></Box>
+                                        <Box>
+                                            {!addressPresent ? <DeliveryAddressForm setAddressPresent={setAddressPresent} /> :
+                                                <DeliveryAddressCard index={index} userDetails={userDetails[index - 1].useraddress} />}
+                                        </Box>
+
+                                    </Box>
+                                    <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={5} >
+                                        <Box>
+                                            <Text fontSize={["md", "xl"]} fontWeight="530">PAYMENT</Text>
+                                            <Box pt="5">
+                                                <Text as={"span"} fontSize={["sm", "md"]} fontWeight="550" >BILLING ADDRESS</Text>
+                                                <DeliveryAddressCard index={index} userDetails={userDetails[index - 1].useraddress} />
+                                            </Box>
+                                        </Box>
+                                        <Divider orientation='horizontal' borderColor="black" pt={"5"} width={"100%"} margin={"auto"} />
+
+                                        <Text fontSize={["md", "xl"]} fontWeight="550" pt={5} pb="5" >PAYMENT TYPE</Text>
+                                        <Box p="10"><Button leftIcon={<BsCreditCardFill />} > <Text letterSpacing={"2px"}> ADD CREDIT/DEBIT CARD</Text></Button></Box>
+                                        <Box pl="10"> <Button leftIcon={<FaCcPaypal />}> <Center><Text letterSpacing={"2px"}>PAYPAL</Text></Center></Button> </Box>
+                                    </Box>
+                                </Box>
                             </Box>
+                            {/* main */}
                         </Box>
 
-                        <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", }}
+                        <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }}
                             w={["100%", "100%", "100%", "100%", "400px"]}
                             minH={["10vh", "10vh", "10vh", "10vh"]}
                             margin={["auto", "auto", "auto", "auto"]}
-                            marginTop={["50vh", "50vh", "50vh", "50vh", "10vh"]}
+
                         >
                             <HStack>
                                 <Box p="5">

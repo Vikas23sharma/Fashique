@@ -51,6 +51,7 @@ const Join = ({ setCurrentForm }) => {
         onSubmit: (values, action) => {
             console.log("onsubmit is working")
             values["token"] = generateToken()
+            values["useraddress"] = {}
 
             dispatch(createAccount(values))
             toast({

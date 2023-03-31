@@ -2,7 +2,7 @@ import { Box, HStack, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const CheckoutProductsCard = (items) => {
-    console.log(items)
+    // console.log(items)
     const { image, title, category, price, size } = items
     return (
         <Box w="100%">
