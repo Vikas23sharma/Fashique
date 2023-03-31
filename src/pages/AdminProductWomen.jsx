@@ -1,33 +1,30 @@
 import React,{useEffect} from 'react'
-//import {useSearchParams, useLocation} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux'
 import { Box,Flex,Button,Stack} from '@chakra-ui/react'
 import Adminsidebar from '../components/Adminsidebar'
 import { Navbar } from './Navbar'
-import { getProducts } from '../Redux/AdminProduct/action'
+import { getProductswomen } from '../Redux/AdminProduct/action'
 import Productcard from '../components/Productcard'
 import {Link} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
 
-
-const Adminproductsmen = () => {
-  // const [searchParams]=useSearchParams()
-  const dispatch=useDispatch()
-  // const location = useLocation()
-  const {products} = useSelector((store)=>store.AdminProduct)
-
-  let obj = {
-    params:{
-       gender:"men"
-    }
-}
-
-  useEffect(()=>{
-    dispatch(getProducts(obj))
-  },[])
-
-  return (
+export const AdminProductWomen = () => {
+    // const [searchParams]=useSearchParams()
+    const dispatch=useDispatch()
+    // const location = useLocation()
+    const {products} = useSelector((store)=>store.AdminProduct)
+  
+    let obj = {
+      params:{
+         gender:"women"
+      }
+  }
+  
+    useEffect(()=>{
+      dispatch(getProductswomen(obj))
+    },[])
+    return (
     <Box>
-     
+       
     <Navbar/>
     <Flex justifyContent={"space-evenly"} marginTop={"8%"}>
     <Box  w={"18%"}>
@@ -37,12 +34,12 @@ const Adminproductsmen = () => {
       {/* write code here */}
       {/* <h1>sen</h1>
       Products of Men Category will be displayed here with edit and delete button */}
-      {products.length>0 && products.map((el)=>{
+       {products.length>0 && products.map((el)=>{
         return <Box key={el.id} >
           <Stack height={"500px"}>
           <Productcard  {...el} />
           </Stack>
-           
+            
             
               
           <Flex justifyContent={"space-between"} padding={"1%"} marginTop={"1%"}>
@@ -50,11 +47,9 @@ const Adminproductsmen = () => {
           <Button color={"red"} >Delete</Button>
           </Flex>
           </Box>
-      })}
+      })} 
     </Box>
   </Flex>
   </Box>
-  )
+    )
 }
-
-export default Adminproductsmen
