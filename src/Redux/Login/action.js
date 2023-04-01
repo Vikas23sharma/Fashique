@@ -6,7 +6,7 @@ import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_TOKEN } from "./acti
 export const getUserDetails = (token) => (dispatch) => {
     dispatch({ type: LOGIN_REQUEST })
     axios
-        .get(`https://exuberant-pink-jewelry.cyclic.app/users`)
+        .get(`https://asos-of6d.onrender.com/users`)
         .then((res) => {
             // console.log(res.data, "Inside the login")
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })

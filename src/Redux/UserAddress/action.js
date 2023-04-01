@@ -8,7 +8,7 @@ export const patchUserAddress = (values, userId) => (dispatch) => {
     //     console.log(values,"jdbfasdfjsgh")
     // console.log(userId,"insidedsfasdfasdf")
     dispatch({ type: POST_USERADDRESS_REQUEST })
-    axios.patch(`https://exuberant-pink-jewelry.cyclic.app/users/${userId}`, { useraddress: values })
+    axios.patch(`https://asos-of6d.onrender.com/users/${userId}`, { useraddress: values })
         .then((res) => {
             console.log(res.data, "shajr ")
             dispatch({ type: POST_USERADDRESS_SUCCESS, payload: res.data })
@@ -25,7 +25,7 @@ export const getUserCred = () => (dispatch) => {
     // console.log(userId,"insidedsfasdfasdf")
     dispatch({ type: GET_USERADDRESS_REQUEST })
     axios
-        .get(`https://exuberant-pink-jewelry.cyclic.app/users`)
+        .get(`https://asos-of6d.onrender.com/users`)
         .then((res) => {
             console.log(res.data, "shajr ")
             dispatch({ type: GET_USERADDRESS_SUCCESS, payload: res.data })
