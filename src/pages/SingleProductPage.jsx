@@ -25,7 +25,7 @@ export const SingleProductPage = () => {
   const id = param.product_id;
   useEffect(()=>{
     axios
-      .get(`https://fashique-api.onrender.com/products/${id}`)
+      .get(`https://asos-of6d.onrender.com/products/${id}`)
       .then((res) => {
         console.log(res.data);
         setData(res.data);
@@ -34,6 +34,30 @@ export const SingleProductPage = () => {
         console.log(err);
       });
   },[])
+  const addToCart =()=>{
+     axios
+       .post(`https://asos-of6d.onrender.com/cart`, data)
+       .then((res) => {
+         console.log(res);
+       })
+       .catch((err) => {
+         alert("already exist in cart");
+         console.log(err);
+       });
+  }
+  const addToWishlist=()=>{
+     
+     axios
+       .post(`https://asos-of6d.onrender.com/wishlist`, data)
+       .then((res) => {
+         console.log(res);
+       })
+       .catch((err) => {
+         alert("already exist in wishlist");
+         console.log(err);
+       });
+  }
+
   return (
     <div>
       <Navbar />
@@ -50,8 +74,8 @@ export const SingleProductPage = () => {
             {data.size}
           </p>
           <div style={{display:"flex"}}>
-            <button className="addToCart">ADD TO CART</button>
-            <button className="Wishlist">
+            <button className="addToCart" onClick={addToCart}>ADD TO CART</button>
+            <button className="Wishlist" onClick={addToWishlist}>
               <IoIosHeartEmpty />
             </button>
           </div>
