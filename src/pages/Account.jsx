@@ -1,18 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../Style/AccountStyle.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 export const Account = () =>{
-let userdata = JSON.parse(localStorage.getItem("UserDetails"))
+// let userdata = JSON.parse(localStorage.getItem("UserDetails"))
+let token = JSON.parse(localStorage.getItem("token"))
+const [firstname,seFirstname] = useState('-');
+const [lastname,setLastname] = useState('-')
 let match = window.matchMedia("(max-width:770px)").matches;
-let word = userdata[userdata.length-1].firstname[0]
 const [speacial,setSpeacial] = useState(false)
+
+
+const getUser  = () =>{
+axios.get(`https://asos-of6d.onrender.com/users?token=${token}`)
+.then((data)=>{
+seFirstname(data.data[0].firstname)
+setLastname(data.data[0].lastname)
+})
+.catch((error)=>{
+console.log(error)
+})
+}
 
 const handleSpeacial = () =>{
 setSpeacial(!speacial)
 }
-// console.log(speacial,match)
+
+useEffect(()=>{
+getUser();
+},[])
 
 return (
     <div style={{backgroundColor:'rgba(186, 186, 186, 0.416)'}}>
@@ -25,10 +43,14 @@ return (
     <div className='account_1'>
     <div className='account_1_item'>
         <div style={speacial&&match?{flexDirection:'row',margin:'0'}:null}>
-            <div onClick={handleSpeacial} style={speacial&&match?{margin:'0',width:'70px',height:'70px',borderRadius:'50%',alignItems:'center',textAlign:'center',border:'1px solid grey'}:{display:'flex',width:'70px',height:'70px',borderRadius:'50%',border:'1px solid grey',alignItems:'center',textAlign:'center',padding:'23px'}}>
-            <h1 style={{fontSize:'45px'}}>{word}</h1>
+            <div onClick={handleSpeacial} style={speacial&&match?{margin:'0',width:'70px',height:'70px',borderRadius:'50%',alignItems:'center',textAlign:'center',border:'1px solid grey',padding:'10px'}:{display:'flex',width:'70px',height:'70px',borderRadius:'50%',border:'1px solid grey',alignItems:'center',textAlign:'center',padding:'26px'}}>
+            <h1 style={{fontSize:'30px'}}>
+            {firstname[0]}
+            </h1>
             </div>
-            <h1 style={speacial&&match?{marginLeft:'25px',display:'block'}:{marginLeft:'25px'}}>{userdata[userdata.length-1].firstname} {userdata[userdata.length-1].lastname}</h1>
+            <h1 style={speacial&&match?{marginLeft:'25px',display:'block'}:{marginLeft:'25px'}}>
+                {firstname} {lastname}
+            </h1>
         </div>
         <div>
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjMkQyRDJEIiBkPSJNMTAgMmE0IDQgMCAxMDAgOCA0IDQgMCAwMDAtOHptMCAxMGE2IDYgMCAxMTAtMTIgNiA2IDAgMDEwIDEyem03LjY3OCA4TDE5IDE4LjQ2OGE2LjgwOSA2LjgwOSAwIDAwLS4yMDctLjQ2OEguMjA3Yy0uMDc1LjE1NC0uMTQ0LjMxLS4yMDcuNDY4TDEuMzIyIDIwaC4yODJjLjU2NC0yLjc5MiAzLjgxNC01IDcuODk2LTVzNy4zMzIgMi4yMDggNy44OTYgNWguMjgyek0wIDIwaDIwYy0uNTUzLTQuMDA2LTQuODE5LTctMTAtN1MuNTUzIDE1Ljk5NCAwIDIweiIvPjwvc3ZnPg==" alt="" />
@@ -81,7 +103,7 @@ return (
     </div>
     <div className='account_1_item'>
     <div>
-    <h1 style={{fontSize:'40PX',height:'80vh'}}>Hii,<br />{userdata[userdata.length-1].firstname} {userdata[userdata.length-1].lastname} ...</h1>
+    <h1 style={{fontSize:'30PX',height:'80vh'}}>Hii,<br />{firstname} {lastname} ...</h1>
     </div>
     </div>
     </div>
