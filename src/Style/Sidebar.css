@@ -1,15 +1,14 @@
 .sidebar_1{
-    justify-content: space-around;
+    margin-bottom: 2cm;
 }
 .sidebar_1 > div{
-    /* border: 1px solid blue; */
-    margin: 10px;
+    margin: 10px ;
 }
-.sidebar_1 > div > a > img{
+.sidebar_1  img{
     /* border: 1px solid red; */
     width: 100%;
 }
-.sidebar_1 > div > a > p{
+.sidebar_1  p{
     position: relative;
     z-index: 10;
     font-size: 18px;
@@ -17,14 +16,27 @@
     left: 15px;
     top: 35px;
     height: 0;
+    /* border: 1px solid green; */
 }
-.sidebar_1 > div:nth-child(1) > a > p{
-    left: 15px;
-    top: 15px;
-}
-.side_info > div{
-    margin: 13px 0;
+.side_1_bottom{
     /* border: 1px solid red; */
+    margin-top: 1cm;
+}
+.side_1_bottom p{
+    position: initial;
+}
+.side_info{
+    margin-top: 1.5cm;
+    padding: 0 15px 0 0;
+    /* border: 1px solid blue; */
+}
+.side_info h4{
+    margin: 0 20px;
+    transition: 0.4s ease;
+}
+.side_info h4:hover{
+    color: rgb(0, 169, 181);
+    font-weight: bold;
 }
 
 @media screen and (min-width:0px) and (max-width:750px){

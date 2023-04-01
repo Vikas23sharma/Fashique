@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom'
 
 const Adminsidebar = () => {
     return (
-        <Box height={"100%"} backgroundColor={"#2d2d2d"} >
+        <Box position={"fixed"} height={"100vh"} width={"18%"} backgroundColor={"#2d2d2d"} >
             <Flex direction={"column"} justifyContent={"space-evenly"} >
                 <Link to={"/admin"}>
                     <Flex justifyContent={"space-evenly"} padding={"6%"}  >
@@ -53,9 +53,20 @@ const Adminsidebar = () => {
                            <Link to={"/adminproductmen"}>
                            <Text color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>MEN</Text>
                            </Link>
-                            <Text color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>WOMEN</Text>
-                            <Text color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>SHOES</Text>
+
+                           <Link to={"/admin-product-women"}>
+                           <Text color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>WOMEN</Text>
+                           </Link>
+                           
+                           <Link to={"/admin-product-shoes"}>
+                           <Text color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>SHOES</Text>
+                           </Link>
+                            
+
+                            <Link to={"/admin-product-jacket"}>
                             <Text color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>JACKETS</Text>
+                            </Link>
+                            
                         </AccordionPanel>
                     </AccordionItem>
 
