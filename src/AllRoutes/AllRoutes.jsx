@@ -19,10 +19,7 @@ import CheckOut from "../pages/CheckOut";
 export default function AllRoutes() {
     return (
         <Routes>
-
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/signin" element={<SignIn />}></Route>
-            <Route path="/join" element={<Join />}></Route>
             <Route path="/" element={<Women></Women>}></Route>
             <Route path="/men" element={<Men></Men>}></Route>
             <Route path="/adminlogin" element={<AdminLogin />}></Route>
@@ -33,7 +30,6 @@ export default function AllRoutes() {
             <Route path="/adminproductmen" element={<Adminproductsmen />}></Route>
             <Route path="/mencloth" element={<MenCloths />} />
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
-
         </Routes>
     )
 }
