@@ -42,10 +42,10 @@ const Adminsidebar = () => {
                     <AccordionItem padding={"3%"}>
                         <h2>
                             <AccordionButton color={"white"}>
-                                <Box display={"flex"} justifyContent="space-evenly" as="span" flex='1' textAlign='center'>
-                                    <Box w={"22%"}><HiOutlineClipboardList color='white' size={27} /></Box>
-                                    <Box w={"42%"}><Text color='white' fontSize={"xl"}>Products</Text></Box>
-                                </Box>
+                                <Flex justifyContent="space-evenly" as="span" flex='1' textAlign='center'>
+                                    <HiOutlineClipboardList color='white' size={27} />
+                                    <Text color='white' fontSize={"xl"}>Products</Text>
+                                </Flex>
                                 <AccordionIcon />
                             </AccordionButton>
                         </h2>
@@ -73,10 +73,10 @@ const Adminsidebar = () => {
                     <AccordionItem padding={"3%"}>
                         <h2>
                             <AccordionButton color={"white"}>
-                                <Box display={"flex"} justifyContent="space-evenly" as="span" flex='1' textAlign='center'>
-                                    <Box w={"22%"}><BsPlusCircle color='white' size={25} /></Box>
-                                    <Box w={"42%"}><Text color='white' fontSize={"xl"}>Add Products</Text></Box>
-                                </Box>
+                                <Flex display={"flex"} justifyContent="space-evenly" as="span" flex='1' textAlign='center'>
+                                    <BsPlusCircle color='white' size={25} />
+                                    <Text color='white' fontSize={"xl"}>Add <br/> Products</Text>
+                                </Flex>
                                 <AccordionIcon />
                             </AccordionButton>
                         </h2>

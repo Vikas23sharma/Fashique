@@ -31,6 +31,8 @@ import { AdminProductWomen } from "../pages/AdminProductWomen";
 import { AdminProductShoe } from "../pages/AdminProductShoe";
 import { MenJacket } from "../pages/MenJacket";
 import { WishList } from "../pages/WishList";
+import AdminEditProduct from "../pages/AdminEditProduct";
+
 
 
 
@@ -68,7 +70,7 @@ export default function AllRoutes() {
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
             <Route path="/account" element={<Account></Account>}></Route>
             <Route path="/wishlist" element={<WishList></WishList>}></Route>
-            {/* <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route> */}
+            <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route>
         </Routes>
     )
 
