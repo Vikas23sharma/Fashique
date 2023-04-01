@@ -12,9 +12,12 @@ import { useNavigate } from 'react-router-dom';
 const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [delId, setDelId] = useState(0)
     const [subtotal, setSubtotal] = useState(0)
+    const [subTotal, setSubTotal] = useState(subtotal)
+
     const cartproducts = JSON.parse(localStorage.getItem("CartItems") || [])
-    console.log(cartproducts)
+    // console.log(cartproducts)
 
     useEffect(() => {
         let price = 0;
@@ -22,13 +25,17 @@ const Cart = () => {
             price += product.price;
         });
         setSubtotal(price);
-    }, [cartproducts]);
+    }, [cartproducts, subtotal]);
+
     useEffect(() => {
         var token = JSON.parse(localStorage.getItem("token") || null)
         console.log(token)
         dispatch(getCartProducts(token))
     }, [])
 
+    console.log(delId, "deleting id")
+    console.log(subtotal, "subtotal")
+    console.log(subTotal, "subTotal")
 
     return (
         <Container minW={"100%"}>
@@ -89,9 +96,15 @@ const Cart = () => {
                                     >
                                         {
                                             cartproducts.map((items) => (
-                                                <CartProductCard {...items} key={items.id} />
+                                                <CartProductCard key={items.id} {...items}
+                                                    setDelId={setDelId}
+                                                    setSubTotal={setSubTotal}
+                                                    subTotal={subTotal}
+
+                                                />
                                             ))
                                         }
+
                                     </Box>
                                 </Box>
 
@@ -105,7 +118,7 @@ const Cart = () => {
                                         <Text p="5" letterSpacing={"2px"} fontWeight="550"> TOTAL</Text>
                                         <Divider borderColor={"black"} />
                                         <Box>
-                                            <HStack> <Text p={5} fontWeight="520"> Sub-total :</Text> <Spacer /> <Text>$ {subtotal}.00</Text> </HStack>
+                                            <HStack> <Text p={5} fontWeight="520"> Sub-total :</Text> <Spacer /> <Text>$ {subtotal + subTotal}.00</Text> </HStack>
                                             <HStack> <Text pl="5" fontWeight="520">Delivery </Text> <Spacer /> <RiInformationLine size={20} /></HStack>
                                         </Box>
                                         <Box>

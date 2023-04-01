@@ -2,10 +2,20 @@ import { Box, Button, Flex, HStack, Image, Select, Text } from '@chakra-ui/react
 import { FaTimes } from 'react-icons/fa';
 import { useState } from "react"
 
-const CartProductCard = (items) => {
+const CartProductCard = ({ image, title, category, price, size, id, setDelId, setSubTotal, subTotal }) => {
     // console.log(items)
     const [qty, setQty] = useState(1)
-    const { image, title, category, price, size } = items
+    // const { image, title, category, price, size, id } = items
+    const handleDelete = () => {
+        setDelId(id)
+
+    }
+    const handleChange = (e) => {
+        setQty(e.target.value)
+        var newprice = subTotal + (price * qty)
+
+        setSubTotal(newprice)
+    }
 
     return (
         <Box>
@@ -25,7 +35,7 @@ const CartProductCard = (items) => {
                         <Text color={"gray"} fontWeight="bold" fontSize={["10", "20", "20", "12"]}>Size :{size}</Text>
                         <HStack>
                             <Text color={"gray"} fontSize={["10", "20", "20", "12"]} fontWeight="bold">Qty: {qty}</Text>
-                            <Select defaultValue={1} w="45px" variant={"ghost"} onChange={(e) => setQty(e.target.value)}>
+                            <Select defaultValue={1} w="45px" variant={"ghost"} onChange={handleChange}>
                                 <option value="" hidden></option>
                                 {[...Array(10)].map((_, i) => (
                                     <option key={i} value={i + 1}>{i + 1}</option>
@@ -34,7 +44,7 @@ const CartProductCard = (items) => {
                         </HStack>
                     </Box>
                     <Box >
-                        <Button variant={"ghost"} _hover={{ bg: "none" }}>   <FaTimes color='greyS' /></Button>
+                        <Button variant={"ghost"} _hover={{ bg: "none" }} onClick={handleDelete}>   <FaTimes color='greyS' /></Button>
                     </Box>
                 </Flex>
             </Box>
