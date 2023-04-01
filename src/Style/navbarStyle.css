@@ -91,7 +91,7 @@ nav{
     align-items: center;
     cursor: pointer;
 }
-.nav_top_3 > div > svg{
+.nav_top_3 > div  svg{
     width: 25px;
     margin: auto;
 }

@@ -1,15 +1,15 @@
 .card{
     position: relative;
     margin-top: 20px;
-    width : 320px;
+    margin: auto;
+    /* width : 320px; */
     height: 500px;
     /* border: 1px solid black; */
+    box-sizing: border-box;
 }
 .card img{
-
+    width: 100%;
     height: 430px;
-   
-
 }
 .card button{
    position: absolute;
