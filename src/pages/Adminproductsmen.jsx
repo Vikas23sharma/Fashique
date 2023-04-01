@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-//import {useSearchParams, useLocation} from 'react-router-dom'
+import {useSearchParams, useLocation} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { Box,Flex,Button,Stack} from '@chakra-ui/react'
 import Adminsidebar from '../components/Adminsidebar'
@@ -10,20 +10,20 @@ import {Link} from 'react-router-dom'
 
 
 const Adminproductsmen = () => {
-  // const [searchParams]=useSearchParams()
+  const [searchParams]=useSearchParams()
   const dispatch=useDispatch()
-  // const location = useLocation()
+   const location = useLocation()
   const {products} = useSelector((store)=>store.AdminProduct)
 
   let obj = {
     params:{
-       gender:"men"
+      gender:searchParams.getAll("men")
     }
 }
 
   useEffect(()=>{
     dispatch(getProducts(obj))
-  },[])
+  },[location.search])
 
   return (
     <Box>

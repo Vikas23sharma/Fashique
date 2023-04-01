@@ -13,6 +13,9 @@ import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
 
+
+import  AdminEditProduct from "../pages/AdminEditProduct";
+
 import Admin from "../pages/Admins";
 import { SingleProductPage } from "../pages/SingleProductPage";
 import { MenTshirt } from "../pages/MenTshirt";
@@ -32,7 +35,7 @@ import { Search } from "../pages/Search";
 
 import { Account } from "../pages/Account";
 
-import { AdminEditProduct } from "../pages/AdminEditProduct";
+
 import { AdminProductsJackets } from "../pages/AdminProductsJackets";
 import { AdminProductWomen } from "../pages/AdminProductWomen";
 import { AdminProductShoe } from "../pages/AdminProductShoe";

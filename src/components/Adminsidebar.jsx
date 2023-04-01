@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom'
 
 const Adminsidebar = () => {
     return (
-        <Box position={"fixed"} height={"650px"} width={"18%"} backgroundColor={"#2d2d2d"} >
+        <Box position={"fixed"} height={"100vh"} width={"18%"} backgroundColor={"#2d2d2d"} >
             <Flex direction={"column"} justifyContent={"space-evenly"} >
                 <Link to={"/admin"}>
                     <Flex justifyContent={"space-evenly"} padding={"6%"}  >
