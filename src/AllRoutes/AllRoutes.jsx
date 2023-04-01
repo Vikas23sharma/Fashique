@@ -17,7 +17,7 @@ import AdminAddProductMen from "../pages/AdminAddProductMen";
 import AdminLogin from "../pages/AdminLogin";
 import CheckOut from "../pages/CheckOut";
 
-import { AdminEditProduct } from "../pages/AdminEditProduct";
+import  AdminEditProduct from "../pages/AdminEditProduct";
 import { AdminProductsJackets } from "../pages/AdminProductsJackets";
 import { AdminProductWomen } from "../pages/AdminProductWomen";
 import { AdminProductShoe } from "../pages/AdminProductShoe";
