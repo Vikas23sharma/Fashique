@@ -1,0 +1,51 @@
+.singleImage img{
+   width:540px;
+   height: 600px;
+}
+.mainContainer{
+    display: flex;
+    justify-content: space-evenly;
+    width:80%;
+    margin: auto;
+     margin-top:150px;
+}
+.singleDetails{
+    padding: 30px;
+    width: 400px;
+}
+.singleDetails h2{
+    font-size: 15px;
+    color: #455A64;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.singleDetails h1{
+    color: brown;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.singleDetails p{
+    font-size: 13px;
+    color: #455A64;
+    margin-top: 20px;
+}
+.addToCart{
+    width:70%;
+    background-color: darkgreen;
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    padding: 5px ;
+    margin: 30px 20px 20px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Wishlist{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ECEFF1;
+    font-size: 30px;
+    padding: 5px;
+    margin: 30px 20px 10px 0px;
+}

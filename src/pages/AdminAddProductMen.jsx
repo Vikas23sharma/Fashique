@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { useDispatch } from "react-redux";
 import { Box, Button, Flex,Heading,Input } from '@chakra-ui/react'
 import Adminsidebar from '../components/Adminsidebar'
 import { Navbar } from './Navbar'
@@ -8,10 +9,51 @@ import {
     FormErrorMessage,
     FormHelperText,
 } from '@chakra-ui/react'
+import { addProductMen, addProductMenToProduct } from '../Redux/AdminProduct/action';
+import { useToast } from '@chakra-ui/react'
 
-
+const initialState={
+    id:"",
+    image:"",
+    title:"",
+    brand:"",
+    discount:"",
+    gender:"",
+    style:"",
+    size:"",
+    price:"",
+    category:"",
+}
 
 const AdminAddProductMen = () => {
+    const [product,setProduct]=useState(initialState)
+    const dispatch=useDispatch()
+    const { id,image,title,brand,discount, gender, style,size, price,category}=product
+    const handleChange=(e)=>{
+        console.log(e)
+       const {name,value}=e.target
+
+       setProduct((prev) =>{
+           return {...prev,[name]:value}
+       })
+    }
+    const toast=useToast()
+    
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        // if(image===""||title===""||brand===""||discount===""||gender===""||style===""||size===""||price===""||category===""){
+        //     return  toast({
+        //         title: 'Enter all fields',
+        //         position:" top",
+        //         isClosable: true,
+        //       })
+        // }
+        console.log(product)
+        dispatch(addProductMen(product))
+        dispatch(addProductMenToProduct(product))
+        setProduct(initialState)
+        //console.log("clicked")
+    }
     return (
         <Box>
             <Navbar />
@@ -24,27 +66,31 @@ const AdminAddProductMen = () => {
                     {/* Products will be added to the men's category from here */}
                     <Heading color={"#2d2d2d"} marginBottom="2%">ADD PRODUCT</Heading>
                     <Box padding={"3%"} w={"50%"}  margin="2% auto" boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px">
-                        <FormControl isRequired>
+                       <form onSubmit={handleSubmit}>
+                        <FormControl isRequired >
+                            <FormLabel>ID</FormLabel>
+                            <Input type="number" value={product.id} onChange={(e)=>{handleChange(e)}} name="id" placeholder='Enter ID' />
                             <FormLabel>Image</FormLabel>
-                            <Input placeholder='Enter Image URL' />
+                            <Input type="text" value={product.image} onChange={(e)=>{handleChange(e)}} name="image" placeholder='Enter Image URL' />
                             <FormLabel>Title</FormLabel>
-                            <Input placeholder='Enter Product Title' />
+                            <Input type="text" value={product.title} onChange={(e)=>{handleChange(e)}} name="title" placeholder='Enter Product Title' />
                             <FormLabel>Brand </FormLabel>
-                            <Input placeholder='Enter Product Brand' />
+                            <Input type="text" value={product.brand} onChange={(e)=>{handleChange(e)}} name="brand" placeholder='Enter Product Brand' />
                             <FormLabel>Discount</FormLabel>
-                            <Input type={"number"} placeholder='Enter Discount' />
+                            <Input type={"number"} value={product.discount} onChange={(e)=>{handleChange(e)}} name="discount" placeholder='Enter Discount' />
                             <FormLabel>Gender</FormLabel>
-                            <Input placeholder='Enter Gender' />
+                            <Input type="text" value={product.gender} onChange={(e)=>{handleChange(e)}} name="gender"  placeholder='Enter Gender' />
                             <FormLabel>Style</FormLabel>
-                            <Input placeholder='Enter Product Style' />
+                            <Input type="text" value={product.style} onChange={(e)=>{handleChange(e)}} name="style" placeholder='Enter Product Style' />
                             <FormLabel>Size</FormLabel>
-                            <Input placeholder='Enter Product Size' />
+                            <Input type="text" value={product.size} onChange={(e)=>{handleChange(e)}} name="size" placeholder='Enter Product Size' />
                             <FormLabel>Price</FormLabel>
-                            <Input type={"number"} placeholder='Enter Product Price' />
+                            <Input type="number"  value={product.price} onChange={(e)=>{handleChange(e)}} name="price" placeholder='Enter Product Price' />
                             <FormLabel>Category</FormLabel>
-                            <Input placeholder='Enter Product Category' />
-                            <Button backgroundColor={"#2d2d2d"} color="white" marginTop={"3%"} type={"submit"}>ADD PRODUCT</Button>
+                            <Input type="text" value={product.category} onChange={(e)=>{handleChange(e)}} name="category" placeholder='Enter Product Category' />
+                            <Button backgroundColor={"#2d2d2d"} color="white" marginTop={"3%"} type="submit">ADD PRODUCT</Button>
                         </FormControl>
+                        </form>
                     </Box>
                 </Box>
             </Flex>
