@@ -48,5 +48,127 @@
       "password": "1233",
       "id": 8
     }
+  ],
+  "products": [
+    {
+      "id": 101,
+      "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
+      "title": " Topman crochet shirt in green and ecru",
+      "brand": "Topman",
+      "discount": 20,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "S",
+      "price": 65,
+      "category": "T-shirt"
+    },
+    {
+      "id": 102,
+      "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
+      "title": "Topman classic t-shirt in black",
+      "brand": "Topman",
+      "discount": 30,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "M",
+      "price": 13,
+      "category": "T-shirt"
+    },
+    {
+      "id": 103,
+      "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
+      "title": "Topman classic t-shirt in white",
+      "brand": "Topman",
+      "discount": 45,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "L",
+      "price": 13,
+      "category": "T-shirt"
+    },
+    {
+      "id": 104,
+      "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
+      "title": "Topman classic t-shirt in black",
+      "brand": "Topman",
+      "discount": 60,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "XL",
+      "price": 15,
+      "category": "T-shirt"
+    },
+    {
+      "id": 105,
+      "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
+      "title": "New Look crew neck t-shirt in blue",
+      "brand": "New Look",
+      "discount": 20,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "S",
+      "price": 17,
+      "category": "T-shirt"
+    },
+    {
+      "id": 10,
+      "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
+      "title": " Topman crochet shirt in green and ecru",
+      "brand": "Topman",
+      "discount": 20,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "S",
+      "price": 65,
+      "category": "T-shirt"
+    },
+    {
+      "id": 12,
+      "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
+      "title": "Topman classic t-shirt in black",
+      "brand": "Topman",
+      "discount": 30,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "M",
+      "price": 13,
+      "category": "T-shirt"
+    },
+    {
+      "id": 13,
+      "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
+      "title": "Topman classic t-shirt in white",
+      "brand": "Topman",
+      "discount": 45,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "L",
+      "price": 13,
+      "category": "T-shirt"
+    },
+    {
+      "id": 14,
+      "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
+      "title": "Topman classic t-shirt in black",
+      "brand": "Topman",
+      "discount": 60,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "XL",
+      "price": 15,
+      "category": "T-shirt"
+    },
+    {
+      "id": 15,
+      "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
+      "title": "New Look crew neck t-shirt in blue",
+      "brand": "New Look",
+      "discount": 20,
+      "gender": "men",
+      "style": "half sleeve",
+      "size": "S",
+      "price": 17,
+      "category": "T-shirt"
+    }
   ]
 }
