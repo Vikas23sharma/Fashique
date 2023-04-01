@@ -288,7 +288,7 @@ const CheckOut = () => {
 
                     <Stack direction={["column", "column", "column", "row"]}>
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }}
-                            w={["330px", "100%", "100%", "1600px", "700px"]} maxH={["17vh", "15vh", "15vh", "15vh", "15vh", "17vh"]} mt="0"
+                             maxH={["17vh", "15vh", "15vh", "15vh", "15vh", "17vh"]} mt="0"
                         >
                             <Box pl={["5", "10"]} pt="5" pb={"10"}>
                                 <Text fontSize={["md", "xl"]} fontWeight="550">DELIVERY COUNTRY :</Text>

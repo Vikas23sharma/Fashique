@@ -30,6 +30,8 @@ import { AdminProductsJackets } from "../pages/AdminProductsJackets";
 import { AdminProductWomen } from "../pages/AdminProductWomen";
 import { AdminProductShoe } from "../pages/AdminProductShoe";
 import { MenJacket } from "../pages/MenJacket";
+import Error404 from "../pages/Error404";
+import Cart from "../pages/Cart";
 
 
 
@@ -68,6 +70,8 @@ export default function AllRoutes() {
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
             <Route path="/account" element={<Account></Account>}></Route>
             {/* <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route> */}
+            <Route path="/cart" element={<Cart />}></Route>
+            <Route element={<Error404 />}></Route> {/* all team member keep this line at last */}
         </Routes>
     )
 
