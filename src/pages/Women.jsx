@@ -69,38 +69,50 @@ return (
     >
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/ei8th-hour-satin-draped-spilt-side-midi-dress-in-green/203338784-1-midgreen?$n_640w$&wid=513&fit=constrain" alt="1" />
-        <p>GLAM GRESS</p>
+      <Link to={'/womenjacket'}>
+        <img src="https://images.asos-media.com/products/miss-selfridge-blazer-coat-in-green-check/200898508-1-darksage?$n_320w$&wid=317&fit=constrain" alt="1" />
+        <p>JACKETS</p>
+      </Link>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
-        <img src="https://images.asos-media.com/products/mango-ribbed-asymmetric-top-with-side-button-detail-in-bright-yellow/202744155-1-yellow?$n_640w$&wid=513&fit=constrain" alt="2" />
-        <p>JERSEY TOPS</p>
+      <Link to={'/womenshorts'}>
+        <img src="https://images.asos-media.com/products/pullbear-long-sweat-shorts-in-mint/24342318-2?$n_480w$&wid=476&fit=constrain" alt="2" />
+        <p>SHORTS</p>
+      </Link>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
+      <Link to={'/womenpants'}>
         <img src="https://images.asos-media.com/products/topshop-kort-split-hem-co-ord-jeans-in-turquoise/201848051-1-turquoise?$n_640w$&wid=513&fit=constrain" alt="3" />
         <p>JEANS</p>
+      </Link>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
+      <Link to={'/womenshoes'}>
         <img src="https://images.asos-media.com/products/nike-blazer-low-platform-trainers-in-lemon-drop-yellow/202287768-1-yellow?$n_640w$&wid=513&fit=constrain" alt="4" />
         <p>SNEAKERS</p>
+      </Link>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
+    <Link to={'/womentop'}>
         <img src="https://images.asos-media.com/products/puma-train-black-print-crop-top-in-black/200884093-3?$n_640w$&wid=513&fit=constrain" alt="5" />
-        <p>SALE UNDER 20$</p>
+        <p>TOPS</p>
+    </Link>
     </div>
     </SwiperSlide>
     <SwiperSlide>
     <div className="content_1_031">
+    <Link to={'womendress'}>
         <img src="https://images.asos-media.com/products/asos-design-knitted-midi-dress-with-ruched-waist-in-orange/200870287-1-orange?$n_640w$&wid=513&fit=constrain" alt="6" />
         <p>DAY DRESSES</p>
+    </Link>
     </div>
     </SwiperSlide>
     </Swiper>

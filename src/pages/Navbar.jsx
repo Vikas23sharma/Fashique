@@ -3,16 +3,55 @@ import '../Style/navbarMedia.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Sidebar } from './Sidebar'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch,useSelector } from 'react-redux'
+import { getSearch } from '../Redux/search/action'
+import { getSearchBtn } from '../Redux/search/action'
 
 export const Navbar = () =>{
-let match = window.matchMedia("(max-width:750px)").matches;
+const dispatch = useDispatch()
+let match = window.matchMedia("(max-width:770px)").matches;
+const navigate = useNavigate()
 const [on,isOn] = useState(false)
 const [sign,isSign] = useState(false)
+const [inputs,setInputs] = useState('')
 const handleClick = () =>{
 isOn(!on)
 }
 const handleSignIn = () =>{
 isSign(!sign)
+}
+
+const handleInput = (e) =>{
+let value = '';
+if(e == 'Men' || e == 'MEN' || e == 'Mens' || e == 'mens'){
+value = 'men'
+}
+else if(e == 'Women'|| e == 'women' || e == 'WOMEN' || e == 'Womens' || e == 'womens'){
+value = 'womens'
+
+}
+else if(e == 'shoe' || e == 'SHOE' ||  e == 'SHOES' || e == 'Shoes' || e == 'Shoe'){
+value = 'shoes'
+}
+else if(e == 'jacket' || e == 'JACKET' ||  e == 'JACKETS' || e == 'Jackets' || e == 'Jackets'){
+value = 'jackets'
+}
+else{
+value = e
+}
+
+setInputs(e)
+dispatch(getSearch(value))
+}
+
+const handleSearchBtn = () =>{
+console.log('tikk')
+
+if(inputs.length>0 || match){
+    dispatch(getSearchBtn(1))
+    navigate('/search')
+}
 }
 
 return (
@@ -23,7 +62,7 @@ return (
             {on?'X':'|||'}
         </div>
         <div>
-        <p><h1>ASU\</h1></p>
+        <p><h1><Link to={'/'}>FSUQ</Link></h1></p>
         </div>
         <div>
         <Link to={'/'}><p style={{color:'white'}}>WOMEN</p></Link>
@@ -33,8 +72,8 @@ return (
         </div>
     </div>
     <div className='nav_top_2'>
-        <input type="text" placeholder="Search for items and brands"/>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <input type="text" value={inputs} onChange={(e)=>handleInput(e.target.value)} placeholder="Search for items and brands"/>
+        <svg onClick={handleSearchBtn} xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
         </svg>
     </div>
@@ -58,16 +97,28 @@ return (
     </div>
     <div className='nav_part_2'>
     <div>
-        <div>New in</div>
-        <div>Sale</div>
-        <div>Clothing</div>
-        <div>Dresses</div>
-        <div>Shoes</div>
+        <div>
+        <Link to={'/womenshorts'}>New in</Link>
+        </div>
+        <div>
+        <Link to={'/womenjacket'}>Sale</Link>
+        </div>
+        <div>
+        <Link to={'/womentop'}>Clothing</Link>
+        </div>
+        <div>
+        <Link to={'/womendress'}>Dresses</Link>
+        </div>
+        <div>
+        <Link to={'/womenshoes'}>Shoes</Link>
+        </div>
         <div>Summer</div>
         <div>Activewere</div>
         <div>Brands</div>
         <div>Accessories</div>
-        <div>Jeans</div>
+        <div>
+        <Link to={'/womenpants'}>Jeans</Link>
+        </div>
         <div>Face</div>
         <div>Topshop</div>
         <div>Marketplace</div>
@@ -79,8 +130,8 @@ return (
     {/* contact */}
     <div className='signIn_1' style={{height:sign&&!match?'auto':'0px',display:sign&&!match?'block':'none'}}>
     <div>
-    <h6>SIGN IN</h6>
-    <h6>JOIN </h6>
+    <h6><Link to={'/signin'}>SIGN IN</Link></h6>
+    <h6><Link to={'/join'}>JOIN</Link></h6>
     </div>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">

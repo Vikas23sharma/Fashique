@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.account_1{
+    /* border: 1px solid red; */
+    width: 80%;
+    display: flex;
+    margin: auto;
+    color: rgb(74, 74, 74);
+}
+span{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.7cm auto 0.5cm auto;
+}
+span h1{
+    font-size: 35px;
+    font-weight: bold;
+}
+span  img{
+    width: 100px;
+}
+.account_1_item{
+    border: 1px solid blue;
+}
+.account_1_item:nth-child(1){
+    width: 40%;
+}
+.account_1_item:nth-child(2){
+    width: 60%;
+}
+.account_1_item > div{
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    border: 1px solid red;
+}
+.account_1_item > div > img{
+    width: 25px;
+}
+.account_1_item > div > p{
+    margin-left: 20px;
+}
+
+@media screen and (min-width:0px) and (max-width:1000px){
+span h1{
+    font-size: 25px;
+}
+span img{
+    width: 80px;
+}
+.account_1_item:nth-child(1){
+    width: 45%;
+}
+.account_1_item:nth-child(2){
+    width: 55%;
+}
+}
+
+@media screen and (min-width:0px) and (max-width:770px){
+span h1{
+    font-size: 20px;
+}
+span img{
+    width: 65px;
+}
+.account_1{
+    width: 90%;
+}
+.account_1_item:nth-child(1){
+    width: 100%;
+}
+.account_1_item:nth-child(2){
+    display: none;
+}
+}
+@media screen and (min-width:0px) and (max-width:450px){
+span h1{
+    font-size: 17px;
+}
+span img{
+    width: 50px;
+}
+}
