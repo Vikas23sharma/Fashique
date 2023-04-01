@@ -2,13 +2,14 @@ import { Box, Button, Flex, HStack, Image, Select, Text } from '@chakra-ui/react
 import { FaTimes } from 'react-icons/fa';
 import { useState } from "react"
 
-const CartProductCard = ({ image, title, category, price, size, id, setDelId, setSubTotal, subTotal }) => {
+const CartProductCard = ({ image, title, category, price, size, id, setDelId, setSubTotal, subTotal, setCount }) => {
     // console.log(items)
+
     const [qty, setQty] = useState(1)
     // const { image, title, category, price, size, id } = items
     const handleDelete = () => {
         setDelId(id)
-
+        setCount(p => p + 1)
     }
     const handleChange = (e) => {
         setQty(e.target.value)
@@ -19,7 +20,7 @@ const CartProductCard = ({ image, title, category, price, size, id, setDelId, se
 
     return (
         <Box>
-            <Box style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px", borderRadius: "10px" }} p="5">
+            <Box style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px", borderRadius: "10px" }} p="5" h="160px">
                 <Flex>
                     <Box pl={[0, 5]}>
                         <Image src={image} alt={category} width={"100%"} h={"15vh"} />

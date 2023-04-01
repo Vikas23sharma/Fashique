@@ -8,20 +8,23 @@ import { getCartProducts, updatedCart } from '../Redux/Cart/action';
 import { FaShoppingBag, FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
+const cartproducts = JSON.parse(localStorage.getItem("CartItems")) || []
 
 const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [delId, setDelId] = useState(0)
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState(cartproducts)
     const [subtotal, setSubtotal] = useState(0)
     const [subTotal, setSubTotal] = useState(subtotal)
-
+    const [boxHeight, setBoxHeight] = useState('80vh');
+    const [count, setCount] = useState(0)
 
     // console.log(cartproducts)
-    var cartUserId = JSON.parse(localStorage.getItem("cartUserId")) || null
+    var cartUserId = JSON.parse(localStorage.getItem("CartUserId")) || null
     var token = JSON.parse(localStorage.getItem("token")) || null
-    const cartproducts = JSON.parse(localStorage.getItem("CartItems")) || []
+
+
     useEffect(() => {
         let price = 0;
         if (cartItems.length !== 0) {
@@ -31,17 +34,18 @@ const Cart = () => {
         }
         setSubtotal(price);
     }, [cartItems, subtotal]);
-
     useEffect(() => {
-
-        setCartItems(cartproducts)
+        var token = JSON.parse(localStorage.getItem("token")) || null
+        // const cartproducts = JSON.parse(localStorage.getItem("CartItems")) || []
+        // setCartItems(cartproducts)
         console.log(token)
 
         if (token !== null) {
             dispatch(getCartProducts(token))
         }
-
     }, [token])
+
+
 
     // console.log(delId, "deleting id")
     // console.log(subtotal, "subtotal")
@@ -49,9 +53,14 @@ const Cart = () => {
 
     useEffect(() => {
         setCartItems((prevCart) => prevCart.filter((item) => item.id !== delId))
+        const updatedCartItems = cartItems.filter((item) => item.id !== delId);
+        localStorage.setItem('CartItems', JSON.stringify(updatedCartItems));
+        const remainingItemsCount = cartItems.length - 1;
+        const newHeight = `${remainingItemsCount * 160}px`;
+        setBoxHeight(newHeight);
 
     }, [delId])
-
+    console.log(cartUserId)
     useEffect(() => {
         dispatch(updatedCart(cartItems, cartUserId))
     }, [cartItems, cartUserId])
@@ -100,7 +109,7 @@ const Cart = () => {
                                     </Box>
                                     <Box
                                         w={["330px", "100%", "600px", "800px", "600px", "600px"]}
-                                        h="80vh"
+                                        h={boxHeight}
                                         overflowY={"scroll"}
                                         // border={"1px solid black"}
                                         mt="3"
@@ -118,6 +127,7 @@ const Cart = () => {
                                                     setDelId={setDelId}
                                                     setSubTotal={setSubTotal}
                                                     subTotal={subTotal}
+                                                    setCount={setCount}
 
                                                 />
                                             ))

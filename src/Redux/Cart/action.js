@@ -24,10 +24,11 @@ export const getCartProducts = (token) => (dispatch) => {
 }
 
 
-export const updatedCart = (values, cartUserId) => (dispatch) => {
-
+export const updatedCart = (cartItems, cartUserId) => (dispatch) => {
+    console.log(cartItems, "indie")
+    console.log(cartUserId,"isdfs")
     dispatch({ type: UPDATED_CART_REQUEST })
-    axios.patch(`http://localhost:8080/users/${cartUserId}`, { cart: values })
+    axios.patch(`http://localhost:8080/users/${cartUserId}`, { cart: cartItems })
         .then((res) => {
             console.log(res.data, "shajr ")
             dispatch({ type: UPDATED_CART_SUCCESS, payload: res.data })
