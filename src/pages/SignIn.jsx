@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
-    FormControl, Center, Text, HStack, VStack, Spacer, Stack, SimpleGrid,
-    FormLabel, FormErrorMessage, FormHelperText, Input, Box, Button, Container, useToast
+    FormControl, Center, Text, VStack, SimpleGrid,
+    FormLabel, Input, Box, Button, Container, useToast
 } from '@chakra-ui/react'
 import { FcGoogle } from "react-icons/fc"
 import { TiVendorApple } from 'react-icons/ti'

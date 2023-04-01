@@ -10,9 +10,6 @@ import {
   Link,
   Button,
   Heading,
-  Text,
-  Wrap,
-  WrapItem,
   useToast,
 
 
@@ -46,7 +43,7 @@ export default function AdminLogin() {
         isClosable: true,
         position: "top"
       });
-      <Navigate to= "/admin" replace="true" />
+      <Navigate to="/admin" replace="true" />
     } else {
       toast({
         title: "Login Failed",

@@ -4,7 +4,7 @@ import { CREATE_ACCOUNT_FAILURE, CREATE_ACCOUNT_REQUEST, CREATE_ACCOUNT_SUCCESS 
 export const createAccount = (values) => (dispatch) => {
     dispatch({ type: CREATE_ACCOUNT_REQUEST })
     axios
-        .post(`https://exuberant-pink-jewelry.cyclic.app/users`, values)
+        .post(`https://asos-of6d.onrender.com/users`, values)
         .then((res) => {
             console.log(res.data)
             dispatch({ type: CREATE_ACCOUNT_SUCCESS, payload: res.data })
