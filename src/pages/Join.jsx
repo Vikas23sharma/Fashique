@@ -52,7 +52,7 @@ const Join = ({ setCurrentForm }) => {
             console.log("onsubmit is working")
             values["token"] = generateToken()
             values["useraddress"] = {}
-            values["cart"] = {}
+            values["cart"] = []
             values["wishlist"] = {}
             values["useraccountcredentials"] = {}
 

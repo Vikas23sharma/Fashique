@@ -1,4 +1,4 @@
-import { Box, Button, Flex, HStack, Image, Select, Spacer, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, Image, Select, Text } from '@chakra-ui/react'
 import { FaTimes } from 'react-icons/fa';
 import { useState } from "react"
 
