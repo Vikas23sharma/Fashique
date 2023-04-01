@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react'
 import {useSearchParams, useLocation} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import { Box,Flex,Button,Stack} from '@chakra-ui/react'
+import { Box,Flex,Button,Stack,Toast, useToast} from '@chakra-ui/react'
 import Adminsidebar from '../components/Adminsidebar'
 import { Navbar } from './Navbar'
-import { getProducts } from '../Redux/AdminProduct/action'
+import { DeleteProductMen, getProducts } from '../Redux/AdminProduct/action'
 import Productcard from '../components/Productcard'
 import {Link} from 'react-router-dom'
 
@@ -21,9 +21,23 @@ const Adminproductsmen = () => {
     }
 }
 
+const toast=useToast()
+
+const handleDelete=(id)=>{
+  dispatch(DeleteProductMen(id))
+  return toast({
+    title: 'PRODUCT DELETED SUCCESSFULLY!!!',
+    description: "",
+    status: 'success',
+    duration: 5000,
+    isClosable: true,
+    position:'top'
+  })
+}
+
   useEffect(()=>{
     dispatch(getProducts(obj))
-  },[location.search])
+  },[location.search,products])
 
   return (
     <Box>
@@ -42,12 +56,9 @@ const Adminproductsmen = () => {
           <Stack height={"500px"}>
           <Productcard  {...el} />
           </Stack>
-           
-            
-              
-          <Flex justifyContent={"space-between"} padding={"1%"} marginTop={"1%"}>
+           <Flex justifyContent={"space-between"} padding={"1%"} marginTop={"1%"}>
           <Button color={"green"} marginRight={"20px"}><Link to ={`/admin-edit/${el.id}`}>Edit</Link></Button>
-          <Button color={"red"} >Delete</Button>
+          <Button onClick={()=>handleDelete(el.id)} color={"red"} >Delete</Button>
           </Flex>
           </Box>
       })}
