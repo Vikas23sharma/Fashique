@@ -184,13 +184,13 @@ const CheckOut = () => {
         }
     ]
 
-    var userDetails = JSON.parse(localStorage.getItem("UserDetails") || [])
-    var index = JSON.parse(localStorage.getItem("userId") || 0)
-    var token = JSON.parse(localStorage.getItem("token") || null)
+    var userDetails = JSON.parse(localStorage.getItem("UserDetails")) || []
+    var index = JSON.parse(localStorage.getItem("userId")) || 1
+    var token = JSON.parse(localStorage.getItem("token")) || null
 
 
     useEffect(() => {
-        const localUserDetails = JSON.parse(localStorage.getItem("UserDetails") || [])
+        const localUserDetails = JSON.parse(localStorage.getItem("UserDetails")) || []
         const localToken = JSON.parse(localStorage.getItem("token") || null)
 
         const user = localUserDetails.find((item) => item.token === localToken)
@@ -273,7 +273,7 @@ const CheckOut = () => {
                         </Alert>
                     </Slide>
                 )}
-                <Box width={["100%", "80%", "80%", "90%", "60%",]} p="5">
+                <Box width={["100%", "80%", "80%", "90%", "60%"]} p="5">
                     <HStack>
                         <Box><Text fontSize={["md", "3xl"]} fontWeight="bolder">FASHIQUE</Text></Box>
                         <Spacer />
@@ -284,11 +284,11 @@ const CheckOut = () => {
                 </Box>
             </Center>
             <Center>
-                <Box width={["700px", "100%", "80%", "100%", "60%"]} p="5">
+                <Box width={["700px", "100%", "80%", "80%", "60%"]} p="5">
 
                     <Stack direction={["column", "column", "column", "row"]}>
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }}
-                             maxH={["17vh", "15vh", "15vh", "15vh", "15vh", "17vh"]} mt="0"
+                            maxH={["17vh", "15vh", "15vh", "15vh", "15vh", "17vh"]} mt="0"
                         >
                             <Box pl={["5", "10"]} pt="5" pb={"10"}>
                                 <Text fontSize={["md", "xl"]} fontWeight="550">DELIVERY COUNTRY :</Text>
@@ -346,9 +346,13 @@ const CheckOut = () => {
                                         <Divider orientation='horizontal' borderColor="black" pt={"5"} width={"100%"} margin={"auto"} />
 
                                         <Text fontSize={["md", "xl"]} fontWeight="550" pt={5} pb="5" >PAYMENT TYPE</Text>
-                                        <Box p={["1", "10"]} pr={["10", "5"]}><Button leftIcon={<BsCreditCardFill />}
-                                            width={["300px", "100%", "80%", "100%", "60%"]}
-                                            onClick={() => setShowPaymentCard(!showPaymentCard)}> <Text letterSpacing={"2px"} fontSize={["sm", "md"]}> ADD CREDIT/DEBIT CARD</Text></Button>
+                                        <Box p={["1", "10"]} pr={["10", "5"]}>
+                                            <Button
+                                                width={["80%", "100%", "80%", "100%", "60%", "100%"]} margin={["auto", "auto", "auto", "auto", "auto", "auto"]}
+                                                onClick={() => setShowPaymentCard(!showPaymentCard)}>
+                                                <BsCreditCardFill /> <Text pl="3" letterSpacing={["0", "2px"]} fontSize={["sm", "md"]} textAlign={"center"} >
+                                                    <Center> ADD CREDIT/DEBIT CARD</Center></Text>
+                                            </Button>
                                             {showPaymentCard ? <PaymentCard
                                                 setShowPaymentCard={setShowPaymentCard}
                                                 showPaymentCard={showPaymentCard}
@@ -356,7 +360,13 @@ const CheckOut = () => {
                                             /> : null}
 
                                         </Box>
-                                        <Box pl={["1", "10"]} mt={["2"]}> <Button width={["100%", "58%"]} leftIcon={<FaCcPaypal />}> <Center><Text letterSpacing={["2px", "2px"]}>PAYPAL</Text></Center></Button> </Box>
+                                        <Box pl={["1", "10"]} mt={["2"]}>
+                                            <Button width={["80%", "100%", "80%", "100%", "60%", "100%"]}>
+                                                <Center>
+                                                    <Box display={"flex"}> <Text><FaCcPaypal /> </Text><Text letterSpacing={["2px", "2px"]} pl="5" >PAYPAL</Text></Box>
+                                                </Center>
+                                            </Button>
+                                        </Box>
                                         <Box pt="5">
                                             <Flex><Box><Text fontWeight={"bold"} fontSize={["sm", "md"]} color={"grey"}>WE ACCEPT</Text></Box>
 
@@ -375,7 +385,7 @@ const CheckOut = () => {
                         </Box>
 
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }}
-                            w={["100%", "100%", "100%", "100%", "400px"]}
+                            w={["100%", "100%", "100%", "100%", "1000px", "800px"]}
                             minH={["10vh", "10vh", "10vh", "10vh"]}
                             margin={["auto", "auto", "auto", "auto"]}
 

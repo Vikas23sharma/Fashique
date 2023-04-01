@@ -4,7 +4,7 @@ import { RiInformationLine } from 'react-icons/ri';
 import CartProductCard from './CartProductCard';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getCartProducts } from '../Redux/Cart/action';
+import { getCartProducts, updatedCart } from '../Redux/Cart/action';
 import { FaShoppingBag, FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,35 +13,53 @@ const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [delId, setDelId] = useState(0)
+    const [cartItems, setCartItems] = useState([])
     const [subtotal, setSubtotal] = useState(0)
     const [subTotal, setSubTotal] = useState(subtotal)
 
-    const cartproducts = JSON.parse(localStorage.getItem("CartItems") || [])
-    // console.log(cartproducts)
 
+    // console.log(cartproducts)
+    var cartUserId = JSON.parse(localStorage.getItem("cartUserId")) || null
+    var token = JSON.parse(localStorage.getItem("token")) || null
+    const cartproducts = JSON.parse(localStorage.getItem("CartItems")) || []
     useEffect(() => {
         let price = 0;
-        cartproducts.forEach((product) => {
-            price += product.price;
-        });
+        if (cartItems.length !== 0) {
+            cartItems.forEach((product) => {
+                price += product.price;
+            });
+        }
         setSubtotal(price);
-    }, [cartproducts, subtotal]);
+    }, [cartItems, subtotal]);
 
     useEffect(() => {
-        var token = JSON.parse(localStorage.getItem("token") || null)
+
+        setCartItems(cartproducts)
         console.log(token)
-        dispatch(getCartProducts(token))
-    }, [])
 
-    console.log(delId, "deleting id")
-    console.log(subtotal, "subtotal")
-    console.log(subTotal, "subTotal")
+        if (token !== null) {
+            dispatch(getCartProducts(token))
+        }
 
+    }, [token])
+
+    // console.log(delId, "deleting id")
+    // console.log(subtotal, "subtotal")
+    // console.log(subTotal, "subTotal")
+
+    useEffect(() => {
+        setCartItems((prevCart) => prevCart.filter((item) => item.id !== delId))
+
+    }, [delId])
+
+    useEffect(() => {
+        dispatch(updatedCart(cartItems, cartUserId))
+    }, [cartItems, cartUserId])
     return (
         <Container minW={"100%"}>
             <Center minW={"100%"}>
                 <Navbar />
-                {(cartproducts.length === 0) ?
+                {(cartItems.length === 0) ?
                     <Container minW={"100%"}>
                         <Center >
                             <Box width={["100%", "60%", "50%", "40%", "30%"]} margin={"auto"}>
@@ -95,7 +113,7 @@ const Cart = () => {
                                         }}
                                     >
                                         {
-                                            cartproducts.map((items) => (
+                                            cartItems.map((items) => (
                                                 <CartProductCard key={items.id} {...items}
                                                     setDelId={setDelId}
                                                     setSubTotal={setSubTotal}
