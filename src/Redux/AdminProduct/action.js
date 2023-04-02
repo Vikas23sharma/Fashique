@@ -74,6 +74,8 @@ export const addProductMenToProduct=(data)=>(dispatch)=>{
     })
 }
 
+//edit to endpoint products
+
 export const editProductMenToProduct=(data,id)=>(dispatch)=>{
     dispatch({type:PRODUCT_REQUEST})
     axios.patch(`https://asos-of6d.onrender.com/products/${id}`,data).then((res)=>{
@@ -83,6 +85,7 @@ export const editProductMenToProduct=(data,id)=>(dispatch)=>{
         dispatch({type:PRODUCT_FAILURE})
     })
 }
+//edit
 
 export const editProductMen=(data,id)=>(dispatch)=>{
     dispatch({type:PRODUCT_REQUEST})
@@ -94,6 +97,8 @@ export const editProductMen=(data,id)=>(dispatch)=>{
     })
 }
 
+//Delete
+
 export const DeleteProductMen=(id)=>(dispatch)=>{
     dispatch({type:PRODUCT_REQUEST})
     axios.delete(`https://asos-of6d.onrender.com/men/${id}`).then((res)=>{
@@ -103,6 +108,31 @@ export const DeleteProductMen=(id)=>(dispatch)=>{
         dispatch({type:PRODUCT_FAILURE})
     })
 }
+
+//for getting users
+
+export const getUser=(paramObj)=>(dispatch)=>{
+    dispatch({type:PRODUCT_REQUEST})
+
+    axios.get("https://asos-of6d.onrender.com/users",paramObj).then((res)=>{
+        dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data})
+    }).catch(()=>{
+        dispatch({type:PRODUCT_FAILURE})
+    })
+}
+
+//for getting orders
+
+export const getOrder=(paramObj)=>(dispatch)=>{
+    dispatch({type:PRODUCT_REQUEST})
+
+    axios.get("https://asos-of6d.onrender.com/orders",paramObj).then((res)=>{
+        dispatch({type:GET_PRODUCT_SUCCESS,payload:res.data})
+    }).catch(()=>{
+        dispatch({type:PRODUCT_FAILURE})
+    })
+}
+
 
 //for edit men product
 // export const editProduct=(dataObj,id)=>(dispatch)=>{
