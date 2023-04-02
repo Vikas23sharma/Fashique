@@ -5,6 +5,7 @@ import Productcard from '../components/Productcard';
 import ProductHeading from '../components/ProductHeading';
 import SortingBar from '../components/sortingBar';
 import {  getShoes } from '../Redux/MenCloths/action';
+import { Footer } from './Footer';
 import LoadingWithLetter from './LoadingWithLetter';
 import { Navbar } from './Navbar';
 
@@ -69,6 +70,7 @@ export const WomenShoes = () => {
             <Productcard key={el.id} {...el} />
           ))}
         </div>
+        <Footer/>
       </div>
     );
 }

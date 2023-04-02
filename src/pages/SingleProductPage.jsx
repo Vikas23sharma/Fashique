@@ -17,6 +17,7 @@ import {
 import {MinusIcon,
   AddIcon,} from "@chakra-ui/icons"
 import { Slider } from '../components/Slider';
+import { Footer } from './Footer';
 
 
 
@@ -48,7 +49,7 @@ export const SingleProductPage = () => {
     // localStorage.setItem("cart_item",JSON.stringify(cartData));
     // console.log(cartData)
    axios
-     .patch(`https://asos-of6d.onrender.com/cart`, data)
+     .post(`https://asos-of6d.onrender.com/cart`, data)
      .then((res) => {
        console.log(res);
      })
@@ -62,7 +63,7 @@ export const SingleProductPage = () => {
   const addToWishlist=()=>{
      
      axios
-       .patch(`https://asos-of6d.onrender.com/wishlist`,data)
+       .post(`https://asos-of6d.onrender.com/wishlist`,data)
        .then((res) => {
          console.log(res);
        })
@@ -254,7 +255,7 @@ export const SingleProductPage = () => {
         </div>
       </div>
       <Slider/>
-      
+      <Footer/>
     </div>
   );
 }
