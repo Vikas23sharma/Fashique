@@ -3,26 +3,64 @@
 }
 
 .adminsidebar {
-    direction: column;
+    margin-top: 0%;
 }
 
 .labels {
-    font-size: x-large;
+    font-size: large;
+}
+
+.labelcont {
+    width: 40%;
+}
+
+.iconcont {
+    width: 10%;
 }
 
 .addproductpagecontainer {
     margin-top: 8%;
 }
 
-.adminmenproduct{
-    grid-template-columns: repeat(3,1fr);
+.adminmenproduct {
+    grid-template-columns: repeat(3, 1fr);
+    gap: "10px"
+}
+
+.form {
+    width: 50%;
+}
+
+.dashboardcont {
+    margin-top: 2.2cm;
+
+}
+
+.dash {
+    padding: 2%;
+    /* width: 82%; */
+}
+
+.sidebar {
+    width: 18%;
+}
+
+.sidebarcont {
+    width: 18%;
+    background-color: #2d2d2d;
+
+}
+
+.adminpagedashboardbox {
+    width: 82%;
+    /* border: 1px solid blue; */
 }
 
 @media screen and (max-width: 1000px) {
     .admingrid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        /* background-color: red; */
+
     }
 
     .icons {
@@ -33,77 +71,167 @@
         font-size: large;
     }
 
+    .labelcont {
+        text-align: center;
+        width: 100%;
+    }
+
     .sections {
         font-size: small;
     }
 
-    .adminsidebar {
-        display: flex;
-        direction: ltr;
+    .dash {
+        margin-top: 0%;
     }
+
+
+
+
     .addproductpagecontainer {
         margin-top: 6%;
     }
 
+    .dashboardcont {
+        margin-top: 1.8cm;
+        /* border: 1px solid red; */
+    }
+
+    .sidebarcont {
+        background-color: #2d2d2d;
+    }
+
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .admingrid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
 
+    .sidebarcont {
+        background-color: #2d2d2d;
+    }
+
     .sections {
         font-size: smaller;
     }
-    .addproductpagecontainer {
-        /* margin-top: 50%; */
+
+    .icons {
+        margin: auto;
+        text-align: center;
+        /* padding-left: 4%; */
+        display: block;
     }
-    .formcontainer{
-        margin-top:30% ;
-        /* background-color: red; */
+
+    .iconcont {
+        width: 100%;
+        margin-left: 20%;
+        /* border: 1px solid red; */
+    }
+
+    .labels {
+        display: none;
+    }
+
+    .sections {
+        font-size: small;
+    }
+
+    .sections:hover {
+        font-size: large;
+        cursor: pointer;
+    }
+
+    .sidebarcont {
+        width: 25%;
+    }
+
+    .sidebar {
+        width: 25%;
+        padding-top: 5%;
+    }
+
+    .dash {
+        padding: 10%;
+    }
+
+    .adminpagedashboardbox {
+        width: 75%;
+    }
+
+
+}
+
+@media screen and (max-width: 1350px) {
+
+    .formcontainer {
+        margin-top: 5%;
+    }
+
+    .sidebarcont {
+        background-color: #2d2d2d;
+    }
+
+    .dash {
+        margin-top: 3%;
+    }
+
+    .sidebar {
+        margin-top: 3%;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .adminmenproduct {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .sidebarcont {
+        background-color: #2d2d2d;
+    }
+
+
+}
+
+@media screen and (max-width: 650px) {
+
+    .formcontainer {
+        margin-top: 12%;
+    }
+
+    .sidebarcont {
+        background-color: #2d2d2d;
+    }
+
+    .adminmenproduct {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .form {
+        width: 80%;
+    }
+
+    .dash {
+        margin-top: 9%;
+    }
+
+    .sidebar {
+        margin-top: 9%;
+    }
+
+    .dashboardcont {
+        margin-top: 0.5cm;
         
     }
 
 }
 
-@media screen and (max-width: 1350px) {
-    /* .addproductpagecontainer {
-        margin-top: 10%;
-    } */
-
-    .formcontainer{
-        margin-top: 3%;
+@media screen and (min-width: 1350px) {
+    .dashboardcont {
+        margin-top: 3.3cm;
     }
-
-}
-
-@media screen and (max-width: 1024px) {
-    /* .addproductpagecontainer {
-        margin-top: 10%;
-    } */
-
-    .formcontainer{
-        margin-top: 8%;
-    }
-
-    .adminmenproduct{
-        grid-template-columns: repeat(2,1fr);
-    }
-
-}
-
-@media screen and (max-width: 650px) {
-    /* .addproductpagecontainer {
-        margin-top: 10%;
-    } */
-
-    /* .formcontainer{
-        margin-top: 8%;
-    } */
-
-    .adminmenproduct{
-        grid-template-columns: repeat(1,1fr);
-    }
-
 }

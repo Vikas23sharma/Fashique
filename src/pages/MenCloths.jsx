@@ -7,6 +7,7 @@ import ProductHeading from '../components/ProductHeading';
 import SortingBar from '../components/sortingBar'
 import { getMenProduct } from '../Redux/MenCloths/action';
 import "../Style/ProductList.css";
+import { Footer } from './Footer';
 import LoadingWithLetter from './LoadingWithLetter';
 import { Navbar } from './Navbar';
 
@@ -82,6 +83,7 @@ return isLoading ? (
         <Productcard key={el.id} {...el} />
       ))}
     </div>
+    <Footer/>
   </div>
 );
 }

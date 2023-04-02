@@ -35,7 +35,10 @@ import Cart from "../pages/Cart";
 import PrivateRoutes from "./PrivateRoutes";
 import { WishList } from "../pages/WishList";
 import AdminEditProduct from "../pages/AdminEditProduct";
+
+
 import AdminPrivateRoutes from "./AdminPrivateRoutes";
+
 
 
 export default function AllRoutes() {
@@ -76,6 +79,7 @@ export default function AllRoutes() {
             <Route path="/womenjacket" element={<WomenJacket />} />
             {/* <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route> */}
             <Route element={<Error404 />}></Route> {/* all team member keep this line at last */}
+            {/* <Route path="/adminSingleUser/:id" element={<AdminSingleCustomer/>}></Route> */}
         </Routes>
     )
 }

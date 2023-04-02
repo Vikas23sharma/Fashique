@@ -7,7 +7,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 export const Slider = () => {
   return (
-    <div style={{ width: "80%", margin: "auto" }}>
+    <div style={{ width: "80%", margin: "auto" ,marginTop:"50px",marginBottom:"50px"}}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={13}
@@ -16,10 +16,10 @@ export const Slider = () => {
             slidesPerView: 4,
           },
           1000: {
-            slidesPerView: 4,
+            slidesPerView: 3,
           },
           450: {
-            slidesPerView: 3,
+            slidesPerView: 2,
           },
           0: {
             slidesPerView: 1,

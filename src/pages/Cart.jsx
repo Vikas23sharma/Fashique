@@ -1,4 +1,3 @@
-import React from 'react' ;
 import { Box, Button, Center, Image, Container, Divider, HStack, Select, Spacer, Stack, Text } from '@chakra-ui/react'
 import { Navbar } from './Navbar'
 import { RiInformationLine } from 'react-icons/ri';
