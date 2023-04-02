@@ -60,6 +60,7 @@ export const SingleProductPage = () => {
         status: "success",
         duration: 1000,
         isClosable: true,
+        position:"top"
       });
        console.log(res);
        setProdAdded(!prodAdded)

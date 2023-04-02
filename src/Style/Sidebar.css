@@ -1,5 +1,5 @@
 .sidebar_1{
-    margin-bottom: 2cm;
+    margin-bottom: 0.5cm;
 }
 .sidebar_1 > div{
     margin: 10px ;
@@ -20,7 +20,7 @@
 }
 .side_1_bottom{
     /* border: 1px solid red; */
-    margin-top: 1cm;
+    margin-top: 0.2cm;
 }
 .side_1_bottom p{
     position: initial;
