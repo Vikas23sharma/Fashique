@@ -95,9 +95,9 @@ return (
 
     <div className='side_1_bottom'>
         <div style={{display:'flex',justifyContent:'space-evenly',marginTop:'1.5cm'}}>
-        <p><Link to={'/signin'}>Sign In</Link></p>
+        <p><Link to={'/login'}>Sign In</Link></p>
         <p>|</p>
-        <p><Link to={'/join'}>Join</Link></p>
+        <p><Link to={'/login'}>Join</Link></p>
     </div>
     <div className='side_info'>
     <div>

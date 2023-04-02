@@ -163,7 +163,6 @@ export const Men = () => {
             navigation
             draggable={true}
             onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
           >
             <SwiperSlide>
               <div className="content_4_1">
@@ -225,7 +224,6 @@ export const Men = () => {
                 </div>
               </div>
             </SwiperSlide>
-
           </Swiper>
         </div>
         <button>VIEW ALL</button>

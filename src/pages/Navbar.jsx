@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Sidebar } from './Sidebar'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch,useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getSearch } from '../Redux/search/action'
 import { getSearchBtn } from '../Redux/search/action'
 

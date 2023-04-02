@@ -92,18 +92,18 @@ return (
     </a>
     </div>
 
-    <div className='side_1_bottom'>
+        <div className='side_1_bottom'>
         <div style={{display:'flex',justifyContent:'space-evenly',marginTop:'1.5cm'}}>
-        <p>Sign In </p>
+        <p><Link to={'/login'}>Sign In</Link></p>
         <p>|</p>
-        <p>Join</p>
+        <p><Link to={'/login'}>Join</Link></p>
     </div>
     <div className='side_info'>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
     </svg>
-    <h4>My Account</h4>
+    <h4><Link to={''}>My Account</Link></h4>
     </div>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
@@ -127,6 +127,7 @@ return (
     </div>
     </div>
     </div>
+    
     </div>
 )
 }
