@@ -20,11 +20,18 @@ import { Slider } from '../components/Slider';
 
 
 
+
 export const SingleProductPage = () => {
  const [data,setData] = useState({});
- let token = JSON.parse(localStorage.getItem("token"));
+//  const [cart_item, setcart_item] = useState([]);
+// let cartData = JSON.parse(localStorage.getItem("cart_item")) || [];
+//  let token = JSON.parse(localStorage.getItem("token"));
+//  console.log(token)
+//  console.log(cart_item)
+ console.log("data",data)
   let param = useParams();
   const id = param.product_id;
+  
   useEffect(()=>{
     axios
       .get(`https://asos-of6d.onrender.com/products/${id}`)
@@ -37,20 +44,25 @@ export const SingleProductPage = () => {
       });
   },[])
   const addToCart =()=>{
-     axios
-       .patch(`https://asos-of6d.onrender.com/users?token=${token}`,{cart:data})
-       .then((res) => {
-         console.log(res);
-       })
-       .catch((err) => {
-         alert("already exist in cart");
-         console.log(err);
-       });
+    // cartData.push(data);
+    // localStorage.setItem("cart_item",JSON.stringify(cartData));
+    // console.log(cartData)
+   axios
+     .patch(`https://asos-of6d.onrender.com/cart`, data)
+     .then((res) => {
+       console.log(res);
+     })
+     .catch((err) => {
+        alert("already exist in cart");
+       console.log(err);
+     });
+    
   }
+  
   const addToWishlist=()=>{
      
      axios
-       .patch(`https://asos-of6d.onrender.com/users?token=${token}`,{cart:data})
+       .patch(`https://asos-of6d.onrender.com/wishlist`,data)
        .then((res) => {
          console.log(res);
        })
