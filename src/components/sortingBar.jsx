@@ -4,38 +4,30 @@ import "../Style/sortingBar.css";
 
 
 
-const SortingBar = () => {
+const SortingBar = ({brands,size,order,discount,brand,sizes}) => {
   return (
-    <Box
-      
-      className="sortingBox"
-    >
-      <select className="selectId">
+    <Box className="sortingBox">
+      <select className="selectId" onChange={(e) => order(e.target.value)}>
         <option>Sort</option>
-        <option>Price High to Low</option>
-        <option>Price Low to High</option>
-        <option>Recommended</option>
+        <option value="desc">Price High to Low</option>
+        <option value="asc">Price Low to High</option>
       </select>
-      <select className="selectId">
-        <option>Brand</option>
-        <option>ASOS DESIGN</option>
-        <option>ASOS LUXE</option>
-        <option>Nike</option>
+      <select className="selectId" onChange={(e) => brand(e.target.value)}>
+        {brands.map((el) => (
+          <option value={el}>{el}</option>
+        ))}
       </select>
-      <select className="selectId">
+      <select className="selectId" onChange={(e) => discount(e.target.value)}>
         <option>Discount</option>
-        <option>20%</option>
-        <option>30%</option>
-        <option>45%</option>
-        <option>60%</option>
+        <option value={"20"}>20%</option>
+        <option value={"30"}>30%</option>
+        <option value={"45"}>45%</option>
+        <option value={"60"}>60%</option>
       </select>
-      <select className="selectId">
-        <option>Size</option>
-        <option>Small</option>
-        <option>Medium</option>
-        <option>Large</option>
-        <option>Extra Large</option>
-        <option>Extra Extra Large</option>
+      <select className="selectId" onChange={(e) => sizes(e.target.value)}>
+        {size.map((el) => (
+          <option value={el}>{el}</option>
+        ))}
       </select>
     </Box>
   );
