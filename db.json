@@ -180,21 +180,9 @@
       "confirmpassword": "123456789",
       "dob": "2023-04-14",
       "gender": "men",
-      "token": "IkdzcwsFGfToSEfVvGRnXxyWSQbXwFQtTkuvKomNITmqvhVeae",
+      "token": "NUhtjZYzfhEEqoQtUBBxFWwnLOBtUawYhSZyeQmECrTLMDjWQH",
       "useraddress": {},
       "cart": [
-        {
-          "id": 10,
-          "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
-          "title": " Topman crochet shirt in green and ecru",
-          "brand": "Topman",
-          "discount": 20,
-          "gender": "men",
-          "style": "half sleeve",
-          "size": "S",
-          "price": 65,
-          "category": "T-shirt"
-        },
         {
           "id": 12,
           "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",

@@ -19,7 +19,7 @@ const CheckOut = () => {
     const [textChange, setTextChange] = useState("Change")
     const [isSelectActive, setIsSelectActive] = useState(false || initalPresent);
     // const [index, setIndex] = useState(0)
-    // const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [showAlert, setShowAlert] = useState(false);
     const [showPaymentCard, setShowPaymentCard] = useState(false)
     const [totalPrice, setTotalPrice] = useState(0);
@@ -224,11 +224,11 @@ const CheckOut = () => {
 
 
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setIsLoading(!isLoading)
-    //     }, 1000)
-    // }, [])
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(!isLoading)
+        }, 1000)
+    }, [])
     const handleBuy = () => {
         setShowAlert(true)
         setTimeout(() => {
@@ -242,13 +242,13 @@ const CheckOut = () => {
     };
     const { name, image } = country
 
-    // isLoading === true ? (<div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center" }}>
 
-    //     <LoadingWithLetter />
-    // </div>) : 
 
     // console.log(checkoutProducts, "line129")
-    return (
+    return isLoading === true ? (<div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center" }}>
+
+        <LoadingWithLetter />
+    </div>) : (
         <Container maxW={"100%"}>
             <Center>
 
