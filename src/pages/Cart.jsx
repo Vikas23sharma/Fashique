@@ -6,13 +6,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCartProducts, updatedCart } from '../Redux/Cart/action';
 import { FaShoppingBag, FaShoppingCart } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const cartproducts = JSON.parse(localStorage.getItem("CartItems")) || []
 
 const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
     const [delId, setDelId] = useState(0)
     const [cartItems, setCartItems] = useState(cartproducts)
     const [subtotal, setSubtotal] = useState(0)
@@ -155,7 +156,8 @@ const Cart = () => {
                                                 <option value="35">Express Delivery $35</option>
                                             </Select>
 
-                                            <Box pt="10" pr={5} pl={5}><Button bgColor={"#018849"} color={"white"} _hover={{ color: "none" }} width={"100%"}>CheckOut</Button></Box>
+                                            <Box pt="10" pr={5} pl={5}>
+                                                <Button bgColor={"#018849"} color={"white"} _hover={{ color: "none" }} width={"100%"} onClick={() => navigate("/checkout")}>CheckOut</Button></Box>
                                         </Box>
                                         <Box pt="5">
                                             <Text letterSpacing={"2px"} fontWeight="550">WE ACCEPT:</Text>

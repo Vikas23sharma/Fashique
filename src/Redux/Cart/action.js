@@ -23,7 +23,6 @@ export const getCartProducts = (token) => (dispatch) => {
 
 }
 
-
 export const updatedCart = (cartItems, cartUserId) => (dispatch) => {
     console.log(cartItems, "indie")
     console.log(cartUserId,"isdfs")
