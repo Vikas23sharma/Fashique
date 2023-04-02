@@ -1,6 +1,7 @@
-import axios from 'axios'
-import React, {useEffect}from 'react'
+
+import React, {useEffect, useState}from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom';
 import Productcard from '../components/Productcard';
 import ProductHeading from '../components/ProductHeading';
 import SortingBar from '../components/sortingBar'
@@ -12,23 +13,46 @@ import { Navbar } from './Navbar';
 
 const MenCloths = () => {
 const dispatch = useDispatch();
+const [order,setOrder] = useState("");
+const [brand,setBrand] = useState("");
+const [discount,setDiscount] = useState("");
+const [size,setSize] = useState("");
+const [searchParams,setSearchParam] = useSearchParams();
+
+// console.log(order,brand,discount,size);
+
 const {isLoading} = useSelector((store)=>store.MenCloths);
-console.log(isLoading)
-useEffect(()=>{
-    let obj = {
-        params:{
-           category:"Shorts"
-        }
-    }
-   dispatch(getMenProduct(obj))
-},[])
+// console.log(isLoading)
+useEffect(() => {
+  let obj = {
+    params: {
+      category: "Shorts",
+      
+    },
+  
+  };
+  order && (obj.params._sort = "price");
+  order && (obj.params._order = order);
+  brand && (obj.params.brand = brand);
+  discount && (obj.params.discount = discount);
+  size && (obj.params.size = size);
+  dispatch(getMenProduct(obj));
+  let param = {
+    sort : "price"
+  };
+  order && (param.order = order);
+  brand && (param.brand = brand);
+  discount && (param.discount = discount);
+  size && (param.size = size);
+    setSearchParam(param);
+}, [order, brand, discount, size]);
 const {products}= useSelector((store) => store.MenCloths);
-console.log(products)
+// console.log(products)
 return isLoading ? (
   <LoadingWithLetter />
 ) : (
   <div>
-    <Navbar/>
+    <Navbar />
     <div style={{ marginTop: "150px" }}>
       <ProductHeading
         heading={"Shorts"}
@@ -38,7 +62,20 @@ return isLoading ? (
       />
     </div>
     <div>
-      <SortingBar />
+      <SortingBar
+        brands={[
+          "Brand",
+          "ASOS DESIGN",
+          "Bershka Ripstop",
+          "River Island",
+          
+        ]}
+        size={["Size","S","M","L","XL","XXL"]}
+        order={setOrder}
+        brand={setBrand}
+        discount={setDiscount}
+        sizes={setSize}
+      />
     </div>
     <div className="container">
       {products.map((el) => (

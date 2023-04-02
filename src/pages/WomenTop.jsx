@@ -1,5 +1,6 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import Productcard from '../components/Productcard';
 import ProductHeading from '../components/ProductHeading';
 import SortingBar from '../components/sortingBar';
@@ -9,6 +10,11 @@ import { Navbar } from './Navbar';
 
 export const WomenTop = () => {
   const dispatch = useDispatch();
+  const [order, setOrder] = useState("");
+  const [brand, setBrand] = useState("");
+  const [discount, setDiscount] = useState("");
+  const [size, setSize] = useState("");
+  const [searchParams, setSearchParam] = useSearchParams();
   const { isLoading } = useSelector((store) => store.MenCloths);
   console.log(isLoading);
   useEffect(() => {
@@ -18,8 +24,21 @@ export const WomenTop = () => {
         gender: "women",
       },
     };
+    order && (obj.params._sort = "price");
+    order && (obj.params._order = order);
+    brand && (obj.params.brand = brand);
+    discount && (obj.params.discount = discount);
+    size && (obj.params.size = size);
     dispatch(getWomenProduct(obj));
-  }, []);
+    let param = {
+      sort: "price",
+    };
+    order && (param.order = order);
+    brand && (param.brand = brand);
+    discount && (param.discount = discount);
+    size && (param.size = size);
+    setSearchParam(param);
+  }, [order, brand, discount, size]);
   const { products } = useSelector((store) => store.MenCloths);
   console.log(products);
   return isLoading ? (
@@ -36,7 +55,14 @@ export const WomenTop = () => {
         />
       </div>
       <div>
-        <SortingBar />
+        <SortingBar
+          brands={["Brand", "ASOS DESIGN", "Urban Revivo", "ASOS LUXE"]}
+          size={["Size", "S", "M", "L", "XL", "XXL"]}
+          order={setOrder}
+          brand={setBrand}
+          discount={setDiscount}
+          sizes={setSize}
+        />
       </div>
       <div className="container">
         {products.map((el) => (

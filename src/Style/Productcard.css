@@ -57,3 +57,8 @@
     margin-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
+@media screen and (min-width:0px) and (max-width:500px){
+.card{
+    margin: auto;
+}
+}
