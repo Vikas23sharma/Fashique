@@ -14,7 +14,7 @@ export const patchUserAddress = (values, userId) => (dispatch) => {
     dispatch({ type: POST_USERADDRESS_REQUEST })
     axios.patch(`https://asos-of6d.onrender.com/users/${userId}`, { useraddress: values })
         .then((res) => {
-            console.log(res.data, "shajr ")
+            // console.log(res.data, "shajr ")
             dispatch({ type: POST_USERADDRESS_SUCCESS, payload: res.data })
         })
         .catch((err) => {

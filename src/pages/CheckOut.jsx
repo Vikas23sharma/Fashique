@@ -14,7 +14,7 @@ import { BsCreditCardFill } from 'react-icons/bs';
 import { FaCcPaypal } from 'react-icons/fa';
 import PaymentCard from './PaymentCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserCart } from '../Redux/Checkout/action';
+import { getUserCart, postOrders } from '../Redux/Checkout/action';
 
 const CheckOut = () => {
     const initalPresent = JSON.parse(localStorage.getItem('addresspresent'));
@@ -69,11 +69,12 @@ const CheckOut = () => {
         dispatch(getUserCart(token))
     }, [])
 
-    const { checkoutProducts } = useSelector(state => {
-        return {
-            checkoutProducts: state.CheckoutReducer.checkoutProducts
-        }
-    })
+    // const { checkoutProducts } = useSelector(state => {
+    //     return {
+    //         checkoutProducts: state.CheckoutReducer.checkoutProducts
+    //     }
+    // })
+    var checkoutProducts = JSON.parse(localStorage.getItem("CartItems"))
     console.log(checkoutProducts)
 
     // const checkoutProducts = [
@@ -239,8 +240,15 @@ const CheckOut = () => {
             setIsLoading(!isLoading)
         }, 1000)
     }, [])
+    var obj = {}
     const handleBuy = () => {
+        const orders = JSON.parse(localStorage.getItem("UserDetails"))
+        var id = JSON.parse(localStorage.getItem("id")) || null
+        obj["orders"] = orders[id-1]
+        obj["amount"] = totalPrice
 
+        console.log(obj,"objess")
+        dispatch(postOrders(obj))
         setShowAlert(true)
 
         setTimeout(() => {

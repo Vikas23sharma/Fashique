@@ -44,6 +44,7 @@ const SignIn = () => {
                     position: "top"
                 });
                 localStorage.setItem("token", JSON.stringify(detail[i].token))
+                localStorage.setItem("id",JSON.stringify(detail[i].id))
                 localStorage.setItem("isAuth", JSON.stringify(true))
                 let token = JSON.parse(localStorage.getItem("token"))
 

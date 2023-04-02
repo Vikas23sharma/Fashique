@@ -9,9 +9,6 @@ import { BiCreditCardAlt } from "react-icons/bi";
 import { useDispatch } from 'react-redux';
 import { patchUserCred } from '../Redux/Checkout/action';
 
-
-
-
 const initState = {
     cardnumber: "",
     expirydate: "",
@@ -42,16 +39,11 @@ const PaymentCard = ({ setShowPaymentCard, showPaymentCard }) => {
             setShowPaymentCard(!showPaymentCard)
         }
     };
-
-
-
     useEffect(() => {
         setUserCred(initState);
     }, [dispatch]);
 
     // Render the form with the updated userCred state
-
-
     return (
         <Box pt="5">
             <Flex>  <Text fontSize={["13", "15"]}>ADD CREDIT/DEBIT CARD</Text><Spacer />

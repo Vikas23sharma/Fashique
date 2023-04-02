@@ -24,6 +24,7 @@ import { Footer } from './Footer';
 
 export const SingleProductPage = () => {
  const [data,setData] = useState({});
+ const [prodAdded,setProdAdded]=useState(false)
 //  const [cart_item, setcart_item] = useState([]);
 // let cartData = JSON.parse(localStorage.getItem("cart_item")) || [];
 //  let token = JSON.parse(localStorage.getItem("token"));
@@ -52,6 +53,8 @@ export const SingleProductPage = () => {
      .post(`https://asos-of6d.onrender.com/cart`, data)
      .then((res) => {
        console.log(res);
+       setProdAdded(!prodAdded)
+
      })
      .catch((err) => {
         alert("already exist in cart");

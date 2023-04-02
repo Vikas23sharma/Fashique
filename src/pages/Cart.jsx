@@ -3,8 +3,8 @@ import { Navbar } from './Navbar'
 import { RiInformationLine } from 'react-icons/ri';
 import CartProductCard from './CartProductCard';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getCartProducts, updatedCart } from '../Redux/Cart/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartProducts, initialCartProducts, postCartItems, updatedCart } from '../Redux/Cart/action';
 import { FaShoppingBag, FaShoppingCart } from 'react-icons/fa';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -20,11 +20,61 @@ const Cart = () => {
     const [subTotal, setSubTotal] = useState(subtotal)
     const [boxHeight, setBoxHeight] = useState('80vh');
     const [count, setCount] = useState(0)
+    const [isReloaded, setIsReloaded] = useState(false);
 
     // console.log(cartproducts)
     var cartUserId = JSON.parse(localStorage.getItem("CartUserId")) || null
     var token = JSON.parse(localStorage.getItem("token")) || null
+    var id = JSON.parse(localStorage.getItem("id")) || null
 
+    // const { checkoutProducts } = useSelector(state => {
+    //     return {
+    //         checkoutProducts: state.CheckoutReducer.checkoutProducts
+    //     }
+    // })
+    // const { cartproducts } = useSelector(state => {
+    //     console.log(state,"line34")
+    //     return {
+    //         initialcart: state.CartProducts.cartproducts
+    //     }
+    // })
+    // console.log(cartproducts, "cartproducts line49")
+
+    useEffect(() => {
+        dispatch(initialCartProducts())
+
+    }, [])
+
+    const { initialcart } = useSelector(state => {
+        return {
+            initialcart: state.CartProducts.initialcart
+        }
+    })
+    // console.log(initialcart, "initialcart")
+
+
+
+    useEffect(() => {
+        dispatch(postCartItems(id, initialcart)).then((res) => {
+            console.log("ansiii", res)
+
+            localStorage.setItem("CartUserId", JSON.stringify(res.id))
+            localStorage.setItem("CartItems", JSON.stringify(res.cart))
+            setIsReloaded(!isReloaded)
+            setTimeout(()=>{
+                setIsReloaded(!isReloaded)
+            },3000)
+
+        })
+    }, [initialcart])
+  
+    // function reload() {
+    //     if (isReloaded) {
+    //         window.location.reload();
+    //         setIsReloaded(false);
+            
+    //     }
+    // }
 
     useEffect(() => {
         let price = 0;
@@ -35,22 +85,18 @@ const Cart = () => {
         }
         setSubtotal(price);
     }, [cartItems, subtotal]);
-    useEffect(() => {
-        var token = JSON.parse(localStorage.getItem("token")) || null
-        // const cartproducts = JSON.parse(localStorage.getItem("CartItems")) || []
-        // setCartItems(cartproducts)
-        console.log(token)
-
-        if (token !== null) {
-            dispatch(getCartProducts(token))
-        }
-    }, [token])
 
 
+    // useEffect(() => {
+    //     var token = JSON.parse(localStorage.getItem("token")) || null
+    //     // const cartproducts = JSON.parse(localStorage.getItem("CartItems")) || []
+    //     // setCartItems(cartproducts)
+    //     console.log(token)
 
-    // console.log(delId, "deleting id")
-    // console.log(subtotal, "subtotal")
-    // console.log(subTotal, "subTotal")
+    //     if (token !== null) {
+    //         dispatch(getCartProducts(token))
+    //     }
+    // }, [token])
 
     useEffect(() => {
         setCartItems((prevCart) => prevCart.filter((item) => item.id !== delId))
@@ -62,6 +108,8 @@ const Cart = () => {
 
     }, [delId])
     console.log(cartUserId)
+
+
     useEffect(() => {
         dispatch(updatedCart(cartItems, cartUserId))
     }, [cartItems, cartUserId])
