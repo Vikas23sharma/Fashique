@@ -11,12 +11,10 @@ import {
   Button,
   Heading,
   useToast,
-
-
 } from '@chakra-ui/react';
 
 import LoadingWithLetter from "./LoadingWithLetter";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 const Email = "fashique@gmail.com"
 const Password = "123456789"
 
@@ -25,6 +23,7 @@ export default function AdminLogin() {
   const [isLoading, setIsLoading] = useState(true)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
   const toast = useToast();
 
   const handleChange = (e) => {
@@ -43,7 +42,9 @@ export default function AdminLogin() {
         isClosable: true,
         position: "top"
       });
-      <Navigate to="/admin" replace="true" />
+      localStorage.setItem("isAuthAdmin", JSON.stringify(true));
+      // return <Navigate to="/admin" replace="true" />
+      navigate("/admin")
     } else {
       toast({
         title: "Login Failed",
@@ -83,8 +84,8 @@ export default function AdminLogin() {
         >
           <Heading fontSize={'2xl'} textAlign="center" p="10">ADMIN LOGIN</Heading>
           <Stack spacing={4}>
-            <form onSubmit={handleSubmit}>
-              <FormControl id="email" isRequired>
+            <form onSubmit={handleSubmit} >
+              <FormControl id="email" display="inline-block" mr={2} isRequired width={"100%"}>
                 <FormLabel>Email address</FormLabel>
                 <Input type="email" name="email" value={email} onChange={handleChange} />
               </FormControl>

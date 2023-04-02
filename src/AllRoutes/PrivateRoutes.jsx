@@ -9,7 +9,6 @@ const PrivateRoutes = ({ children }) => {
     } else {
         return children
     }
-
 }
 
 export default PrivateRoutes

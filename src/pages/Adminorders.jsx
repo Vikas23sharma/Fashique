@@ -2,12 +2,17 @@ import React,{useEffect} from 'react'
 import { Box,Flex,Stack} from '@chakra-ui/react'
 import Adminsidebar from '../components/Adminsidebar'
 import { Navbar } from './Navbar'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrder, getUser } from '../Redux/AdminProduct/action'
 //import { AdminUserCard } from '../components/AdminUserCard'
 import { AdminOrderCard } from '../components/AdminOrderCard'
 import { AdminUserCard } from '../components/AdminUserCard'
 import { useSearchParams } from 'react-router-dom'
+
+import "../Style/Admindashboard.css"
+
+
 
 const Adminorders = () => {
    const [searchParams]=useSearchParams()
@@ -29,12 +34,16 @@ const Adminorders = () => {
   return (
     <Box>
     <Navbar/>
-    <Flex justifyContent={"space-evenly"} marginTop={"8%"}>
-    <Box  w={"18%"}>
+    <Flex className='dashboardcont' justifyContent={"space-evenly"} >
+    <Box  className='sidebarcont'>
     <Adminsidebar/>
     </Box>
+
     
-    <Box  w={"82%"} display={"grid"} gridTemplateColumns={"repeat(3,1fr)"} gap={"10px"} padding={"1%"}>
+    
+
+    <Box  className='adminpagedashboardbox'>
+
       {/* write code here */}
       {/* orders on the website will be displayed here */}
       

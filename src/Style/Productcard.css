@@ -28,6 +28,10 @@
   border-radius: 50%;
   font-family: Arial, Helvetica, sans-serif;
 }
+.card button:hover{
+    background-color: black;
+    color: white;
+}
 .card div{
   position: absolute;
   top: 8%;
@@ -56,4 +60,9 @@
     color:#546E7A;
     margin-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
+}
+@media screen and (min-width:0px) and (max-width:500px){
+.card{
+    margin: auto;
+}
 }

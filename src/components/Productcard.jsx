@@ -23,7 +23,7 @@ const Productcard = ({id,title,image,brand,price,style,category,gender,size,disc
         <img src={image} alt={title} />
         <div>-{discount}%</div>
         <button onClick={wishlistAdd}>
-          <IoIosHeartEmpty />
+          <IoIosHeartEmpty className='icon'/>
         </button>
         <h3>{title}</h3>
         <p>${price}</p>

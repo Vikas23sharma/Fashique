@@ -13,6 +13,8 @@ import DeliveryAddressCard from './DeliveryAddressCard';
 import { BsCreditCardFill } from 'react-icons/bs';
 import { FaCcPaypal } from 'react-icons/fa';
 import PaymentCard from './PaymentCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserCart } from '../Redux/Checkout/action';
 
 const CheckOut = () => {
     const initalPresent = JSON.parse(localStorage.getItem('addresspresent'));
@@ -28,6 +30,7 @@ const CheckOut = () => {
     const [addressPresent, setAddressPresent] = useState(false)
     const [isMobileView] = useMediaQuery("(max-width: 930px)")
     // const [isMobileView2] = useMediaQuery("(max-width: 360px)")
+    const dispatch = useDispatch()
     const [country, setCountry] = useState({
         image: "https://cdn4.iconfinder.com/data/icons/flat-circle-flag/182/circle_flag_india-1024.png",
         name: "India"
@@ -61,133 +64,140 @@ const CheckOut = () => {
         }
     ];
 
-    const checkoutProducts = [
-        {
-            "id": 101,
-            "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
-            "title": " Topman crochet shirt in green and ecru",
-            "brand": "Topman",
-            "discount": 20,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "S",
-            "price": 65,
-            "category": "T-shirt"
-        },
-        {
-            "id": 102,
-            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
-            "title": "Topman classic t-shirt in black",
-            "brand": "Topman",
-            "discount": 30,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "M",
-            "price": 13,
-            "category": "T-shirt"
-        },
-        {
-            "id": 103,
-            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
-            "title": "Topman classic t-shirt in white",
-            "brand": "Topman",
-            "discount": 45,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "L",
-            "price": 13,
-            "category": "T-shirt"
-        },
-        {
-            "id": 104,
-            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
-            "title": "Topman classic t-shirt in black",
-            "brand": "Topman",
-            "discount": 60,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "XL",
-            "price": 15,
-            "category": "T-shirt"
-        },
-        {
-            "id": 105,
-            "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
-            "title": "New Look crew neck t-shirt in blue",
-            "brand": "New Look",
-            "discount": 20,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "S",
-            "price": 17,
-            "category": "T-shirt"
-        },
-        {
-            "id": 10,
-            "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
-            "title": " Topman crochet shirt in green and ecru",
-            "brand": "Topman",
-            "discount": 20,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "S",
-            "price": 65,
-            "category": "T-shirt"
-        },
-        {
-            "id": 12,
-            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
-            "title": "Topman classic t-shirt in black",
-            "brand": "Topman",
-            "discount": 30,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "M",
-            "price": 13,
-            "category": "T-shirt"
-        },
-        {
-            "id": 13,
-            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
-            "title": "Topman classic t-shirt in white",
-            "brand": "Topman",
-            "discount": 45,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "L",
-            "price": 13,
-            "category": "T-shirt"
-        },
-        {
-            "id": 14,
-            "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
-            "title": "Topman classic t-shirt in black",
-            "brand": "Topman",
-            "discount": 60,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "XL",
-            "price": 15,
-            "category": "T-shirt"
-        },
-        {
-            "id": 15,
-            "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
-            "title": "New Look crew neck t-shirt in blue",
-            "brand": "New Look",
-            "discount": 20,
-            "gender": "men",
-            "style": "half sleeve",
-            "size": "S",
-            "price": 17,
-            "category": "T-shirt"
+    useEffect(() => {
+        let token = JSON.parse(localStorage.getItem("token"))
+        dispatch(getUserCart(token))
+    }, [])
+
+    const { checkoutProducts } = useSelector(state => {
+        return {
+            checkoutProducts: state.CheckoutReducer.checkoutProducts
         }
-    ]
+    })
+    console.log(checkoutProducts)
+
+    // const checkoutProducts = [
+    //     {
+    //         "id": 101,
+    //         "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
+    //         "title": " Topman crochet shirt in green and ecru",
+    //         "brand": "Topman",
+    //         "discount": 20,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "S",
+    //         "price": 65,
+    //         "category": "T-shirt"
+    //     },
+    //      //     {
+    //         "id": 103,
+    //         "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
+    //         "title": "Topman classic t-shirt in white",
+    //         "brand": "Topman",
+    //         "discount": 45,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "L",
+    //         "price": 13,
+    //         "category": "T-shirt"
+    //     },
+    //     {
+    //         "id": 104,
+    //         "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
+    //         "title": "Topman classic t-shirt in black",
+    //         "brand": "Topman",
+    //         "discount": 60,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "XL",
+    //         "price": 15,
+    //         "category": "T-shirt"
+    //     },
+    //     {
+    //         "id": 105,
+    //         "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
+    //         "title": "New Look crew neck t-shirt in blue",
+    //         "brand": "New Look",
+    //         "discount": 20,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "S",
+    //         "price": 17,
+    //         "category": "T-shirt"
+    //     },
+    //     {
+    //         "id": 10,
+    //         "image": "https://images.asos-media.com/products/topman-crochet-shirt-in-green-and-ecru/204385540-2?$n_320w$&wid=317&fit=constrain",
+    //         "title": " Topman crochet shirt in green and ecru",
+    //         "brand": "Topman",
+    //         "discount": 20,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "S",
+    //         "price": 65,
+    //         "category": "T-shirt"
+    //     },
+    //     {
+    //         "id": 12,
+    //         "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
+    //         "title": "Topman classic t-shirt in black",
+    //         "brand": "Topman",
+    //         "discount": 30,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "M",
+    //         "price": 13,
+    //         "category": "T-shirt"
+    //     },
+    //     {
+    //         "id": 13,
+    //         "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
+    //         "title": "Topman classic t-shirt in white",
+    //         "brand": "Topman",
+    //         "discount": 45,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "L",
+    //         "price": 13,
+    //         "category": "T-shirt"
+    //     },
+    //     {
+    //         "id": 14,
+    //         "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/203515869-1-black?$n_240w$&wid=168&fit=constrain",
+    //         "title": "Topman classic t-shirt in black",
+    //         "brand": "Topman",
+    //         "discount": 60,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "XL",
+    //         "price": 15,
+    //         "category": "T-shirt"
+    //     },
+    //     {
+    //         "id": 15,
+    //         "image": "https://images.asos-media.com/products/new-look-crew-neck-t-shirt-in-blue/203829520-1-midblue?$n_240w$&wid=168&fit=constrain",
+    //         "title": "New Look crew neck t-shirt in blue",
+    //         "brand": "New Look",
+    //         "discount": 20,
+    //         "gender": "men",
+    //         "style": "half sleeve",
+    //         "size": "S",
+    //         "price": 17,
+    //         "category": "T-shirt"
+    //     }
+    // ]
 
     var userDetails = JSON.parse(localStorage.getItem("UserDetails")) || []
     var index = JSON.parse(localStorage.getItem("userId")) || 1
     var token = JSON.parse(localStorage.getItem("token")) || null
 
+    // const { useraccountcredentials } = useSelector(state => {
+    //     console.log(state)
+    //     return {
+    //         useraccountcredentials: state.CheckoutReducer.useraccountcredentials
+    //     }
+    // })
+    // console.log(useraccountcredentials,"useraccountcredentials")
 
     useEffect(() => {
         const localUserDetails = JSON.parse(localStorage.getItem("UserDetails")) || []
@@ -202,7 +212,7 @@ const CheckOut = () => {
     // Now you can use the `addressPresent` state variable to conditionally render your components
 
 
-    console.log(userDetails, "line179")
+    // console.log(userDetails, "line179")
     useEffect(() => {
         let price = 0;
         checkoutProducts.forEach((product) => {
@@ -230,10 +240,13 @@ const CheckOut = () => {
         }, 1000)
     }, [])
     const handleBuy = () => {
+
         setShowAlert(true)
+
         setTimeout(() => {
             setShowAlert(false);
         }, 3000);
+
     }
     const handleCountryChange = (e) => {
         const selectedCountryIndex = e.target.value;

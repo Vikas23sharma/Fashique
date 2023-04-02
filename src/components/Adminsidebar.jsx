@@ -20,24 +20,24 @@ import "../Style/Admindashboard.css"
 
 const Adminsidebar = () => {
     return (
-        <Box position={"fixed"} height={"100vh"} width={["10%","14%","18%"]}  backgroundColor={"#2d2d2d"} >
+        <Box className='sidebar' position={"fixed"} height={"100vh"}  backgroundColor={"#2d2d2d"} >
             <Flex className='adminsidebar' direction={"column"} justifyContent={"space-evenly"} >
                 <Link to={"/admin"}>
-                    <Flex className='labelcont' justifyContent={"space-evenly"} padding={"6%"}  mt={"1%"}  >
-                        <Box w="10%"><AiOutlineHome className='icons' color='white' size={27} /></Box>
-                        <Box w="40%"> <Text className='labels' color='white' >Home</Text></Box>
+                    <Flex  justifyContent={"space-evenly"} padding={"6%"}  mt={"1%"}  >
+                        <Box className='iconcont' ><AiOutlineHome className='icons' color='white' size={27} /></Box>
+                        <Box className='labelcont'> <Text className='labels' color='white' >Home</Text></Box>
                     </Flex>
                 </Link>
                 <Link to={"/adminorders"}>
                     <Flex justifyContent={"space-evenly"} padding={"6%"} >
-                        <Box w={"10%"} ><AiOutlineShoppingCart className='icons' color='white' size={27} /></Box>
-                        <Box  w={"40%"}><Text className='labels' color='white' >Orders</Text></Box>
+                        <Box className='iconcont'  ><AiOutlineShoppingCart className='icons' color='white' size={27} /></Box>
+                        <Box className='labelcont'><Text className='labels' color='white' >Orders</Text></Box>
                     </Flex>
                 </Link>
                 <Link to="/admincustomers">
                     <Flex justifyContent={"space-evenly"} padding={"4%"} >
-                        <Box w={"10%"}><FiUsers className='icons' color='white' size={25} /></Box>
-                        <Box  w={"40%"}><Text className='labels' color='white' >Customers</Text></Box>
+                        <Box className='iconcont' ><FiUsers className='icons' color='white' size={25} /></Box>
+                        <Box className='labelcont'  ><Text className='labels' color='white' >Users</Text></Box>
                     </Flex>
                 </Link>
 
@@ -46,7 +46,7 @@ const Adminsidebar = () => {
                         <h2>
                             <AccordionButton color={"white"}>
                                 <Flex justifyContent="space-evenly" as="span" flex='1' textAlign='center'>
-                                    <HiOutlineClipboardList className='icons' color='white' size={27} />
+                                    <HiOutlineClipboardList id='productsicon' className='icons' color='white' size={27} />
                                     <Text className='labels'  color='white' >Products</Text>
                                 </Flex>
                                 <AccordionIcon />
@@ -54,20 +54,20 @@ const Adminsidebar = () => {
                         </h2>
                         <AccordionPanel pb={4} textAlign="center">
                            <Link to={"/adminproductmen"}>
-                           <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>MEN</Text>
+                           <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >MEN</Text>
                            </Link>
 
                            <Link to={"/admin-product-women"}>
-                           <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>WOMEN</Text>
+                           <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >WOMEN</Text>
                            </Link>
                            
                            <Link to={"/admin-product-shoes"}>
-                           <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>SHOES</Text>
+                           <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >SHOES</Text>
                            </Link>
                             
 
                             <Link to={"/admin-product-jacket"}>
-                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>JACKETS</Text>
+                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >JACKETS</Text>
                             </Link>
                             
                         </AccordionPanel>
@@ -85,11 +85,11 @@ const Adminsidebar = () => {
                         </h2>
                         <AccordionPanel textAlign={"center"} pb={4}>
                             <Link to={"/adminaddproductmen"}>
-                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>MEN</Text>
+                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >MEN</Text>
                             </Link>
-                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>WOMEN</Text>
-                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>SHOES</Text>
-                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" _hover={{ cursor: "pointer", fontSize: "2xl" }}>JACKETS</Text>
+                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >WOMEN</Text>
+                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >SHOES</Text>
+                            <Text className='sections' color='white' boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px" padding="2%" >JACKETS</Text>
                         </AccordionPanel>
                     </AccordionItem>
                 </Accordion>

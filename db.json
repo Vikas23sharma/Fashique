@@ -180,7 +180,7 @@
       "confirmpassword": "123456789",
       "dob": "2023-04-14",
       "gender": "men",
-      "token": "NUhtjZYzfhEEqoQtUBBxFWwnLOBtUawYhSZyeQmECrTLMDjWQH",
+      "token": "pGLQXLKzZGfrwQjBmqVMWvukPwCyMYUOCcyafXSxzNjKfkzabk",
       "useraddress": {},
       "cart": [
         {
@@ -345,7 +345,12 @@
         }
       ],
       "wishlist": {},
-      "useraccountcredentials": {},
+      "useraccountcredentials": {
+        "cardnumber": "-2",
+        "expirydate": "2023-02",
+        "cardholdername": "shankar",
+        "cvv": "058"
+      },
       "id": 2
     },
     {

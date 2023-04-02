@@ -13,6 +13,8 @@ import {
 } from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 import { editProductMen, editProductMenToProduct } from '../Redux/AdminProduct/action'
+import "../Style/Admindashboard.css"
+
 
 
 
@@ -57,13 +59,13 @@ const AdminEditProduct = () => {
     return (
         <Box>
             <Navbar />
-            <Flex justifyContent={"space-evenly"} marginTop={"8%"}>
+            <Flex className='addproductpagecontainer' justifyContent={"space-evenly"} marginTop={"8%"}>
                 <Box w={"18%"}>
                     <Adminsidebar />
                 </Box>
-                <Box w={"82%"} textAlign="center">
+                <Box className='formcontainer' w={"82%"} textAlign="center">
                 <Heading color={"#2d2d2d"} marginBottom="2%">EDIT PRODUCT:{id}</Heading>
-                    <Box padding={"3%"} w={"50%"}  margin="2% auto" boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px">
+                    <Box className='form' padding={"3%"}   margin="2% auto" boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px">
                        <form onSubmit={handleEdit} >
                         <FormControl isRequired >
                             <FormLabel>ID</FormLabel>

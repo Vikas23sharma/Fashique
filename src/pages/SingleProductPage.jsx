@@ -10,19 +10,31 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
+  
   Box,
   
 } from "@chakra-ui/react";
 import {MinusIcon,
   AddIcon,} from "@chakra-ui/icons"
+import { Slider } from '../components/Slider';
+import { Footer } from './Footer';
+import { useToast } from "@chakra-ui/react";
+
 
 
 
 export const SingleProductPage = () => {
  const [data,setData] = useState({});
+//  const [cart_item, setcart_item] = useState([]);
+// let cartData = JSON.parse(localStorage.getItem("cart_item")) || [];
+//  let token = JSON.parse(localStorage.getItem("token"));
+//  console.log(token)
+//  console.log(cart_item)
+ console.log("data",data)
+   const toast = useToast();
   let param = useParams();
   const id = param.product_id;
+  
   useEffect(()=>{
     axios
       .get(`https://asos-of6d.onrender.com/products/${id}`)
@@ -35,25 +47,56 @@ export const SingleProductPage = () => {
       });
   },[])
   const addToCart =()=>{
-     axios
-       .post(`https://asos-of6d.onrender.com/cart`, data)
-       .then((res) => {
-         console.log(res);
-       })
-       .catch((err) => {
-         alert("already exist in cart");
-         console.log(err);
+    // cartData.push(data);
+    // localStorage.setItem("cart_item",JSON.stringify(cartData));
+    // console.log(cartData)
+   axios
+     .post(`https://asos-of6d.onrender.com/cart`, data)
+     .then((res) => {
+      toast({
+        title: "Product Added Successfully",
+        description: "Enjoy Shopping With Us",
+        status: "success",
+        duration: 1000,
+        isClosable: true,
+      });
+       console.log(res);
+     })
+     .catch((err) => {
+       toast({
+         title: " Already in Cart",
+        //  description: "Enjoy Shopping With Us",
+         status: "success",
+         duration: 1000,
+         isClosable: true,
        });
+       console.log(err);
+     });
+    
   }
+  
   const addToWishlist=()=>{
      
      axios
-       .post(`https://asos-of6d.onrender.com/wishlist`, data)
+       .post(`https://asos-of6d.onrender.com/wishlist`,data)
        .then((res) => {
+         toast({
+           title: "Product Added Successfully",
+           description: "Enjoy Shopping With Us",
+           status: "success",
+           duration: 1000,
+           isClosable: true,
+         });
          console.log(res);
        })
        .catch((err) => {
-         alert("already exist in wishlist");
+         toast({
+           title: "Already in Wishlist",
+          //  description: "Enjoy Shopping With Us",
+           status: "success",
+           duration: 1000,
+           isClosable: true,
+         });
          console.log(err);
        });
   }
@@ -239,6 +282,8 @@ export const SingleProductPage = () => {
           </Accordion>
         </div>
       </div>
+      <Slider/>
+      <Footer/>
     </div>
   );
 }
