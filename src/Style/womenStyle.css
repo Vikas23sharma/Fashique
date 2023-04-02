@@ -392,6 +392,9 @@ footer{
 }
 .footer_3{
     display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     justify-content: space-between;
     padding: 10px;
     font-size: 12px;

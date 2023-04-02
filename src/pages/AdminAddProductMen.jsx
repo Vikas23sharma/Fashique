@@ -43,9 +43,12 @@ const AdminAddProductMen = () => {
         e.preventDefault()
         // if(image===""||title===""||brand===""||discount===""||gender===""||style===""||size===""||price===""||category===""){
         //     return  toast({
-        //         title: 'Enter all fields',
-        //         position:" top",
+        //         title: 'Enter All Fields',
+        //         description: "Some of the details are missing",
+        //         status: 'error',
+        //         duration: 5000,
         //         isClosable: true,
+        //         position:'top'
         //       })
         // }
         console.log(product)

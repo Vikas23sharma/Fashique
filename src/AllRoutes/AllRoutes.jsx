@@ -33,8 +33,8 @@ import { MenJacket } from "../pages/MenJacket";
 import Error404 from "../pages/Error404";
 import Cart from "../pages/Cart";
 import PrivateRoutes from "./PrivateRoutes";
-
-
+import { WishList } from "../pages/WishList";
+import AdminEditProduct from "../pages/AdminEditProduct";
 
 
 export default function AllRoutes() {
@@ -53,6 +53,7 @@ export default function AllRoutes() {
             <Route path="/admin-product-women" element={<AdminProductWomen />}></Route>
             <Route path="/admin-product-shoes" element={<AdminProductShoe />}></Route>
             <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
+            <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route>
             <Route path="/checkout" element={<PrivateRoutes><CheckOut /> </PrivateRoutes>}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/mencloth" element={<MenCloths />} />
@@ -71,12 +72,10 @@ export default function AllRoutes() {
             <Route path="/womenpants" element={<WomenPants />} />
             <Route path="/womentop" element={<WomenTop />} />
             <Route path="/womenshoes" element={<WomenShoes />} />
+             <Route path="/wishlist" element={<WishList></WishList>}></Route>
             <Route path="/womenjacket" element={<WomenJacket />} />
-            {/* <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route> */}
+             {/* <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route> */}
             <Route element={<Error404 />}></Route> {/* all team member keep this line at last */}
         </Routes>
     )
-
-
-
 }
