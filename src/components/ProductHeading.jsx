@@ -7,8 +7,8 @@ const ProductHeading = ({heading,para}) => {
     const fullText = para;
     const shortenedText = fullText.split(" ").slice(0, 10).join(" ");
   return (
-    <div style={{width:"500px",margin:"auto",textAlign:"center"}}>
-        <h1 style={{fontSize:"30px",fontWeight:"bolder",}}>{heading}</h1>
+    <div style={{ width: "100%", margin: "auto", textAlign: "center" }}>
+      <h1 style={{fontSize:"30px",fontWeight:"bolder",}}>{heading}</h1>
         <Box display={"flex"} justifyContent="space-around" gap="10px">
                 <Text fontSize="15px" mb={4}>
                     {shortenedText} {showText && fullText.slice(shortenedText.length)}
@@ -22,8 +22,9 @@ const ProductHeading = ({heading,para}) => {
                 </Flex>
             )}
     </Box>
+      
     </div>
-  )
+  );
 }
 
 export default ProductHeading;
