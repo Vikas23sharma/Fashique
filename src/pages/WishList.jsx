@@ -41,7 +41,7 @@ return (
     <h2>You have no save items</h2>
     </div>
     }
-    <Footer/>
+    {/* <Footer/> */}
     </div>
 )
 }
