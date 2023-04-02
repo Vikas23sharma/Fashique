@@ -11,8 +11,6 @@ import {
   Button,
   Heading,
   useToast,
-
-
 } from '@chakra-ui/react';
 
 import LoadingWithLetter from "./LoadingWithLetter";
