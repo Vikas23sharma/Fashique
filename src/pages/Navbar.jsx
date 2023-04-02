@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Sidebar } from './Sidebar'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch,useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getSearch } from '../Redux/search/action'
 import { getSearchBtn } from '../Redux/search/action'
 
 export const Navbar = () =>{
+let isAuth = JSON.parse(localStorage.getItem("isAuth"))
 const dispatch = useDispatch()
 let match = window.matchMedia("(max-width:770px)").matches;
 const navigate = useNavigate()
@@ -54,6 +55,8 @@ if(inputs.length>0 || match){
 }
 }
 
+// console.log(isAuth)
+
 return (
     <nav>
     <div className='nav_part_1'>
@@ -79,7 +82,7 @@ return (
     </div>
     <div className="nav_top_3">
         <div onClick={handleSignIn}>
-        <svg xmlns="http://www.w3.org/2000/svg" color={sign&&!match?'rgb(0, 136, 189)':'white'} fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" color={sign?'rgb(0, 136, 189)':'white'} fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
         </svg>
         </div>
@@ -91,9 +94,11 @@ return (
         </Link>
         </div>
         <div >
+        <Link to={'/cart'}>
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
         </svg>
+        </Link>
         </div>
     </div>
     </div>
@@ -130,11 +135,13 @@ return (
     {/* slide */}
     {on?<div className='slide'> <Sidebar/> </div>:null}
     {/* contact */}
-    <div className='signIn_1' style={{height:sign&&!match?'auto':'0px',display:sign&&!match?'block':'none'}}>
+    <div className='signIn_1' style={{height:sign?'auto':'0px',display:sign?'block':'none'}}>
+    {!isAuth?
     <div>
     <h6><Link to={'/login'}>SIGN IN</Link></h6>
     <h6><Link to={'/login'}>JOIN</Link></h6>
-    </div>
+    </div>:
+    <div><h6 style={{margin:'0.3cm auto',width:'90%'}}>LOG OUT</h6></div>}
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
@@ -146,6 +153,12 @@ return (
     <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
     </svg>
     <p>My Order</p>
+    </div>
+    <div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
+    <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+    </svg>
+    <p><Link to={'/admin'}>Admin</Link></p>
     </div>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
