@@ -89,19 +89,7 @@ const CheckOut = () => {
     //         "price": 65,
     //         "category": "T-shirt"
     //     },
-    //     {
-    //         "id": 102,
-    //         "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-black/201602748-2?$n_320w$&wid=317&fit=constrain",
-    //         "title": "Topman classic t-shirt in black",
-    //         "brand": "Topman",
-    //         "discount": 30,
-    //         "gender": "men",
-    //         "style": "half sleeve",
-    //         "size": "M",
-    //         "price": 13,
-    //         "category": "T-shirt"
-    //     },
-    //     {
+    //      //     {
     //         "id": 103,
     //         "image": "https://images.asos-media.com/products/topman-classic-t-shirt-in-white/201613574-2?$n_320w$&wid=317&fit=constrain  ",
     //         "title": "Topman classic t-shirt in white",
