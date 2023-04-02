@@ -3,6 +3,7 @@ import { GET_PRODUCT_FAILURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS } from ".
 
 // Men Products
 export const getMenProduct = (paramObj)=>(dispatch)=>{
+  console.log(paramObj)
     dispatch({type:GET_PRODUCT_REQUEST})
    axios
      .get(`https://asos-of6d.onrender.com/men`, paramObj)

@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wish_1{
+    margin: 3.3cm auto;
+    width: 95%;
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 15px;
+    padding: 5px;
+}
+.noWish_1{
+    margin: 4.5cm 0 ;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(62, 62, 62);
+}
+.noWish_1 svg{
+    display: block;
+    width: 35px;
+    color: rgb(215, 32, 62);
+    margin: auto;
+}
+
+@media screen and (min-width:0px) and (max-width:1200px){
+.wish_1{
+
+    grid-template-columns: repeat(4,1fr);
+
+}
+@media screen and (min-width:0px) and (max-width:1000px){
+.wish_1{
+    margin: 2.6cm auto;
+}
+
+}
+
+}
+@media screen and (min-width:0px) and (max-width:800px){
+.wish_1{
+    grid-template-columns: repeat(3,1fr);
+}
+}
+
+@media screen and (min-width:0px) and (max-width:650px){
+.wish_1{
+    grid-template-columns: repeat(2,1fr);
+}
+}
+
+@media screen and (min-width:0px) and (max-width:500px){
+.wish_1{
+    grid-template-columns: repeat(1,1fr);
+    padding: 15px;
+}
+}

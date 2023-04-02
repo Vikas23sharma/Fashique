@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 const AdminPrivateRoutes = ({ children }) => {
+
     const isAuthAdmin = JSON.parse(localStorage.getItem("isAuthAdmin")) || false
     console.log(children)
     if (isAuthAdmin === false) {

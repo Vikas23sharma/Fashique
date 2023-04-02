@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 
 import LoadingWithLetter from "./LoadingWithLetter";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 const Email = "fashique@gmail.com"
 const Password = "123456789"
 
@@ -23,6 +23,7 @@ export default function AdminLogin() {
   const [isLoading, setIsLoading] = useState(true)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
   const toast = useToast();
 
   const handleChange = (e) => {
@@ -42,7 +43,8 @@ export default function AdminLogin() {
         position: "top"
       });
       localStorage.setItem("isAuthAdmin", JSON.stringify(true));
-      <Navigate to="/admin" replace="true" />
+      // return <Navigate to="/admin" replace="true" />
+      navigate("/admin")
     } else {
       toast({
         title: "Login Failed",

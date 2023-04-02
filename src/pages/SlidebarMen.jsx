@@ -1,12 +1,16 @@
 import '../Style/Sidebar.css'
+import { Link } from 'react-router-dom'
+
 
 export const SidebarMen = () =>{
 return (
     <div className='sidebar_1'>
     <div>
     <a href="#">
+    <Link to={'/men'}>
     <p style={{top:'17px'}}>HOME</p>
     <img src="https://images.asos-media.com/navigation/mw_homebuttonnew_1826147?&amp;$n_320w$&quot" alt="home" />
+    </Link>
     </a>
     </div>
     <div>
