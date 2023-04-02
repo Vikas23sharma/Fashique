@@ -70,7 +70,7 @@ const AdminAddProductMen = () => {
                     {/* write code here */}
                     {/* Products will be added to the men's category from here */}
                     <Heading color={"#2d2d2d"} marginBottom="2%">ADD PRODUCT</Heading>
-                    <Box padding={"3%"} w={"50%"} margin="2% auto" boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px">
+                    <Box className='form' padding={"3%"}  margin="2% auto" boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px">
                         <form onSubmit={handleSubmit}>
                             <FormControl isRequired >
                                 <FormLabel>ID</FormLabel>

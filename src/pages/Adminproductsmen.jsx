@@ -45,11 +45,11 @@ const handleDelete=(id)=>{
     <Box>
      
     <Navbar/>
-    <Flex justifyContent={"space-evenly"} marginTop={"8%"}>
-    <Box  w={"18%"}>
+    <Flex className='dashboardcont' justifyContent={"space-evenly"} >
+    <Box className='sidebarcont' >
     <Adminsidebar/>
     </Box>
-    <Box className='adminmenproduct' w={"82%"} display={"grid"}  gap={"10px"} padding={"1%"}>
+    <Box className='adminmenproduct' w={"82%"} display={"grid"} padding={"1%"}>
       {/* write code here */}
       {/* <h1>sen</h1>
       Products of Men Category will be displayed here with edit and delete button */}

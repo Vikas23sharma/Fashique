@@ -3,16 +3,18 @@ import React from 'react'
 import Admindashboard from '../components/Admindashboard'
 import Adminsidebar from '../components/Adminsidebar'
 import { Navbar } from './Navbar'
+import "../Style/Admindashboard.css"
+
 
 const Admin = () => {
   return (
     <Box>
       <Navbar/>
-      <Flex justifyContent={"space-evenly"} marginTop={"8%"}>
-      <Box  w={"18%"}>
+      <Flex className='dashboardcont'  justifyContent={"space-evenly"} >
+      <Box className='sidebarcont' >
       <Adminsidebar/>
       </Box>
-      <Box  w={"82%"}>
+      <Box className='adminpagedashboardbox' >
         <Admindashboard/>
         
       </Box>
