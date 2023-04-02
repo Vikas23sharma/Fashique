@@ -33,6 +33,7 @@ import { MenJacket } from "../pages/MenJacket";
 import Error404 from "../pages/Error404";
 import Cart from "../pages/Cart";
 import PrivateRoutes from "./PrivateRoutes";
+import AdminPrivateRoutes from "./AdminPrivateRoutes";
 
 
 
@@ -42,17 +43,16 @@ export default function AllRoutes() {
 
         <Routes>
             <Route path="/" element={<Women></Women>}></Route>
-
             <Route path="/adminlogin" element={<AdminLogin />}></Route>
-            <Route path="/admin" element={<Admin />}></Route>
-            <Route path="/adminorders" element={<Adminorders />}></Route>
-            <Route path="/admincustomers" element={<Admincustomers />}></Route>
+            <Route path="/admin" element={<AdminPrivateRoutes><Admin /></AdminPrivateRoutes>}></Route>
+            <Route path="/adminorders" element={<AdminPrivateRoutes><Adminorders /></AdminPrivateRoutes>}></Route>
+            <Route path="/admincustomers" element={<AdminPrivateRoutes><Admincustomers /></AdminPrivateRoutes>}></Route>
             <Route path="/account" element={<PrivateRoutes><Account></Account></PrivateRoutes>}></Route>
-            <Route path="/adminproductmen" element={<Adminproductsmen />}></Route>
-            <Route path="/admin-product-jacket" element={<AdminProductsJackets />}></Route>
-            <Route path="/admin-product-women" element={<AdminProductWomen />}></Route>
-            <Route path="/admin-product-shoes" element={<AdminProductShoe />}></Route>
-            <Route path="adminaddproductmen" element={<AdminAddProductMen />}></Route>
+            <Route path="/adminproductmen" element={<AdminPrivateRoutes><Adminproductsmen /></AdminPrivateRoutes>}></Route>
+            <Route path="/admin-product-jacket" element={<AdminPrivateRoutes><AdminProductsJackets /></AdminPrivateRoutes>}></Route>
+            <Route path="/admin-product-women" element={<AdminPrivateRoutes><AdminProductWomen /></AdminPrivateRoutes>}></Route>
+            <Route path="/admin-product-shoes" element={<AdminPrivateRoutes><AdminProductShoe /></AdminPrivateRoutes>}></Route>
+            <Route path="adminaddproductmen" element={<AdminPrivateRoutes><AdminAddProductMen /></AdminPrivateRoutes>}></Route>
             <Route path="/checkout" element={<PrivateRoutes><CheckOut /> </PrivateRoutes>}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/mencloth" element={<MenCloths />} />

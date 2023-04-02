@@ -43,6 +43,7 @@ export default function AdminLogin() {
         isClosable: true,
         position: "top"
       });
+      localStorage.setItem("isAuthAdmin", JSON.stringify(true));
       <Navigate to="/admin" replace="true" />
     } else {
       toast({
@@ -83,8 +84,8 @@ export default function AdminLogin() {
         >
           <Heading fontSize={'2xl'} textAlign="center" p="10">ADMIN LOGIN</Heading>
           <Stack spacing={4}>
-            <form onSubmit={handleSubmit}>
-              <FormControl id="email" isRequired>
+            <form onSubmit={handleSubmit} >
+              <FormControl id="email" display="inline-block" mr={2} isRequired width={"100%"}>
                 <FormLabel>Email address</FormLabel>
                 <Input type="email" name="email" value={email} onChange={handleChange} />
               </FormControl>
