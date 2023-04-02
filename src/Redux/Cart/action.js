@@ -43,11 +43,6 @@ export const postCartItems = (id, initialcart) => (dispatch) => {
 
         })
 }
-
-
-
-
-
 // export const getCartProducts = (token) => (dispatch) => {
 //     dispatch({ type: CART_PRODUCTS_REQUEST })
 //     axios
