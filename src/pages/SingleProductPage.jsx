@@ -50,7 +50,7 @@ export const SingleProductPage = () => {
   const addToWishlist=()=>{
      
      axios
-       .post(`https://asos-of6d.onrender.com/wishlist`, data)
+       .patch(`https://asos-of6d.onrender.com/users?token=${token}`,{cart:data})
        .then((res) => {
          console.log(res);
        })
