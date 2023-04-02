@@ -1,35 +1,56 @@
+import { useEffect, useState } from 'react'
 import '../Style/AccountStyle.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 export const Account = () =>{
-let userdata = JSON.parse(localStorage.getItem("UserDetails"))
-let word = userdata[userdata.length-1].firstname[0]
+// let userdata = JSON.parse(localStorage.getItem("UserDetails"))
+let token = JSON.parse(localStorage.getItem("token"))
+const [firstname,seFirstname] = useState('-');
+const [lastname,setLastname] = useState('-')
+let match = window.matchMedia("(max-width:770px)").matches;
+const [speacial,setSpeacial] = useState(false)
 
-console.log(word)
 
+const getUser  = () =>{
+axios.get(`https://asos-of6d.onrender.com/users?token=${token}`)
+.then((data)=>{
+seFirstname(data.data[0].firstname)
+setLastname(data.data[0].lastname)
+})
+.catch((error)=>{
+console.log(error)
+})
+}
+
+const handleSpeacial = () =>{
+setSpeacial(!speacial)
+}
+
+useEffect(()=>{
+getUser();
+},[])
 
 return (
-    <div>
+    <div style={{backgroundColor:'rgba(186, 186, 186, 0.416)'}}>
     <span>
         <div>
-            <h1><Link to={'/'}>FSUQ</Link></h1>
-        </div>
-        <div>
-            <h1>MY ACCOUNT</h1>
-        </div>
-        <div>
-            <img src="https://careeracademy.ie/wp-content/uploads/2020/11/Secure-Payment-Icon.png" alt="" />
+            <h1><Link to={'/'}>← back</Link></h1>
         </div>
     </span>
 
     <div className='account_1'>
     <div className='account_1_item'>
-        <div>
-            <div style={{display:'flex',width:'70px',height:'70px',borderRadius:'50%',border:'1px solid black',alignItems:'center',textAlign:'center',padding:'22px'}}>
-            <h1 style={{fontSize:'50px'}}>{word}</h1>
+        <div style={speacial&&match?{flexDirection:'row',margin:'0'}:null}>
+            <div onClick={handleSpeacial} style={speacial&&match?{margin:'0',width:'70px',height:'70px',borderRadius:'50%',alignItems:'center',textAlign:'center',border:'1px solid grey',padding:'10px'}:{display:'flex',width:'70px',height:'70px',borderRadius:'50%',border:'1px solid grey',alignItems:'center',textAlign:'center',padding:'26px'}}>
+            <h1 style={{fontSize:'30px'}}>
+            {firstname[0]}
+            </h1>
             </div>
-            <h1 style={{marginLeft:'15px'}}>{userdata[userdata.length-1].firstname} {userdata[userdata.length-1].lastname}</h1>
+            <h1 style={speacial&&match?{marginLeft:'25px',display:'block'}:{marginLeft:'25px'}}>
+                {firstname} {lastname}
+            </h1>
         </div>
         <div>
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjMkQyRDJEIiBkPSJNMTAgMmE0IDQgMCAxMDAgOCA0IDQgMCAwMDAtOHptMCAxMGE2IDYgMCAxMTAtMTIgNiA2IDAgMDEwIDEyem03LjY3OCA4TDE5IDE4LjQ2OGE2LjgwOSA2LjgwOSAwIDAwLS4yMDctLjQ2OEguMjA3Yy0uMDc1LjE1NC0uMTQ0LjMxLS4yMDcuNDY4TDEuMzIyIDIwaC4yODJjLjU2NC0yLjc5MiAzLjgxNC01IDcuODk2LTVzNy4zMzIgMi4yMDggNy44OTYgNWguMjgyek0wIDIwaDIwYy0uNTUzLTQuMDA2LTQuODE5LTctMTAtN1MuNTUzIDE1Ljk5NCAwIDIweiIvPjwvc3ZnPg==" alt="" />
@@ -81,7 +102,9 @@ return (
         </div>
     </div>
     <div className='account_1_item'>
-
+    <div>
+    <h1 style={{fontSize:'30PX',height:'80vh'}}>Hii,<br />{firstname} {lastname} ...</h1>
+    </div>
     </div>
     </div>
     </div>

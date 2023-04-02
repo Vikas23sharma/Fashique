@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
-    FormControl, Center, Text, HStack, VStack, Spacer, Stack, SimpleGrid,
-    FormLabel, FormErrorMessage, FormHelperText, Input, Box, Button, Container, useToast
+    FormControl, Center, Text, VStack, SimpleGrid,
+    FormLabel, Input, Box, Button, Container, useToast
 } from '@chakra-ui/react'
 import { FcGoogle } from "react-icons/fc"
 import { TiVendorApple } from 'react-icons/ti'
@@ -9,6 +9,7 @@ import { MdOutlineFacebook } from 'react-icons/md';
 import { getUserDetails, login_in } from '../Redux/Login/action';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from './Loading';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -17,6 +18,7 @@ const SignIn = () => {
     const [password, setPassword] = useState("")
     const [forceUpdate, setForceUpdate] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate();
     const toast = useToast();
     const { isLoading } = useSelector(state => {
         return {
@@ -42,10 +44,14 @@ const SignIn = () => {
                     position: "top"
                 });
                 localStorage.setItem("token", JSON.stringify(detail[i].token))
+                localStorage.setItem("isAuth", JSON.stringify(true))
                 let token = JSON.parse(localStorage.getItem("token"))
 
                 // console.log("token",token)
-                dispatch(login_in(token))
+                dispatch(login_in(token));
+                setTimeout(() => {
+                    navigate('/', { replace: true });
+                }, 1000);
             } else if (detail[i].email === email && detail[i].password !== password) {
                 toast({
                     title: "Login Failed",

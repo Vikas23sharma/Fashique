@@ -1,4 +1,4 @@
-import { GET_PRODUCT_FAILURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS, POST_PRODUCT_REQUEST } from "./actionType";
+import { GET_PRODUCT_FAILURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS,  } from "./actionType";
 
 const initialState = {
     isLoading:false,
