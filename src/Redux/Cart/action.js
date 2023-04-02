@@ -22,7 +22,6 @@ export const initialCartProducts = () => (dispatch) => {
         })
 }
 
-
 export const postCartItems = (id, initialcart) => (dispatch) => {
     console.log(initialcart, "hfdjashdjfj")
     // console.log(token,"token---")
