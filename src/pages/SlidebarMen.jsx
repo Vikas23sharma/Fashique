@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom'
 
 
 export const SidebarMen = () =>{
-let isAuth = JSON.parse(localStorage.getItem("isAuth"))
-
-
 return (
     <div className='sidebar_1'>
     <div>
@@ -96,35 +93,23 @@ return (
     </div>
 
     <div className='side_1_bottom'>
-    {!isAuth?
-    <div style={{display:'flex',justifyContent:'space-evenly',marginTop:'1.5cm'}}>
-        <p><Link to={'/login'}>Sign In</Link></p>
+        <div style={{display:'flex',justifyContent:'space-evenly',marginTop:'1.5cm'}}>
+        <p>Sign In </p>
         <p>|</p>
-        <p><Link to={'/login'}>Join</Link></p>
-    </div>:
-    <div><h5 style={{border:'1px solid rgb(6, 182, 252)',cursor:'pointer',color:'rgb(6, 182, 252)',width:'85%',margin:' 0.5cm auto 0 auto',textAlign:'center',padding:'7px'}}>
-    LOG OUT
-    </h5>
+        <p>Join</p>
     </div>
-    }
     <div className='side_info'>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
     </svg>
-    <h4><Link to={'/account'}>My Account</Link></h4>
+    <h4>My Account</h4>
     </div>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
     <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
     </svg>
     <h4>My Order</h4>
-    </div>
-    <div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
-    <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
-    </svg>
-    <h4><Link to={'/admin'}>Admin</Link></h4>
     </div>
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
@@ -142,7 +127,6 @@ return (
     </div>
     </div>
     </div>
-    
     </div>
 )
 }
