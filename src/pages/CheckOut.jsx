@@ -262,9 +262,6 @@ const CheckOut = () => {
         setCountry(selectedCountry);
     };
     const { name, image } = country
-
-
-
     // console.log(checkoutProducts, "line129")
     return isLoading === true ? (<div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center" }}>
 
