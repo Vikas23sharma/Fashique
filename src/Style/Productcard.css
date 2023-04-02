@@ -28,6 +28,10 @@
   border-radius: 50%;
   font-family: Arial, Helvetica, sans-serif;
 }
+.card button:hover{
+    background-color: black;
+    color: white;
+}
 .card div{
   position: absolute;
   top: 8%;

@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import {MinusIcon,
   AddIcon,} from "@chakra-ui/icons"
+import { Slider } from '../components/Slider';
 
 
 
@@ -239,6 +240,8 @@ export const SingleProductPage = () => {
           </Accordion>
         </div>
       </div>
+      <Slider/>
+      
     </div>
   );
 }
