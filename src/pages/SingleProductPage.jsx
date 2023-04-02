@@ -10,7 +10,7 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
+  
   Box,
   
 } from "@chakra-ui/react";
@@ -22,6 +22,7 @@ import { Slider } from '../components/Slider';
 
 export const SingleProductPage = () => {
  const [data,setData] = useState({});
+ let token = JSON.parse(localStorage.getItem("token"));
   let param = useParams();
   const id = param.product_id;
   useEffect(()=>{
@@ -37,7 +38,7 @@ export const SingleProductPage = () => {
   },[])
   const addToCart =()=>{
      axios
-       .post(`https://asos-of6d.onrender.com/cart`, data)
+       .patch(`https://asos-of6d.onrender.com/users?token=${token}`,{cart:data})
        .then((res) => {
          console.log(res);
        })
@@ -49,7 +50,7 @@ export const SingleProductPage = () => {
   const addToWishlist=()=>{
      
      axios
-       .post(`https://asos-of6d.onrender.com/wishlist`, data)
+       .patch(`https://asos-of6d.onrender.com/users?token=${token}`,{cart:data})
        .then((res) => {
          console.log(res);
        })
