@@ -186,7 +186,7 @@ const Join = ({ setCurrentForm }) => {
                                     {errors.lastname && touched.lastname ? <Text fontSize={11} pl="3" color="red">{errors.lastname}</Text> : null}
                                 </Box>
                             </FormControl>
-                            <FormControl isRequired>
+                            <FormControl isRequired width={"90%"}>
                                 <Box pb="10%">
                                     <FormLabel color="grey">PASSWORD :</FormLabel>
                                     <Input type='password'
@@ -198,7 +198,7 @@ const Join = ({ setCurrentForm }) => {
                                         onBlur={handleBlur}
                                     />
                                     {errors.password && touched.password ? <Text fontSize={11} pl="3" color="red">{errors.password}</Text> : null}
-                                    <FormHelperText fontSize={"10"} pl="3">Must be 10 or more characters</FormHelperText>
+                                    <FormHelperText fontSize={"10"} pl="3">Must be 6 or more characters</FormHelperText>
                                 </Box>
                             </FormControl>
                             <FormControl isRequired>
