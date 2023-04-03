@@ -63,15 +63,16 @@ const AdminAddProductMen = () => {
         <Box>
             <Navbar />
             <Flex className='addproductpagecontainer' justifyContent={"space-evenly"} >
-                <Box w={"18%"}>
+                <Box className='sidebarcont'>
                     <Adminsidebar />
                 </Box>
-                <Box className='formcontainer' textAlign={"center"} w={"82%"}>
+                <Box className='adminpagedashboardbox'  >
                     {/* write code here */}
                     {/* Products will be added to the men's category from here */}
-                    <Heading color={"#2d2d2d"} marginBottom="2%">ADD PRODUCT</Heading>
+                    
                     <Box className='form' padding={"3%"}  margin="2% auto" boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px">
                         <form onSubmit={handleSubmit}>
+                        <Heading color={"#2d2d2d"} marginBottom="2%">ADD PRODUCT</Heading>
                             <FormControl isRequired >
                                 <FormLabel>ID</FormLabel>
                                 <Input type="number" value={product.id} onChange={(e) => { handleChange(e) }} name="id" placeholder='Enter ID' />

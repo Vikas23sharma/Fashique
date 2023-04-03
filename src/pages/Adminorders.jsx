@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import { Box,Flex,Stack} from '@chakra-ui/react'
+import { Box,Flex,SimpleGrid,Stack} from '@chakra-ui/react'
 import Adminsidebar from '../components/Adminsidebar'
 import { Navbar } from './Navbar'
 
@@ -47,14 +47,16 @@ const Adminorders = () => {
       {/* write code here */}
       {/* orders on the website will be displayed here */}
       
+      <SimpleGrid className='usercontainer'>
       {products.length>0 && products.map((el)=>{
-        return <Box key={el.id} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px" paddingBottom={"10px"} >
+        return <Box className='adminordercardcontainer' key={el.id} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px" paddingBottom={"10px"} >
           <Stack height={"250px"} paddingLeft={"20%"} paddingTop={"3%"}>
           <AdminOrderCard {...el} />
           </Stack>
           
           </Box>
-      })}   
+      })} 
+        </SimpleGrid>  
     </Box>
   </Flex>
   </Box>
