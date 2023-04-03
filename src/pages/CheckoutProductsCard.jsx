@@ -6,7 +6,7 @@ const CheckoutProductsCard = (items) => {
     const { image, title, category, price, size } = items
     return (
         <Box w="100%">
-            <SimpleGrid columns={[1, 2]} spacing={[5,5,5,1]} minChildWidth="100px">
+            <SimpleGrid columns={[1, 2]} spacing={[5,5,5,5]} minChildWidth="100px">
                 <Box>
                     <Image src={image} alt={category} width={["200px", "300px", "300px", "200px"]} height={["20vh", "30vh", "30vh", "15vh"]} pl="5" pb="2" />
                 </Box>
