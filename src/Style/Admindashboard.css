@@ -4,6 +4,18 @@
 
 .adminsidebar {
     margin-top: 0%;
+    flex-direction: column;
+
+}
+
+.form{
+    margin: 2% auto;
+}
+
+.sidebar {
+    width: 18%;
+    position: fixed;
+    height: 100vh;
 }
 
 .labels {
@@ -16,6 +28,7 @@
 
 .iconcont {
     width: 10%;
+
 }
 
 .addproductpagecontainer {
@@ -41,9 +54,7 @@
     /* width: 82%; */
 }
 
-.sidebar {
-    width: 18%;
-}
+
 
 .sidebarcont {
     width: 18%;
@@ -53,13 +64,30 @@
 
 .adminpagedashboardbox {
     width: 82%;
+    text-align: center;
     /* border: 1px solid blue; */
+}
+
+.usercontainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.formcontainer{
+    width: 82%;
 }
 
 @media screen and (max-width: 1000px) {
     .admingrid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .usercontainer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        padding-top: 1cm;
 
     }
 
@@ -84,11 +112,13 @@
         margin-top: 0%;
     }
 
-
+   .form{
+    /* margin-top: 3%; */
+   }
 
 
     .addproductpagecontainer {
-        margin-top: 6%;
+        margin-top: 1.8cm;
     }
 
     .dashboardcont {
@@ -100,6 +130,10 @@
         background-color: #2d2d2d;
     }
 
+    .adminmenproduct{
+        margin-top: 2.5cm;
+    }
+
 }
 
 @media screen and (max-width: 550px) {
@@ -108,12 +142,21 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
+    .usercontainer {
+        margin-top: 1cm;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        width: 100%;
+        /* border: 1px solid red; */
+    }
+
     .sidebarcont {
         background-color: #2d2d2d;
     }
 
     .sections {
-        font-size: smaller;
+        font-size: x-small;
+        width: 100%;
     }
 
     .icons {
@@ -125,7 +168,10 @@
 
     .iconcont {
         width: 100%;
-        margin-left: 20%;
+        /* margin-left: 40%;
+        margin-right: 40%;
+        padding-top: 40%; */
+
         /* border: 1px solid red; */
     }
 
@@ -133,22 +179,29 @@
         display: none;
     }
 
-    .sections {
-        font-size: small;
-    }
+
 
     .sections:hover {
-        font-size: large;
+        font-size: x-small;
         cursor: pointer;
     }
 
     .sidebarcont {
-        width: 25%;
+        width: 100%;
+        height: 10vh;
+
     }
 
     .sidebar {
-        width: 25%;
+        width: 100%;
+        height: 10vh;
+        position: none;
         padding-top: 5%;
+    }
+
+    .sections {
+        z-index: 1;
+        background-color: #2d2d2d;
     }
 
     .dash {
@@ -156,9 +209,52 @@
     }
 
     .adminpagedashboardbox {
-        width: 75%;
+        width: 1100%;
+        margin-top: 3.3cm;
+        /* border: 1px solid red; */
     }
 
+    .adminmenproduct{
+        margin-top: 1cm;
+    }
+
+    .menproductadminside{
+        width: 80%;
+        height: 90%;
+    }
+
+    .addproductpagecontainer {
+        margin-top: 0.7cm;
+    }
+
+    .adminsidebar {
+        flex-direction: row;
+    }
+
+    .formcontainer{
+        margin-top: 3cm;
+        width: 100%;
+    }
+
+    .adminordercardcontainer{
+        width: 80%;
+        text-align: left;
+        padding: 1%;
+        /* border: 1px solid blue; */
+    }
+
+    .sidebarchild{
+        width: 25%;
+        border: 1px solid red;
+    }
+
+    .form{
+        /* padding-top: 2%; */
+    }
+
+    .sidebar{
+        z-index: 10;
+    }
 
 }
 
@@ -180,6 +276,13 @@
         margin-top: 3%;
     }
 
+    .usercontainer {
+        padding-top: 2cm;
+    }
+
+    .adminmenproduct{
+        margin-top: 1.5cm;
+    }
 
 }
 
@@ -200,7 +303,7 @@
 @media screen and (max-width: 650px) {
 
     .formcontainer {
-        margin-top: 12%;
+        margin-top: 8%;
     }
 
     .sidebarcont {
@@ -213,6 +316,7 @@
 
     .form {
         width: 80%;
+        margin-top: 0.7cm;
     }
 
     .dash {
@@ -225,7 +329,11 @@
 
     .dashboardcont {
         margin-top: 0.5cm;
-        
+
+    }
+
+    .adminmenproduct{
+        margin-top: 2.5cm;
     }
 
 }

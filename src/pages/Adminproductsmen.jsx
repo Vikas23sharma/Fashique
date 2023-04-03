@@ -49,15 +49,16 @@ const handleDelete=(id)=>{
     <Box className='sidebarcont' >
     <Adminsidebar/>
     </Box>
-    <Box className='adminmenproduct' w={"82%"} display={"grid"} padding={"1%"}>
+    <Box className='adminpagedashboardbox'  >
       {/* write code here */}
       {/* <h1>sen</h1>
       Products of Men Category will be displayed here with edit and delete button */}
+      <Box className='adminmenproduct' display={"grid"} padding={"1%"} >
       {products.length>0 && products.map((el)=>{
-        return <Box key={el.id} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px" paddingBottom={"10px"} >
+        return <Box className='menproductadminside' key={el.id} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px" paddingBottom={"10px"} >
           <Center>
           <Box>
-          <Stack height={"525px"}>
+          <Stack height={"555px"}>
           <Productcard  {...el} />
           </Stack>
            <Flex justifyContent={"space-between"} padding={"1%"} marginTop={"1%"} w="100%">
@@ -69,6 +70,7 @@ const handleDelete=(id)=>{
          
           </Box>
       })}
+      </Box>
     </Box>
   </Flex>
   </Box>

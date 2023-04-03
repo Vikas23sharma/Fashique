@@ -59,14 +59,15 @@ const AdminEditProduct = () => {
     return (
         <Box>
             <Navbar />
-            <Flex className='addproductpagecontainer' justifyContent={"space-evenly"} marginTop={"8%"}>
-                <Box w={"18%"}>
+            <Flex className='addproductpagecontainer' justifyContent={"space-evenly"} >
+                <Box className='sidebarcont'>
                     <Adminsidebar />
                 </Box>
-                <Box className='formcontainer' w={"82%"} textAlign="center">
-                <Heading color={"#2d2d2d"} marginBottom="2%">EDIT PRODUCT:{id}</Heading>
-                    <Box className='form' padding={"3%"}   margin="2% auto" boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px">
+                <Box className='adminpagedashboardbox' >
+                    <Box className='form' padding={"3%"}   boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px">
                        <form onSubmit={handleEdit} >
+                <Heading color={"#2d2d2d"} marginBottom="2%">EDIT PRODUCT:{id}</Heading>
+
                         <FormControl isRequired >
                             <FormLabel>ID</FormLabel>
                             <Input type="number" value={pro.id} onChange={handleChange} name="id" placeholder='Enter ID' />

@@ -1,10 +1,12 @@
 import React from 'react'
 import { Avatar, AvatarBadge, AvatarGroup, Box, Button } from '@chakra-ui/react'
 import { Wrap,WrapItem } from '@chakra-ui/react';
+import "../Style/Admindashboard.css"
+
 
 export const AdminOrderCard = ({name,email,id,title,brand,amount,category,gender}) => {
   return (
-    <div>
+    <div >
       <Wrap>
             <WrapItem>
                 <Avatar name={name} src='https://bit.ly/broken-link' />
