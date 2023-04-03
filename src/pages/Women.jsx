@@ -9,7 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Link } from "react-router-dom";
 import { Footer } from "./Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import LoadingWithLetter from "./LoadingWithLetter";
 
 
 export const Women = () => {
@@ -28,11 +29,18 @@ export const Women = () => {
   //  console.log(Math.floor(window.scrollY),'-',value)
   // value = window.scrollY;
   // })
+
+  const [isLoading, setisLoding] = useState(true);
+
+
   useEffect(() => {
     localStorage.setItem("isAuthAdmin", JSON.stringify(false));
+    setTimeout(() => {
+      setisLoding(!isLoading)
+    }, 800)
   }, [])
 
-  return (
+  return (isLoading == true) ? <LoadingWithLetter /> : (
     <div>
       <Navbar />
       <div className="content_1">
@@ -124,7 +132,7 @@ export const Women = () => {
 
         </div>
         <div className="content_1_04">
-          <div>VIEW ALL</div>
+          <div><Link to={'/womentop'}>VIEW ALL</Link></div>
         </div>
       </div>
       {/* content_2 */}
@@ -138,7 +146,7 @@ export const Women = () => {
         </div>
         <div className="content_2_2">
           <div>Day-to-night neutrals</div>
-          <button>SHOP ASOS DESIGN</button>
+          <button><Link to={'/womendress'}>SHOP ASOS DESIGN</Link></button>
         </div>
       </div>
       {/* content_3 */}
@@ -255,7 +263,7 @@ export const Women = () => {
 
           </Swiper>
         </div>
-        <button>VIEW ALL</button>
+        <button><Link to={'/womenjacket'}>VIEW ALL</Link></button>
       </div>
       {/* constent_5 */}
       <div className="content_5">
