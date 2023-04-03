@@ -15,6 +15,9 @@ export const Navbar = () => {
   const [on, isOn] = useState(false);
   const [sign, isSign] = useState(false);
   const [inputs, setInputs] = useState("");
+  let isAuth = JSON.parse(localStorage.getItem("isAuth"));
+
+
   const handleClick = () => {
     isOn(!on);
   };
@@ -191,6 +194,7 @@ export const Navbar = () => {
           display: sign ? "block" : "none",
         }}
       >
+        {!isAuth?
         <div>
           <h6>
             <Link to={"/login"}>SIGN IN</Link>
@@ -198,7 +202,14 @@ export const Navbar = () => {
           <h6>
             <Link to={"/login"}>JOIN</Link>
           </h6>
+        </div>:
+        <div>
+          <h6 style={{width:'85%',display:'block',margin:'auto'}}>
+            LOGOUT
+          </h6>
         </div>
+      }
+
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

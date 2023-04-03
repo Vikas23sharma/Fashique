@@ -58,7 +58,7 @@ export const SingleProductPage = () => {
         title: "Product Added Successfully",
         description: "Enjoy Shopping With Us",
         status: "success",
-        duration: 1000,
+        duration: 2000,
         isClosable: true,
         position:"top"
       });
@@ -71,7 +71,8 @@ export const SingleProductPage = () => {
          title: " Already in Cart",
         //  description: "Enjoy Shopping With Us",
          status: "success",
-         duration: 1000,
+         duration: 2000,
+         position: 'top',
          isClosable: true,
        });
        console.log(err);
@@ -88,7 +89,8 @@ export const SingleProductPage = () => {
            title: "Product Added Successfully",
            description: "Enjoy Shopping With Us",
            status: "success",
-           duration: 1000,
+           duration: 2000,
+           position:'top',
            isClosable: true,
          });
          console.log(res);
@@ -98,7 +100,8 @@ export const SingleProductPage = () => {
            title: "Already in Wishlist",
           //  description: "Enjoy Shopping With Us",
            status: "success",
-           duration: 1000,
+           duration: 2000,
+           position :'top',
            isClosable: true,
          });
          console.log(err);

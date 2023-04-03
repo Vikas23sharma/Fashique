@@ -3,7 +3,7 @@ import {
     Button, FormControl, FormLabel, MenuItem, Select, Divider, VStack, Flex, Alert, AlertIcon, AlertTitle, AlertDescription, Slide,
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CheckoutProductsCard from './CheckoutProductsCard';
 import LoadingWithLetter from './LoadingWithLetter';
 import "../Style/checkout.css"
@@ -27,7 +27,8 @@ const CheckOut = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [deliveryPrice, setDeliveryPrice] = useState(11.05);
     const [totalToPay, setTotalToPay] = useState(0)
-    const [addressPresent, setAddressPresent] = useState(false)
+    const [addressPresent, setAddressPresent] = useState(false);
+    const navigate = useNavigate();
     const [isMobileView] = useMediaQuery("(max-width: 930px)")
     // const [isMobileView2] = useMediaQuery("(max-width: 360px)")
     const dispatch = useDispatch()
@@ -253,6 +254,7 @@ const CheckOut = () => {
 
         setTimeout(() => {
             setShowAlert(false);
+            navigate('/')
         }, 3000);
 
     }

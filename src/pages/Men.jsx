@@ -104,7 +104,7 @@ export const Men = () => {
 
         </div>
         <div className="content_1_04">
-          <div>VIEW ALL</div>
+          <div><Link to={'/mencloth'}>VIEW ALL</Link></div>
         </div>
       </div>
       {/* content_2 */}
@@ -228,7 +228,7 @@ export const Men = () => {
 
           </Swiper>
         </div>
-        <button>VIEW ALL</button>
+        <button><Link to={'/mentee'}>VIEW ALL</Link></button>
       </div>
       {/* constent_5 */}
       <div className="content_5">
@@ -237,7 +237,7 @@ export const Men = () => {
           <div>
             <h1>BEST-DRESSED GUEST</h1>
             <p>Not upstaging, but nearly</p>
-            <button>SHOP NOW</button>
+            <button><Link to={'/menjacket'}>SHOP NOW</Link></button>
           </div>
         </div>
         <div>
@@ -245,7 +245,7 @@ export const Men = () => {
           <div>
             <h1>RECLAIMED VINTAGE</h1>
             <p>Old skl meets new</p>
-            <button>SHOP NOW</button>
+            <button><Link to={'/mentee'}>SHOP NOW</Link></button>
           </div>
         </div>
       </div>
