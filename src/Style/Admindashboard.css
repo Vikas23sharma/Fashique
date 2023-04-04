@@ -5,10 +5,10 @@
 .adminsidebar {
     margin-top: 0%;
     flex-direction: column;
-
+    justify-content: space-evenly;
 }
 
-.form{
+.form {
     margin: 2% auto;
 }
 
@@ -73,7 +73,7 @@
     gap: 10px;
 }
 
-.formcontainer{
+.formcontainer {
     width: 82%;
 }
 
@@ -112,9 +112,9 @@
         margin-top: 0%;
     }
 
-   .form{
-    /* margin-top: 3%; */
-   }
+    .form {
+        /* margin-top: 3%; */
+    }
 
 
     .addproductpagecontainer {
@@ -130,7 +130,7 @@
         background-color: #2d2d2d;
     }
 
-    .adminmenproduct{
+    .adminmenproduct {
         margin-top: 2.5cm;
     }
 
@@ -214,11 +214,11 @@
         /* border: 1px solid red; */
     }
 
-    .adminmenproduct{
+    .adminmenproduct {
         margin-top: 1cm;
     }
 
-    .menproductadminside{
+    .menproductadminside {
         width: 80%;
         height: 90%;
     }
@@ -229,30 +229,50 @@
 
     .adminsidebar {
         flex-direction: row;
+        justify-content: space-evenly;
+        /* align-items: center; */
     }
 
-    .formcontainer{
+    .accordionbutton{
+        display: none;
+    }
+
+    .formcontainer {
         margin-top: 3cm;
         width: 100%;
     }
 
-    .adminordercardcontainer{
+    .adminordercardcontainer {
         width: 80%;
         text-align: left;
         padding: 1%;
         /* border: 1px solid blue; */
     }
 
-    .sidebarchild{
-        width: 25%;
-        border: 1px solid red;
+    .sidebarchild1 {
+        width: 30%;
+        padding: 0%;
+        margin-left: 0.4cm;
     }
 
-    .form{
+    .sidebarchild2 {
+        width: 30%;
+        padding: 0%;
+        margin-right: 0.5cm;
+    }
+
+
+    .three {
+        margin-top: 0.3cm;
+        margin-left: 0.7cm;
+        
+    }
+
+    .form {
         /* padding-top: 2%; */
     }
 
-    .sidebar{
+    .sidebar {
         z-index: 10;
     }
 
@@ -280,7 +300,7 @@
         padding-top: 2cm;
     }
 
-    .adminmenproduct{
+    .adminmenproduct {
         margin-top: 1.5cm;
     }
 
@@ -332,7 +352,7 @@
 
     }
 
-    .adminmenproduct{
+    .adminmenproduct {
         margin-top: 2.5cm;
     }
 
