@@ -1,6 +1,5 @@
-![asos](https://user-images.githubusercontent.com/112754659/232266815-59734382-4a37-44eb-bcb4-5fb594df2ed9.png)
-
 <h1>Fashique</h1>
+![asos](https://user-images.githubusercontent.com/112754659/232266815-59734382-4a37-44eb-bcb4-5fb594df2ed9.png)
 <hr><p>An Online Fashion and Cosmetic Store that follows the latest fashion trends mainly aimed at young adults</p><h2>General Information</h2>
 <hr><ul>
 <li>A collaborative project made by a team of 5 members within a span of 5 days</li>
