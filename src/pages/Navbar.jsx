@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearch } from "../Redux/search/action";
 import { getSearchBtn } from "../Redux/search/action";
+import { useToast } from "@chakra-ui/react";
+// import { useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
   const dispatch = useDispatch();
@@ -16,6 +18,8 @@ export const Navbar = () => {
   const [sign, isSign] = useState(false);
   const [inputs, setInputs] = useState("");
   let isAuth = JSON.parse(localStorage.getItem("isAuth"));
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const toast = useToast();
 
 
   const handleClick = () => {
@@ -68,6 +72,20 @@ export const Navbar = () => {
       dispatch(getSearchBtn(1));
       navigate("/search");
     }
+  };
+  const handleLogout = () => {
+    localStorage.clear();
+    toast({
+      title: "Logged out",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top"
+    });
+    navigate("/");
+    setTimeout(function () {
+      window.location.reload();
+    }, 1000);
   };
 
   return (
@@ -194,21 +212,21 @@ export const Navbar = () => {
           display: sign ? "block" : "none",
         }}
       >
-        {!isAuth?
-        <div>
-          <h6>
-            <Link to={"/login"}>SIGN IN</Link>
-          </h6>
-          <h6>
-            <Link to={"/login"}>JOIN</Link>
-          </h6>
-        </div>:
-        <div>
-          <h6 style={{width:'85%',display:'block',margin:'auto'}}>
-            LOGOUT
-          </h6>
-        </div>
-      }
+        {!isAuth ?
+          <div>
+            <h6>
+              <Link to={"/login"}>SIGN IN</Link>
+            </h6>
+            <h6>
+              <Link to={"/login"}>JOIN</Link>
+            </h6>
+          </div> :
+          <div>
+            <h6 style={{ width: '85%', display: 'block', margin: 'auto' }} onClick={handleLogout}>
+              LOGOUT
+            </h6>
+          </div>
+        }
 
         <div>
           <svg

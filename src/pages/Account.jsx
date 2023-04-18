@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import '../Style/AccountStyle.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export const Account = () =>{
 // let userdata = JSON.parse(localStorage.getItem("UserDetails"))
@@ -11,6 +12,8 @@ const [firstname,seFirstname] = useState('-');
 const [lastname,setLastname] = useState('-')
 let match = window.matchMedia("(max-width:770px)").matches;
 const [speacial,setSpeacial] = useState(false)
+const toast = useToast();
+const navigate = useNavigate();
 
 
 const getUser  = () =>{
@@ -31,6 +34,20 @@ setSpeacial(!speacial)
 useEffect(()=>{
 getUser();
 },[])
+const handleLogout = () => {
+    localStorage.clear();
+    toast({
+      title: "Logged out",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top"
+    });
+    navigate("/");
+    setTimeout(function () {
+      window.location.reload();
+    }, 1000);
+  };
 
 return (
     <div style={{backgroundColor:'rgba(186, 186, 186, 0.416)'}}>
@@ -98,7 +115,7 @@ return (
         </div>
         <div>
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDIwIDE3Ij48ZyBmaWxsPSIjMkQyRDJEIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xOS45NjUuMXYxNi44aC05LjQ0MXYtMi4wNjdoNy4zODhzLjA0LTEyLjY4OSAwLTEyLjY4OWgtNy4zODhWLjFoOS40NDF6Ii8+PHBhdGggZD0iTTIuMTQzIDkuNTV2LTIuMWgxMS41MjR2Mi4xeiIvPjxwYXRoIGQ9Ik0xLjUyNSAxMC4wMzRsLS4wMDIuMDAyTC4wNDIgOC41NTRsLjAwMS0uMDAxLS4wMDEtLjAwMkwxLjUyMyA3LjA3bC4wMDIuMDAxIDMuNzE0LTMuNzE0TDYuNzIxIDQuODQgMy4wMDcgOC41NTNsMy43MTQgMy43MTQtMS40ODIgMS40ODEtMy43MTQtMy43MTR6Ii8+PC9nPjwvc3ZnPg==" alt="" />
-        <p>Sign out</p>
+        <p onClick={handleLogout}>Log out</p>
         </div>
     </div>
     <div className='account_1_item'>

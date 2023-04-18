@@ -1,21 +1,23 @@
 import axios from 'axios'
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import "../Style/singleProduct.css";
-import { IoIosHeartEmpty} from "react-icons/io";
-import {BsTruck} from "react-icons/bs"
+import { IoIosHeartEmpty } from "react-icons/io";
+import { BsTruck } from "react-icons/bs"
 import {
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  
+
   Box,
-  
+
 } from "@chakra-ui/react";
-import {MinusIcon,
-  AddIcon,} from "@chakra-ui/icons"
+import {
+  MinusIcon,
+  AddIcon,
+} from "@chakra-ui/icons"
 import { Slider } from '../components/Slider';
 import { Footer } from './Footer';
 import { useToast } from "@chakra-ui/react";
@@ -24,88 +26,99 @@ import { useToast } from "@chakra-ui/react";
 
 
 export const SingleProductPage = () => {
- const [data,setData] = useState({});
- const [prodAdded,setProdAdded]=useState(false)
-//  const [cart_item, setcart_item] = useState([]);
-// let cartData = JSON.parse(localStorage.getItem("cart_item")) || [];
-//  let token = JSON.parse(localStorage.getItem("token"));
-//  console.log(token)
-//  console.log(cart_item)
- console.log("data",data)
-   const toast = useToast();
+  const [data, setData] = useState({});
+  const [prodAdded, setProdAdded] = useState(false)
+  const idRef = useRef(null);
+  //  const [cart_item, setcart_item] = useState([]);
+  // let cartData = JSON.parse(localStorage.getItem("cart_item")) || [];
+
+  useEffect(() => {
+    let id = JSON.parse(localStorage.getItem("id")) || null;
+    if (id) {
+      idRef.current = id;
+    }
+    // console.log(tokens)
+  }, [])
+  console.log(idRef.current, "idRef")
+  //  console.log(cart_item)
+  //  console.log("data",data)
+  const toast = useToast();
   let param = useParams();
   const id = param.product_id;
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     axios
       .get(`https://asos-of6d.onrender.com/products/${id}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  },[])
-  const addToCart =()=>{
-    // cartData.push(data);
-    // localStorage.setItem("cart_item",JSON.stringify(cartData));
-    // console.log(cartData)
-   axios
-     .post(`https://asos-of6d.onrender.com/cart`, data)
-     .then((res) => {
+  }, [])
+  const addToCart = () => {
+    const cartData = JSON.parse(localStorage.getItem('UserCart')) || [];
+    // Check if the product is already in the cart
+    const existingProduct = cartData.find(product => product.id === data.id);
+    if (existingProduct) {
       toast({
-        title: "Product Added Successfully",
-        description: "Enjoy Shopping With Us",
-        status: "success",
+        title: "Product is already in cart",
+        status: "warning",
         duration: 2000,
         isClosable: true,
-        position:"top"
+        position: "top",
       });
-       console.log(res);
-       setProdAdded(!prodAdded)
-
-     })
-     .catch((err) => {
-       toast({
-         title: " Already in Cart",
-        //  description: "Enjoy Shopping With Us",
-         status: "success",
-         duration: 2000,
-         position: 'top',
-         isClosable: true,
-       });
-       console.log(err);
-     });
-    
+      return;
+    }
+    // Add the product to the cart and update local storage
+    cartData.push(data);
+    localStorage.setItem('UserCart', JSON.stringify(cartData));
+    // Show success message
+    toast({
+      title: "Product added to cart",
+      description: "Enjoy shopping with us!",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+      position: "top",
+    });
+    var UserCartData = JSON.parse(localStorage.getItem('UserCart')) || [];
+    console.log(UserCartData, "line")
+    axios
+      .patch(`https://asos-of6d.onrender.com/users/${idRef.current}`, { cart: UserCartData })
+      .then((res) => { console.log(res.data) })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  
-  const addToWishlist=()=>{
-     
-     axios
-       .post(`https://asos-of6d.onrender.com/wishlist`,data)
-       .then((res) => {
-         toast({
-           title: "Product Added Successfully",
-           description: "Enjoy Shopping With Us",
-           status: "success",
-           duration: 2000,
-           position:'top',
-           isClosable: true,
-         });
-         console.log(res);
-       })
-       .catch((err) => {
-         toast({
-           title: "Already in Wishlist",
+
+  const addToWishlist = () => {
+
+    axios
+      .post(`https://asos-of6d.onrender.com/wishlist`, data)
+      .then((res) => {
+        toast({
+          title: "Product Added Successfully",
+          description: "Enjoy Shopping With Us",
+          status: "success",
+          duration: 2000,
+          position: 'top',
+          isClosable: true,
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        toast({
+          title: "Already in Wishlist",
           //  description: "Enjoy Shopping With Us",
-           status: "success",
-           duration: 2000,
-           position :'top',
-           isClosable: true,
-         });
-         console.log(err);
-       });
+          status: "success",
+          duration: 2000,
+          position: 'top',
+          isClosable: true,
+        });
+        console.log(err);
+      });
   }
 
   return (
@@ -123,7 +136,7 @@ export const SingleProductPage = () => {
             <b>SIZE : </b>
             {data.size}
           </p>
-          <div style={{display:"flex"}}>
+          <div style={{ display: "flex" }}>
             <button className="addToCart" onClick={addToCart}>ADD TO CART</button>
             <button className="Wishlist" onClick={addToWishlist}>
               <IoIosHeartEmpty />
@@ -289,8 +302,8 @@ export const SingleProductPage = () => {
           </Accordion>
         </div>
       </div>
-      <Slider/>
-      <Footer/>
+      <Slider />
+      <Footer />
     </div>
   );
 }

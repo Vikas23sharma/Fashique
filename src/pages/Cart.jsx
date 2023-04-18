@@ -41,38 +41,39 @@ const Cart = () => {
     // console.log(cartproducts, "cartproducts line49")
 
     useEffect(() => {
-        dispatch(initialCartProducts())
+        dispatch(initialCartProducts(id))
 
-    }, [])
 
-    const { initialcart } = useSelector(state => {
-        return {
-            initialcart: state.CartProducts.initialcart
-        }
-    })
+    }, [id])
+
+    // const { initialcart } = useSelector(state => {
+    //     return {
+    //         initialcart: state.CartProducts.initialcart
+    //     }
+    // })
     // console.log(initialcart, "initialcart")
 
 
 
-    useEffect(() => {
-        dispatch(postCartItems(id, initialcart)).then((res) => {
-            console.log("ansiii", res)
+    // useEffect(() => {
+    //     dispatch(postCartItems(id, initialcart)).then((res) => {
+    //         console.log("ansiii", res)
 
-            localStorage.setItem("CartUserId", JSON.stringify(res.id))
-            localStorage.setItem("CartItems", JSON.stringify(res.cart))
-            setIsReloaded(!isReloaded)
-            setTimeout(()=>{
-                setIsReloaded(!isReloaded)
-            },3000)
+    //         localStorage.setItem("CartUserId", JSON.stringify(res.id))
+    //         localStorage.setItem("CartItems", JSON.stringify(res.cart))
+    //         setIsReloaded(!isReloaded)
+    //         setTimeout(()=>{
+    //             setIsReloaded(!isReloaded)
+    //         },3000)
 
-        })
-    }, [initialcart])
-  
+    //     })
+    // }, [initialcart])
+
     // function reload() {
     //     if (isReloaded) {
     //         window.location.reload();
     //         setIsReloaded(false);
-            
+
     //     }
     // }
 
@@ -102,6 +103,7 @@ const Cart = () => {
         setCartItems((prevCart) => prevCart.filter((item) => item.id !== delId))
         const updatedCartItems = cartItems.filter((item) => item.id !== delId);
         localStorage.setItem('CartItems', JSON.stringify(updatedCartItems));
+        localStorage.setItem('UserCart', JSON.stringify(updatedCartItems));
         const remainingItemsCount = cartItems.length - 1;
         const newHeight = `${remainingItemsCount * 160}px`;
         setBoxHeight(newHeight);
@@ -113,6 +115,12 @@ const Cart = () => {
     useEffect(() => {
         dispatch(updatedCart(cartItems, cartUserId))
     }, [cartItems, cartUserId])
+
+    const handleCheckout = () => {
+        navigate("/checkout")
+    }
+
+
     return (
         <Container minW={"100%"}>
             <Center minW={"100%"}>
@@ -205,7 +213,7 @@ const Cart = () => {
                                             </Select>
 
                                             <Box pt="10" pr={5} pl={5}>
-                                                <Button bgColor={"#018849"} color={"white"} _hover={{ color: "none" }} width={"100%"} onClick={() => navigate("/checkout")}>CheckOut</Button></Box>
+                                                <Button bgColor={"#018849"} color={"white"} _hover={{ color: "none" }} width={"100%"} onClick={handleCheckout}>CheckOut</Button></Box>
                                         </Box>
                                         <Box pt="5">
                                             <Text letterSpacing={"2px"} fontWeight="550">WE ACCEPT:</Text>

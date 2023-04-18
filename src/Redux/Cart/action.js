@@ -6,15 +6,15 @@ import {
     UPDATED_CART_REQUEST, UPDATED_CART_SUCCESS, UPDATED_CART_FAILURE
 } from "./actionTypes"
 
-export const initialCartProducts = () => (dispatch) => {
+export const initialCartProducts = (id) => (dispatch) => {
     dispatch({ type: GET_INITIAL_CART_REQUEST })
     axios
-        .get(`https://asos-of6d.onrender.com/cart`)
+        .get(`https://asos-of6d.onrender.com/users/${id}`)
         .then((res) => {
-            console.log(res.data, "initial the cart")
-            dispatch({ type: GET_INITIAL_CART_SUCCESS, payload: res.data })
-            // localStorage.setItem("CartUserId", JSON.stringify(res.data));
-            // localStorage.setItem("CartItems", JSON.stringify(res.data))
+            console.log(res.data.cart, "initial the cart")
+            dispatch({ type: GET_INITIAL_CART_SUCCESS, payload: res.data.cart })
+            localStorage.setItem("CartUserId", JSON.stringify(res.data.id));
+            localStorage.setItem("CartItems", JSON.stringify(res.data.cart))
         })
         .catch((err) => {
             console.log(err)
@@ -22,26 +22,26 @@ export const initialCartProducts = () => (dispatch) => {
         })
 }
 
-export const postCartItems = (id, initialcart) => (dispatch) => {
-    console.log(initialcart, "hfdjashdjfj")
-    // console.log(token,"token---")
-    dispatch({ type: POST_CART_ITEMS_REQUEST })
-    return axios
-        .patch(`https://asos-of6d.onrender.com/users/${id}`,
-            { cart: initialcart })
-        .then((res) => {
-            console.log(res.data, "posting ")
-            dispatch({ type: POST_CART_ITEMS_SUCCESS, payload: res.data })
-            return res.data
-            // localStorage.setItem("CartUserId", JSON.stringify(res.id))
-            // localStorage.setItem("CartItems", JSON.stringify(res.cart))
-        })
-        .catch((err) => {
-            console.log(err)
-            dispatch({ type: POST_CART_ITEMS_FAILURE })
+// export const postCartItems = (id, initialcart) => (dispatch) => {
+//     console.log(initialcart, "hfdjashdjfj")
+//     // console.log(token,"token---")
+//     dispatch({ type: POST_CART_ITEMS_REQUEST })
+//     return axios
+//         .patch(`https://asos-of6d.onrender.com/users/${id}`,
+//             { cart: initialcart })
+//         .then((res) => {
+//             console.log(res.data, "posting ")
+//             dispatch({ type: POST_CART_ITEMS_SUCCESS, payload: res.data })
+//             return res.data
+//             // localStorage.setItem("CartUserId", JSON.stringify(res.id))
+//             // localStorage.setItem("CartItems", JSON.stringify(res.cart))
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//             dispatch({ type: POST_CART_ITEMS_FAILURE })
 
-        })
-}
+//         })
+// }
 // export const getCartProducts = (token) => (dispatch) => {
 //     dispatch({ type: CART_PRODUCTS_REQUEST })
 //     axios
