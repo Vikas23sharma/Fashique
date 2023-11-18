@@ -53,7 +53,7 @@ export const Men = () => {
           >
             <SwiperSlide>
               <div className="content_1_031">
-              <Link to={'/mencloth'}>
+              <Link to={'/men-product/Shorts'}>
                 <img src="https://images.asos-media.com/products/asos-design-classic-rigid-denim-short-in-washed-black/201662312-1-washedblack?$n_640w$&wid=513&fit=constrain" alt="1" />
                 <p>SHORTS</p>
               </Link>
@@ -61,7 +61,7 @@ export const Men = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-              <Link to={'/mensuit'}>
+              <Link to={'/men-product/Tracksuits'}>
                 <img src="https://images.asos-media.com/products/ben-sherman-slim-suit-jacket-in-lilac/202488042-4?$n_640w$&wid=513&fit=constrain" alt="2" />
                 <p>TAILORING</p>
               </Link>
@@ -69,7 +69,7 @@ export const Men = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-            <Link to={'/mentee'}>
+              <Link to={'/men-product/Shirt'}>
                 <img src="https://images.asos-media.com/products/obey-receptor-jacquard-knitted-t-shirt-in-multi/202323999-1-multi?$n_640w$&wid=513&fit=constrain" alt="3" />
                 <p>TEES</p>
               </Link>
@@ -77,7 +77,7 @@ export const Men = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-              <Link to={'/menshoes'}>
+              <Link to={'/men-product/shoes'}>
                 <img src="https://images.asos-media.com/products/nike-dunk-high-retro-se-sneakers-in-white/203509671-2?$n_480w$&wid=476&fit=constrain" alt="4" />
                 <p>SNEAKERS</p>
               </Link>
@@ -85,7 +85,7 @@ export const Men = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-              <Link to={'/menjacket'}>
+              <Link to={'/men-product/jacket'}>
                 <img src="https://images.asos-media.com/products/adpt-oversized-felted-overshirt-in-beige/203834673-1-crockery?$n_320w$&wid=317&fit=constrain" alt="5" />
                 <p>JACKETS</p>
               </Link>
@@ -93,7 +93,7 @@ export const Men = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-              <Link to={'mentshirt'}>
+              <Link to={'/men-product/T-shirt'}>
                 <img src="https://images.asos-media.com/products/topman-viscose-revere-shirt-in-multi-colour-bandana-print/202537544-1-multicolour?$n_640w$&wid=513&fit=constrain" alt="6" />
                 <p>SHIRTS</p>
               </Link>
@@ -104,7 +104,7 @@ export const Men = () => {
 
         </div>
         <div className="content_1_04">
-          <div><Link to={'/mencloth'}>VIEW ALL</Link></div>
+          <div><Link to={'/men-product/jacket'}>VIEW ALL</Link></div>
         </div>
       </div>
       {/* content_2 */}
@@ -228,7 +228,7 @@ export const Men = () => {
 
           </Swiper>
         </div>
-        <button><Link to={'/mentee'}>VIEW ALL</Link></button>
+        <button><Link to={'/men-product/Tracksuits'}>VIEW ALL</Link></button>
       </div>
       {/* constent_5 */}
       <div className="content_5">
@@ -237,7 +237,7 @@ export const Men = () => {
           <div>
             <h1>BEST-DRESSED GUEST</h1>
             <p>Not upstaging, but nearly</p>
-            <button><Link to={'/menjacket'}>SHOP NOW</Link></button>
+            <button><Link to={'/men-product/jacket'}>SHOP NOW</Link></button>
           </div>
         </div>
         <div>
@@ -245,7 +245,7 @@ export const Men = () => {
           <div>
             <h1>RECLAIMED VINTAGE</h1>
             <p>Old skl meets new</p>
-            <button><Link to={'/mentee'}>SHOP NOW</Link></button>
+            <button><Link to={'/men-product/T-shirt'}>SHOP NOW</Link></button>
           </div>
         </div>
       </div>

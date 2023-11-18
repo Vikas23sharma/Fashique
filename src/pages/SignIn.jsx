@@ -110,7 +110,7 @@ const SignIn = () => {
 
     }
 
-    return isLoading === true ? (<div style={{ display: "flex", height: "50vh", justifyContent: "center", alignItems: "center" }}>  <Loading /></div>) : (
+    return(
         <Container w={["110%", "93%", "90%", "80%"]} margin={["auto", "auto"]} maxW="100%">
             <Box p="10%" letterSpacing=".1em">
                 <form onSubmit={handleSubmit}>

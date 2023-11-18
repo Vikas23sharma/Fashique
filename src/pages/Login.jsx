@@ -19,17 +19,16 @@ export const Login = () => {
         setCurrentForm(val)
     }
 
-    return isLoading === true ? (<div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center" }}> 
-    
-  <LoadingWithLetter/>
-  </div>) : (
+    return (
 
         <Container minW="100%" minH="100vh" bgColor="#eeeeee">
             <Center>
-                <VStack w={["110%", "60%", "70%", "40%"]} mt="10" mb="10" >
-                    <Box pb="10"><Link to="/"> <Heading as="h1" fontSize="5xl">FASHIQUE</Heading></Link></Box>
+                <VStack w={["95%", "85%", "80%", "55%"]} mt="10" mb="10" >
+                    {/* <Box pb="10"><Link to="/"> <Heading as="h1" fontSize="5xl">FASHIQUE</Heading></Link></Box> */}
                     <Box className="box" bgColor="#ffffff">
-                        <Center display="flex" justifyContent="space-around" paddingY="5%" border="0px solid black" textAlign="center">
+                    <Text textAlign={'center'} margin={'10px'} fontSize={'30px'} fontWeight={'bolder'} color={'rgb(66, 66, 66)'}>FASHIQUE</Text>
+
+                        <Center display="flex" justifyContent="space-around" p={'10px'} border="0px solid black" textAlign="center">
                             <Box pl="14%" >
                                 <Button variant="ghost" onClick={() => handlePage("join")} _hover={{ bg: "none" }}>  <Text color={currentForm !== "signin" ? "black" : "grey"}>JOIN</Text></Button>
                                 <Divider orientation='vertical' height="50%" color="black" />

@@ -50,7 +50,7 @@ export const getMenJacket = (paramObj) => (dispatch) => {
 export const getWomenProduct = (paramObj) => (dispatch) => {
   dispatch({ type: GET_PRODUCT_REQUEST });
   axios
-    .get(`https://asos-of6d.onrender.com/womens`, paramObj)
+    .get(`https://asos-of6d.onrender.com/products`, paramObj)
     .then((res) => {
       console.log(res);
       dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data });

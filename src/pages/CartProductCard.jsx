@@ -23,19 +23,19 @@ const CartProductCard = ({ image, title, category, price, size, id, setDelId, se
             <Box style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px", borderRadius: "10px" }} p="5" h="160px">
                 <Flex>
                     <Box pl={[0, 5]}>
-                        <Image src={image} alt={category} width={"100%"} h={"15vh"} />
+                        <Image src={image} alt={category} width={"100%"} h={"85px"} />
                     </Box>
 
                     <Box w="70%" pl={[8, 10]}>
                         <HStack>
                             <Box>
-                                <Text color={"#d01345"} fontSize={["15", "20", "20", "15"]} fontWeight="bold"> &#36;{price}.00</Text>
+                                <Text color={"#d01345"} fontSize={['12px','14px']} fontWeight="bold"> &#36;{price}.00</Text>
                             </Box>
                         </HStack>
-                        <Text fontSize={["10", "20", "20", "12"]} color={"#525252"} fontWeight="bold"> {title}</Text>
-                        <Text color={"gray"} fontWeight="bold" fontSize={["10", "20", "20", "12"]}>Size :{size}</Text>
+                        <Text fontSize={['11px','12px']} color={"#525252"} fontWeight="light"> {title}</Text>
+                        <Text color={"gray"} fontWeight="light" fontSize={'15px'}>Size :{size}</Text>
                         <HStack>
-                            <Text color={"gray"} fontSize={["10", "20", "20", "12"]} fontWeight="bold">Qty: {qty}</Text>
+                            <Text color={"gray"} fontSize={'15px'} fontWeight="light">Qty: {qty}</Text>
                             <Select defaultValue={1} w="45px" variant={"ghost"} onChange={handleChange}>
                                 <option value="" hidden></option>
                                 {[...Array(10)].map((_, i) => (

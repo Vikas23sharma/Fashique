@@ -29,8 +29,6 @@ export const SingleProductPage = () => {
   const [data, setData] = useState({});
   const [prodAdded, setProdAdded] = useState(false)
   const idRef = useRef(null);
-  //  const [cart_item, setcart_item] = useState([]);
-  // let cartData = JSON.parse(localStorage.getItem("cart_item")) || [];
 
   useEffect(() => {
     let id = JSON.parse(localStorage.getItem("id")) || null;
@@ -57,6 +55,8 @@ export const SingleProductPage = () => {
         console.log(err);
       });
   }, [])
+
+
   const addToCart = () => {
     const cartData = JSON.parse(localStorage.getItem('UserCart')) || [];
     // Check if the product is already in the cart
@@ -93,6 +93,7 @@ export const SingleProductPage = () => {
       });
   }
 
+  
   const addToWishlist = () => {
 
     axios
@@ -147,13 +148,14 @@ export const SingleProductPage = () => {
             style={{
               display: "flex",
               border: "1px solid #B0BEC5",
-              padding: "20px",
+              padding: "10px",
               gap: "10px",
-              marginButtom: "20px",
+              // marginButtom: "20px",
+              alignItems:'center',
             }}
           >
-            <BsTruck fontSize="30px" />
-            <p>Free Delivery</p>
+            <BsTruck fontSize='30px'/>
+            <p style={{display:'flex',alignItems:'center',marginTop:'-1px'}}>Free Delivery</p>
           </div>
           <Accordion allowMultiple>
             <AccordionItem>

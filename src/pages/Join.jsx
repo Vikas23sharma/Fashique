@@ -88,166 +88,146 @@ const Join = ({ setCurrentForm }) => {
         }, 1000)
     }, [])
 
-    return isLoading === true ? (<div style={{ display: "flex", height: "50vh", justifyContent: "center", alignItems: "center" }}>  <Loading /></div>) : (
+    return (
         <Container w={["110%", "98%", "95%", "90%"]} margin={["auto", "auto"]} maxW="100%">
-            <Box pt="10%" pb="10%" pl={"2"} pr={"2"} >
-
+            <Box p={'15px'}>
                 <Box >
-                    <Center pb="10" >
-                        <VStack >
-                            <Box pb="5">
-                                <Text fontWeight="bolder" fontSize={["sm", "2xl"]}>OR SIGN IN WITH...</Text>
-                            </Box>
 
-                            <Center>
-                                <SimpleGrid
-                                    columns={[3, 3, 3, 3]}
-                                    gap={[5, 5, 5, 5]}
-                                    pb={[5, 10, 10, 10]}
-                                    w={["100%", "100%", "100%", "100%"]}
-                                    margin={["auto", "auto", "auto", "auto"]}
-                                    justifyContent={["center", "center", "center", "center"]}
-                                    marginLeft={["auto", "auto", "auto", "auto"]}
-                                    marginRight={["auto", "auto", "auto", "auto"]}
-                                >
-                                    <Box>
-                                        <Button>
-                                            <FcGoogle fontSize="20px" />&nbsp;&nbsp;
-                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>GOOGLE</Text>
-                                        </Button>
-                                    </Box>
-
-                                    <Box>
-                                        <Button>
-                                            <TiVendorApple fontSize="20px" />&nbsp;&nbsp;
-                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>APPLE</Text>
-                                        </Button>
-                                    </Box>
-
-                                    <Box>
-                                        <Button>
-                                            <MdOutlineFacebook fontSize="20px" />&nbsp;&nbsp;
-                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>FACEBOOK</Text>
-                                        </Button>
-                                    </Box>
-                                </SimpleGrid>
-                            </Center>
-
-                            <Text fontSize="11" textAlign="justify">Signing up with social is super quick. No extra passwords to remember - no brain fail. Don't worry, we'd never share any of your data or post anything on your behalf #notevil</Text>
-                        </VStack>
-                    </Center>
                     <Box letterSpacing=".1em">
                         <form onSubmit={handleSubmit}>
                             <FormControl isRequired >
-                                <Box pb="10%">
-                                    <FormLabel color="grey" htmlFor='email'>EMAIL ADDRESS :</FormLabel>
+                            <Box margin={'15px 0'} padding={'5px'}>
                                     <Input type='email'
                                         name='email'
                                         id="email"
                                         autoComplete='off'
-                                        placeholder='enter email'
+                                        placeholder='ENTER EMAIL ...'
                                         value={values.email}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        border={'0'}
+                                        borderBottom={'1px'}
+                                        borderColor={'rgb(207, 216, 220)'}
+                                        fontSize={['12px','13px','14px']}
                                     />
                                     {errors.email && touched.email ? <Text fontSize={11} pl="3" color="red">{errors.email}</Text> : null}
-                                    <FormHelperText fontSize={"10"} pl="3">We'll send your order confirmation here</FormHelperText>
+                                    {/* <FormHelperText fontSize={"10"} pl="3">We'll send your order confirmation here</FormHelperText> */}
 
                                 </Box>
 
                             </FormControl>
                             <FormControl isRequired>
-                                <Box pb="10%">
-                                    <FormLabel color="grey">FIRST NAME :</FormLabel>
+                            <Box margin={'15px 0'} padding={'5px'}>
+                                    {/* <FormLabel color="grey">FIRST NAME :</FormLabel> */}
+                                    {/* <Text margin={'10px'} color={'grey'}>FIRST NAME :</Text> */}
                                     <Input type='text'
                                         id='firstname'
                                         name='firstname'
-                                        placeholder='enter firstname'
+                                        placeholder='FIRST NAME ...'
                                         autoComplete='off'
                                         value={values.firstname}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        border={'0'}
+                                        borderBottom={'1px'}
+                                        borderColor={'rgb(207, 216, 220)'}
+                                        fontSize={['12px','13px','14px']}
                                     />
                                     {errors.firstname && touched.firstname ? <Text fontSize={11} pl="3" color="red">{errors.firstname}</Text> : null}
                                 </Box>
                             </FormControl>
                             <FormControl >
-                                <Box pb="10%">
-                                    <FormLabel color="grey">LAST NAME :</FormLabel>
+                            <Box margin={'15px 0'} padding={'5px'}>
                                     <Input type='text'
                                         id="lastname"
                                         name='lastname'
-                                        placeholder='enter lastname'
+                                        placeholder='LAST NAME ...'
                                         autoComplete='off'
                                         value={values.lastname}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        border={'0'}
+                                        borderBottom={'1px'}
+                                        borderColor={'rgb(207, 216, 220)'}
+                                        fontSize={['12px','13px','14px']}
                                     />
                                     {errors.lastname && touched.lastname ? <Text fontSize={11} pl="3" color="red">{errors.lastname}</Text> : null}
                                 </Box>
                             </FormControl>
-                            <FormControl isRequired width={"90%"}>
-                                <Box pb="10%">
-                                    <FormLabel color="grey">PASSWORD :</FormLabel>
+                            <FormControl isRequired width={"100%"}>
+                            <Box margin={'15px 0'} padding={'5px'}>
                                     <Input type='password'
                                         id='password'
                                         name='password'
-                                        placeholder='enter password'
+                                        placeholder='ENTER PASSWORD ...'
                                         value={values.password}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        border={'0'}
+                                        borderBottom={'1px'}
+                                        borderColor={'rgb(207, 216, 220)'}
+                                        fontSize={['12px','13px','14px']}
                                     />
                                     {errors.password && touched.password ? <Text fontSize={11} pl="3" color="red">{errors.password}</Text> : null}
-                                    <FormHelperText fontSize={"10"} pl="3">Must be 6 or more characters</FormHelperText>
+                                    {/* <FormHelperText fontSize={"10"} pl="3">Must be 6 or more characters</FormHelperText> */}
                                 </Box>
                             </FormControl>
                             <FormControl isRequired>
-                                <Box pb="10%">
-                                    <FormLabel color="grey">CONFIRM PASSWORD :</FormLabel>
+                            <Box margin={'15px 0'} padding={'5px'}>
                                     <Input type='password'
                                         id="confirmpassword"
                                         name='confirmpassword'
-                                        placeholder='re-enter password'
+                                        placeholder='CONFIRM PASSWORD'
                                         value={values.confirmpassword}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        border={'0'}
+                                        borderBottom={'1px'}
+                                        borderColor={'rgb(207, 216, 220)'}
+                                        fontSize={['12px','13px','14px']}
                                     />
                                     {errors.confirmpassword && touched.confirmpassword ? <Text fontSize={11} pl="3" color="red">{errors.confirmpassword}</Text> : null}
-                                    <FormHelperText fontSize={"10"} pl="3">Must be 6 or more characters</FormHelperText>
+                                    {/* <FormHelperText fontSize={"10"} pl="3">Must be 6 or more characters</FormHelperText> */}
                                 </Box>
                             </FormControl>
 
                             <FormControl isRequired>
-                                <Box pb="10%">
-                                    <FormLabel color="grey" >DATE OF BIRTH :</FormLabel>
+                            <Box margin={'15px 0'} padding={'5px'}>
                                     <Input name='dob'
                                         type="date"
                                         id="date"
                                         value={values.dob}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
+                                        border={'0'}
+                                        borderBottom={'1px'}
+                                        borderColor={'rgb(207, 216, 220)'}
+                                        color={'rgb(117, 117, 117)'}
+                                        fontSize={['12px','13px','14px']}
                                     />
                                     {errors.dob && touched.dob ? <Text fontSize={11} pl="3" color="red">{errors.dob}</Text> : null}
                                 </Box>
                             </FormControl>
 
-                            <RadioGroup pb="10%" >
-                                <FormLabel color="grey" fontSize={[14, 16]}>MOSTLY INTERESTED IN :</FormLabel>
-                                <Center  >
-                                    <Stack direction='row' gap={[0, 20]} >
+                            <RadioGroup >
+                                <Text color="grey" margin={'15px'} fontSize={[13, 15]}>MOSTLY INTERESTED IN </Text>
+                                    <Box display={'flex'} justifyContent={'space-between'} padding={'10px'}>
+                                        <Box>
                                         <Radio value={"women"}
                                             name="gender"
                                             onChange={handleChange}
                                             onBlur={handleBlur}
                                         >Womenswear</Radio>
+                                        </Box>
+                                        <Box>
                                         <Radio value={"men"}
                                             name="gender"
                                             onChange={handleChange}
                                             onBlur={handleBlur}
-                                        >Menwear</Radio>
+                                            >Menwear</Radio>
+                                        </Box>
                                         {/* {errors.gender && touched.gender ? <Text fontSize={11} pl="3" color="red">{errors.gender}</Text> : null} */}
-                                    </Stack>
-                                </Center>
+                                    </Box>
                             </RadioGroup>
                             <FormControl mt={"5"} >
                                 <Button type='submit' bg={"#2d2d2d"} color="white" width={"100%"} _hover={{
@@ -263,7 +243,38 @@ const Join = ({ setCurrentForm }) => {
                     </Box>
                 </Box>
             </Box>
+{/* part -2 */}
+<Center pb="10" >
+                        <VStack >
+                            <Box pb="5">
+                                <Text fontWeight="bolder" fontSize={["sm", "2xl"]}>SIGN IN WITH</Text>
+                            </Box>
 
+
+                                    <Box w={['100%','80%','60%']}>
+                                        <Button w={'100%'}>
+                                            <FcGoogle fontSize="20px" />&nbsp;&nbsp;
+                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>GOOGLE</Text>
+                                        </Button>
+                                    </Box>
+
+                                    <Box w={['100%','80%','60%']}>
+                                        <Button w={'100%'}>
+                                            <TiVendorApple fontSize="20px" />&nbsp;&nbsp;
+                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>APPLE</Text>
+                                        </Button>
+                                    </Box>
+
+                                    <Box w={['100%','80%','60%']}>
+                                        <Button w={'100%'}>
+                                            <MdOutlineFacebook fontSize="20px" />&nbsp;&nbsp;
+                                            <Text fontSize={[10, 10, 10, 15]} display={["none", "block"]}>FACEBOOK</Text>
+                                        </Button>
+                                    </Box>
+
+                            <Text fontSize="11" p={'10px'} textAlign="center">Signing up with social is super quick. No extra passwords to remember - no brain fail. Don't worry, we'd never share any of your data or post anything on your behalf #notevil</Text>
+                        </VStack>
+                    </Center>
 
         </Container>
     )

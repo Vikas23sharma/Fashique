@@ -15,12 +15,6 @@ import { SingleProductPage } from "../pages/SingleProductPage";
 import { MenTshirt } from "../pages/MenTshirt";
 import { MenPants } from "../pages/MenPants";
 import { MenShoes } from "../pages/MenShoes";
-import { WomenShorts } from "../pages/WomenShorts";
-import { WomenDress } from "../pages/WomenDress";
-import { WomenPants } from "../pages/WomenPants";
-import { WomenTop } from "../pages/WomenTop";
-import { WomenShoes } from "../pages/WomenShoes";
-import { WomenJacket } from "../pages/WomenJacket";
 import { MenTee } from "../pages/MenTee";
 import { MenSuit } from "../pages/MenSuit";
 import { Search } from "../pages/Search";
@@ -35,10 +29,9 @@ import Cart from "../pages/Cart";
 import PrivateRoutes from "./PrivateRoutes";
 import { WishList } from "../pages/WishList";
 import AdminEditProduct from "../pages/AdminEditProduct";
-
-
+import { Womenproduct } from "../pages/Womenproduct";
 import AdminPrivateRoutes from "./AdminPrivateRoutes";
-
+import { Menproduct } from "../pages/Menproduct";
 
 
 export default function AllRoutes() {
@@ -70,16 +63,13 @@ export default function AllRoutes() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/:product_id" element={<SingleProductPage />}></Route>
             <Route path="/search" element={<Search />}></Route>
-            <Route path="/womenshorts" element={<WomenShorts />} />
-            <Route path="/womendress" element={<WomenDress />} />
-            <Route path="/womenpants" element={<WomenPants />} />
-            <Route path="/womentop" element={<WomenTop />} />
-            <Route path="/womenshoes" element={<WomenShoes />} />
             <Route path="/wishlist" element={<WishList></WishList>}></Route>
-            <Route path="/womenjacket" element={<WomenJacket />} />
             {/* <Route path="/admin-edit/:id" element={<AdminEditProduct />}></Route> */}
             <Route element={<Error404 />}></Route> {/* all team member keep this line at last */}
             {/* <Route path="/adminSingleUser/:id" element={<AdminSingleCustomer/>}></Route> */}
+            <Route path="/women-product/:ctg" element={<Womenproduct/>}></Route>
+            <Route path="/men-product/:ctg" element={<Menproduct/>}></Route>
+
         </Routes>
     )
 }

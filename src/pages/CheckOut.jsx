@@ -1,7 +1,4 @@
-import {
-    Box, Center, Container, HStack, Spacer, Stack, Text, Image, useMediaQuery,
-    Button, FormControl, FormLabel, MenuItem, Select, Divider, VStack, Flex, Alert, AlertIcon, AlertTitle, AlertDescription, Slide,
-} from '@chakra-ui/react'
+import { Box, Center, Container, HStack, Spacer, Stack, Text, Image, useMediaQuery, Button, FormControl, FormLabel, MenuItem, Select, Divider, VStack, Flex, Alert, AlertIcon, AlertTitle, AlertDescription, Slide, } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import CheckoutProductsCard from './CheckoutProductsCard';
@@ -128,23 +125,23 @@ const CheckOut = () => {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(!isLoading)
-        }, 1000)
+        }, 500)
     }, [])
     var obj = {}
     const handleBuy = () => {
         const orders = JSON.parse(localStorage.getItem("UserDetails"))
         var id = JSON.parse(localStorage.getItem("id")) || null
-        obj["orders"] = orders[id-1]
+        obj["orders"] = orders[id - 1]
         obj["amount"] = totalPrice
 
-        console.log(obj,"objess")
+        console.log(obj, "objess")
         dispatch(postOrders(obj))
         setShowAlert(true)
 
         setTimeout(() => {
             setShowAlert(false);
             navigate('/')
-        }, 3000);
+        }, 1000);
 
     }
     const handleCountryChange = (e) => {
@@ -161,28 +158,19 @@ const CheckOut = () => {
         <Container maxW={"100%"}>
             <Center>
 
-                {showAlert && (
-                    <Slide direction="down" in={showAlert} out={showAlert} style={{ zIndex: 100, transition: 'ease-in 0.5s' }} timeout={{ enter: 500, exit: 300 }}>
-                        <Alert
-                            status="success"
-                            variant="subtle"
-                            flexDirection="column"
-                            alignItems="center"
-                            justifyContent="center"
-                            textAlign="center"
-                            height="200px"
-                        >
-                            <AlertIcon boxSize="30px" mr={0} />
-                            <AlertTitle mt={4} mb={1} fontSize="lg">
-                                Thank you for your purchase!
-                            </AlertTitle>
-                            <AlertDescription maxWidth="md" textAlign={"center"} >
-                                Thank you for your purchase of fashion items! Your support helps us continue to provide trendy and high-quality products. We hope to see you again soon!
-                            </AlertDescription>
-                        </Alert>
-                    </Slide>
+                {showAlert && (<Slide direction="down" in={showAlert} out={showAlert} style={{ zIndex: 100, transition: 'ease-in 0.5s' }} timeout={{ enter: 500, exit: 300 }}>
+                    <Alert status="success" variant="subtle" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center" height="200px" >
+                        <AlertIcon boxSize="30px" mr={0} />
+                        <AlertTitle mt={4} mb={1} fontSize="lg">
+                            Thank you for your purchase!
+                        </AlertTitle>
+                        <AlertDescription maxWidth="md" textAlign={"center"} >
+                            Thank you for your purchase of fashion items! Your support helps us continue to provide trendy and high-quality products. We hope to see you again soon!
+                        </AlertDescription>
+                    </Alert>
+                </Slide>
                 )}
-                <Box width={["100%", "80%", "80%", "90%", "60%"]} p="5">
+                <Box width={["100%", "80%", "80%", "90%", "70%"]} p="5">
                     <HStack>
                         <Box><Text fontSize={["md", "3xl"]} fontWeight="bolder">FASHIQUE</Text></Box>
                         <Spacer />
@@ -193,16 +181,16 @@ const CheckOut = () => {
                 </Box>
             </Center>
             <Center>
-                <Box width={["700px", "100%", "80%", "80%", "60%"]} p="5">
+                <Box width={["700px", "100%", "80%", "90%", "70%"]} p="5">
 
                     <Stack direction={["column", "column", "column", "row"]}>
                         <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }}
                             maxH={["17vh", "15vh", "15vh", "15vh", "15vh", "17vh"]} mt="0"
                         >
-                            <Box pl={["5", "10"]} pt="5" pb={"10"}>
+                            <Box pl={["5", "10"]} p={'0px'} m={'10px'}>
                                 <Text fontSize={["md", "xl"]} fontWeight="550">DELIVERY COUNTRY :</Text>
                                 <HStack>
-                                    <Box width={"40px"} pt="5">
+                                    <Box width={"40px"} pt="7px">
                                         <HStack width={"100%"} >
                                             <Image src={image} alt="Indian Flag" width={"100%"} h="4vh" />
                                             <Text as="span" color={"grey"}>{name}</Text>
@@ -225,7 +213,7 @@ const CheckOut = () => {
                                         </HStack>
                                     </Box>
                                     <Spacer />
-                                    <Box pr={["3", "10", "10", "10"]} pt="5"> <Button onClick={handleButtonClick}>{textChange}</Button>
+                                    <Box pr={["3", "10", "10", "10"]} pt="5px"> <Button onClick={handleButtonClick}>{textChange}</Button>
                                     </Box>
                                 </HStack>
                             </Box>
@@ -236,7 +224,7 @@ const CheckOut = () => {
                                         <Text fontSize={["md", "xl"]} fontWeight="550">Email Address:</Text>
                                         <Text pl="5" pt="2">{userDetails[index - 1].email}</Text>
                                     </Box>
-                                    <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={5}>
+                                    <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={'15px'} m={'15px auto'}>
                                         <Box><Text fontSize={["md", "xl"]} fontWeight="550">Delivery Address:</Text></Box>
                                         <Box>
                                             {!addressPresent ? <DeliveryAddressForm setAddressPresent={setAddressPresent} /> :
@@ -244,7 +232,7 @@ const CheckOut = () => {
                                         </Box>
 
                                     </Box>
-                                    <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={5} >
+                                    <Box style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", borderRadius: "10px" }} p={'15px'} >
                                         <Box>
                                             <Text fontSize={["md", "xl"]} fontWeight="530">PAYMENT</Text>
                                             <Box pt="5">
@@ -256,10 +244,8 @@ const CheckOut = () => {
 
                                         <Text fontSize={["md", "xl"]} fontWeight="550" pt={5} pb="5" >PAYMENT TYPE</Text>
                                         <Box p={["1", "10"]} pr={["10", "5"]}>
-                                            <Button
-                                                width={["80%", "100%", "80%", "100%", "60%", "100%"]} margin={["auto", "auto", "auto", "auto", "auto", "auto"]}
-                                                onClick={() => setShowPaymentCard(!showPaymentCard)}>
-                                                <BsCreditCardFill /> <Text pl="3" letterSpacing={["0", "2px"]} fontSize={["sm", "md"]} textAlign={"center"} >
+                                            <Button p={'10px 20px'} width={["80%", "100%", "80%", "100%", "60%", "100%"]} margin={["auto"]} onClick={() => setShowPaymentCard(!showPaymentCard)}>
+                                                <BsCreditCardFill /> <Text p={'10px'} letterSpacing={["0", "2px"]} fontSize={["sm", "md"]} textAlign={"center"} >
                                                     <Center> ADD CREDIT/DEBIT CARD</Center></Text>
                                             </Button>
                                             {showPaymentCard ? <PaymentCard
@@ -351,14 +337,14 @@ const CheckOut = () => {
                                                 <Text fontWeight={"bolder"}>TOTAL TO PAY</Text>
                                                 <Text fontWeight={"bolder"}>&#36;   {totalToPay}</Text>
                                             </Flex>
-                                            {!isMobileView && <Box bg={"#cde2f5"} borderRadius={"5"} p={["20px", "0px"]}
+                                            {/* {!isMobileView && <Box bg={"#cde2f5"} borderRadius={"5"} mt={'3cm'} p={["20px", "0px"]}
                                                 display={["block", "block", "none", "none", "block"]}>
                                                 <Flex justifyContent={"space-between"} pt="2" pb="2" >
                                                     <Text pt={"4"} pl="3" ><AiOutlineInfoCircle fontWeight={"900"} fontSize={"20px"} /></Text>
                                                     <Spacer />
                                                     <Text fontSize={"12"} textAlign={"left"} pl="3" fontWeight={"900"}>FREE STANDARD DELIVERY TO INDIA WHEN YOU SPEND OVER ${totalToPay + 4}</Text>
                                                 </Flex>
-                                            </Box>}
+                                            </Box>} */}
                                         </VStack>
                                     </Box>
                                 }

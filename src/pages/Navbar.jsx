@@ -63,7 +63,7 @@ export const Navbar = () => {
 
     setInputs(e);
     dispatch(getSearch(value));
-  };
+  }
 
   const handleSearchBtn = () => {
     console.log("tikk");
@@ -73,6 +73,7 @@ export const Navbar = () => {
       navigate("/search");
     }
   };
+
   const handleLogout = () => {
     localStorage.clear();
     toast({
@@ -86,7 +87,7 @@ export const Navbar = () => {
     setTimeout(function () {
       window.location.reload();
     }, 1000);
-  };
+  }
 
   return (
     <nav>
@@ -170,19 +171,19 @@ export const Navbar = () => {
       <div className="nav_part_2">
         <div>
           <div>
-            <Link to={"/womenshorts"}>New in</Link>
+            <Link to={"/women-product/dress"}>New in</Link>
           </div>
           <div>
-            <Link to={"/womenjacket"}>Sale</Link>
+            <Link to={"/women-product/jacket"}>Sale</Link>
           </div>
           <div>
-            <Link to={"/womentop"}>Clothing</Link>
+            <Link to={"/women-product/top"}>Clothing</Link>
           </div>
           <div>
-            <Link to={"/womendress"}>Dresses</Link>
+            <Link to={"/women-product/dress"}>Dresses</Link>
           </div>
           <div>
-            <Link to={"/womenshoes"}>Shoes</Link>
+            <Link to={"/women-product/shoes"}>Shoes</Link>
           </div>
           <div>Summer</div>
           <div>Activewere</div>

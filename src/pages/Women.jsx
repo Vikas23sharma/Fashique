@@ -10,7 +10,6 @@ import 'swiper/css/scrollbar';
 import { Link } from "react-router-dom";
 import { Footer } from "./Footer";
 import { useEffect, useState } from "react";
-import LoadingWithLetter from "./LoadingWithLetter";
 
 
 export const Women = () => {
@@ -30,17 +29,14 @@ export const Women = () => {
   // value = window.scrollY;
   // })
 
-  const [isLoading, setisLoding] = useState(true);
 
 
   useEffect(() => {
     localStorage.setItem("isAuthAdmin", JSON.stringify(false));
-    setTimeout(() => {
-      setisLoding(!isLoading)
-    }, 800)
+
   }, [])
 
-  return (isLoading == true) ? <LoadingWithLetter /> : (
+  return(
     <div>
       <Navbar />
       <div className="content_1">
@@ -81,7 +77,7 @@ export const Women = () => {
           >
             <SwiperSlide>
               <div className="content_1_031">
-                <Link to={'/womenjacket'}>
+                <Link to={'/women-product/jacket'}>
                   <img src="https://images.asos-media.com/products/miss-selfridge-blazer-coat-in-green-check/200898508-1-darksage?$n_320w$&wid=317&fit=constrain" alt="1" />
                   <p>JACKETS</p>
                 </Link>
@@ -89,7 +85,7 @@ export const Women = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-                <Link to={'/womenshorts'}>
+                <Link to={'/women-product/shorts'}>
                   <img src="https://images.asos-media.com/products/pullbear-long-sweat-shorts-in-mint/24342318-2?$n_480w$&wid=476&fit=constrain" alt="2" />
                   <p>SHORTS</p>
                 </Link>
@@ -97,7 +93,7 @@ export const Women = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-                <Link to={'/womenpants'}>
+                <Link to={'/women-product/pants'}>
                   <img src="https://images.asos-media.com/products/topshop-kort-split-hem-co-ord-jeans-in-turquoise/201848051-1-turquoise?$n_640w$&wid=513&fit=constrain" alt="3" />
                   <p>JEANS</p>
                 </Link>
@@ -105,7 +101,7 @@ export const Women = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-                <Link to={'/womenshoes'}>
+                <Link to={'/women-product/shoes'}>
                   <img src="https://images.asos-media.com/products/nike-blazer-low-platform-trainers-in-lemon-drop-yellow/202287768-1-yellow?$n_640w$&wid=513&fit=constrain" alt="4" />
                   <p>SNEAKERS</p>
                 </Link>
@@ -113,7 +109,7 @@ export const Women = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-                <Link to={'/womentop'}>
+                <Link to={'/women-product/top'}>
                   <img src="https://images.asos-media.com/products/puma-train-black-print-crop-top-in-black/200884093-3?$n_640w$&wid=513&fit=constrain" alt="5" />
                   <p>TOPS</p>
                 </Link>
@@ -121,7 +117,7 @@ export const Women = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="content_1_031">
-                <Link to={'womendress'}>
+                <Link to={'/women-product/dress'}>
                   <img src="https://images.asos-media.com/products/asos-design-knitted-midi-dress-with-ruched-waist-in-orange/200870287-1-orange?$n_640w$&wid=513&fit=constrain" alt="6" />
                   <p>DAY DRESSES</p>
                 </Link>
@@ -146,7 +142,7 @@ export const Women = () => {
         </div>
         <div className="content_2_2">
           <div>Day-to-night neutrals</div>
-          <button><Link to={'/womendress'}>SHOP ASOS DESIGN</Link></button>
+          <button><Link to={'/women-product/dress'}>SHOP ASOS DESIGN</Link></button>
         </div>
       </div>
       {/* content_3 */}
@@ -272,7 +268,9 @@ export const Women = () => {
           <div>
             <h1>FEELIN' CRAFTY</h1>
             <p>Ft, Reclaimed Vintage & Miss Selfridge</p>
+            <Link to={'/women-product/top'}>
             <button>SHOP NOW</button>
+            </Link>
           </div>
         </div>
         <div>
@@ -280,7 +278,9 @@ export const Women = () => {
           <div>
             <h1>SELLING FAST</h1>
             <p>Going, going, GO...</p>
+            <Link to={'/women-product/pants'}>
             <button>SHOP NOW</button>
+            </Link>
           </div>
         </div>
       </div>

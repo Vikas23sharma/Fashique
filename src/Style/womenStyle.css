@@ -280,7 +280,7 @@ body::-webkit-scrollbar{
     font-size: 16px;
     color: rgb(75, 75, 75);
 }
-.content_5 > div > div > button{
+.content_5 > div > div button{
     display: block;
     width: 200px;
     font-weight: bold;
@@ -289,7 +289,7 @@ body::-webkit-scrollbar{
     border: 1.5px solid rgb(24, 24, 24);
     transition: 0.4s ease;
 }
-.content_5 > div > div > button:hover{
+.content_5 > div > div button:hover{
     background-color: rgb(24, 24, 24);
     color: whitesmoke;
 }
@@ -352,6 +352,9 @@ body::-webkit-scrollbar{
 /* footer */
 footer{
     background-color: #eee;
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
 .footer_1{
     background-color: white;
